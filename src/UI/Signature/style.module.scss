@@ -1,0 +1,60 @@
+.signature {
+  h2 {
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  .infoBox {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 260px);
+    background: #000;
+    background: #fff;
+    border-radius: 50px;
+    margin-top: 40px;
+    padding: 60px 60px 40px 60px;
+    text-align: left;
+
+    p {
+      margin: 25px 0;
+    }
+
+    .infoBoxItem {
+      height: 270px;
+      overflow: scroll;
+    }
+
+    .checking {
+      display: flex;
+      align-items: center;
+      min-width: 80px;
+      margin-top: 10px;
+    }
+
+    .infoCheckboxLabel {
+      font-size: 18px;
+      margin-left: 10px;
+    }
+  }
+
+  .btns {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .btnItems {
+      width: 300px;
+      height: 60px;
+      box-shadow: 15px 15px 50px 0px #00000033;
+      background: #fff;
+      border: none;
+      border-radius: 50px;
+      margin-top: 20px;
+      color: #464343;
+      font-size: 26px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+  }
+}

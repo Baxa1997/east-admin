@@ -1,0 +1,21 @@
+{
+  "choose_language": "Tilni tanlang",
+  "ready": "Tayyor",
+  "give_id": "На узбекском Передайте ID-карту / Паспорт оператору для сканирования данных Далее",
+  "next": "Keyingisi",
+  "camera_look": "Kameraga qarang",
+  "phone_number": "Telefon raqamingiz",
+  "address_propis": "Yashash manzil",
+  "set_this_address": "Ushbu manzilga o'rnatish",
+  "enter_setup_address": "O'rnatish manzilini kiriting",
+  "choose_rate": "Tarifni tanlang",
+  "check_correction_info": "Ma'lumotlaringizning to'g'ri bo'lishini tekshiring",
+  "confirm": "Tasdiqlayman",
+  "check_info_for_correction": "Aksept bilan tanishing va elektron hujjatga imzo qo'ying",
+  "informed": "Tanishdim",
+  "again": "Qayta urinish",
+  "put_signature": "Imzoningizni qo'ying",
+  "sign_paper": "Qog'oz shaklidagi akseptga qo'l qo'ying",
+  "rate_service": "Xizmatimizni 1 dan 5 gacha baholang va izohlarni qoldiring",
+  "comment": "Izoh"
+}

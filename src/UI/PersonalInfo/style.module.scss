@@ -1,0 +1,25 @@
+.PersonalInfo {
+  margin-top: 20px;
+  text-align: left;
+
+  .personalInfoItem {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 50px 0;
+  }
+}
+
+.checking {
+  display: flex;
+  align-items: center;
+  min-width: 80px;
+  margin-top: 10px;
+}
+
+.addressCheckbox {
+  display: flex;
+  align-items: center;
+  width: 240px;
+  justify-content: space-between;
+  margin-left: 20px;
+}
