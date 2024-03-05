@@ -14,6 +14,7 @@ function Signature() {
       sigCanvas.current.clear();
     }
   };
+  console.log("imageUrl", imageURL);
 
   const save = () => {
     if (sigCanvas.current) {

@@ -1,3 +1,4 @@
+"use client";
 import Select, {StylesConfig} from "react-select";
 import styles from "./style.module.scss";
 import {Button} from "@/components/ui/button";
@@ -21,11 +22,7 @@ const options = [
   },
 ];
 
-const getOptionLabel = (option: any) => (
-  <div className={styles.option}>
-    {option.icon} <span>{option.label}</span>
-  </div>
-);
+const getOptionLabel = (option: any) => option.label;
 
 function Language() {
   const navigate = useNavigate();
