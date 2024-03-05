@@ -6,17 +6,17 @@ import {useNavigate} from "react-router-dom";
 
 const options = [
   {
-    label: "O'zbekcha",
+    label: "🇺🇿 O'zbekcha",
     value: "uz",
     icon: "🇺🇿",
   },
   {
-    label: "Русский",
+    label: "🇷🇺 Русский",
     value: "ru",
     icon: "🇷🇺",
   },
   {
-    label: "English",
+    label: "🇺🇸 English",
     value: "en",
     icon: "🇺🇸",
   },
