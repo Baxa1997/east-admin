@@ -9,10 +9,18 @@ function Signature() {
   const [imageURL, setImageURL] = useState<string | null>(null);
   const sigCanvas = useRef<SignaturePad | null>(null);
 
-  const clear = () => sigCanvas.current.clear();
+  const clear = () => {
+    if (sigCanvas.current) {
+      sigCanvas.current.clear();
+    }
+  };
 
-  const save = () =>
-    setImageURL(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"));
+  const save = () => {
+    if (sigCanvas.current) {
+      setImageURL(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"));
+    }
+  };
+
   return (
     <div className={styles.signature}>
       <h2>Поставьте подпись</h2>

@@ -1,7 +1,6 @@
 import {Button} from "@/components/ui/button";
 import styles from "./style.module.scss";
 import {useNavigate} from "react-router-dom";
-import {useTranslation} from "react-i18next";
 
 function IdScanner() {
   const navigate = useNavigate();

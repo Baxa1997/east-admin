@@ -15,7 +15,7 @@ function Layout({children}: {children: ReactNode}) {
       <div className={"layout"}>
         {showLogo && (
           <div className={"logo"}>
-            <img src="/public/logo2.svg" alt="logo" />
+            <img src="/logo2.svg" alt="logo" />
           </div>
         )}
         {children}

@@ -1,28 +1,18 @@
-// i18n.ts
-import i18n from "i18next";
-import {initReactI18next} from "react-i18next";
+import i18next from "i18next";
 
-import enTranslation from "./en.json";
-import ruTranslation from "./ru.json";
-import uzTranslation from "./uz.json";
-
-i18n.use(initReactI18next).init({
-  resources: {
-    en: {
-      translation: enTranslation,
+i18next
+  .init({
+    lng: "en", // if you're using a language detector, do not define the lng option
+    debug: true,
+    resources: {
+      en: {
+        translation: {
+          key: "hello world",
+        },
+      },
     },
-    ru: {
-      translation: ruTranslation,
-    },
-    uz: {
-      translation: uzTranslation,
-    },
-  },
-  lng: "ru",
-  fallbackLng: "ru",
-  interpolation: {
-    escapeValue: false,
-  },
-});
-
-export default i18n;
+  })
+  .then(function (t) {
+    // initialized and ready to go!
+    document.getElementById("output").innerHTML = i18next.t("key");
+  });

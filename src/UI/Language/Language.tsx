@@ -1,9 +1,7 @@
 import Select, {StylesConfig} from "react-select";
 import styles from "./style.module.scss";
-import {CSSProperties} from "react";
 import {Button} from "@/components/ui/button";
 import {useNavigate} from "react-router-dom";
-import i18next, {t} from "i18next";
 
 const options = [
   {
@@ -33,13 +31,15 @@ function Language() {
   const navigate = useNavigate();
 
   const changeLanguage = (selectedOption: any) => {
-    if (selectedOption && selectedOption.value) {
-      i18next.changeLanguage(selectedOption.value);
-    }
+    console.log("selectedOption", selectedOption);
+
+    // if (selectedOption && selectedOption.value) {
+    //   i18n.changeLanguage(selectedOption.value);
+    // }
   };
 
   const customStyles: StylesConfig = {
-    control: (provided: CSSProperties, state) => ({
+    control: (provided) => ({
       ...provided,
       borderRight: 0,
       height: "60px",
@@ -72,7 +72,6 @@ function Language() {
         onClick={() => {
           navigate("/id-scanner");
         }}
-        variant="outline"
         className="readyBtn">
         Готово
       </Button>
