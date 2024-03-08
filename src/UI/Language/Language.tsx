@@ -60,8 +60,6 @@ function Language() {
     }
   }, []);
 
-  console.log("i18ni18ni18ni18n", i18n);
-
   return (
     <div className={styles.languages}>
       <h2>{t("choose_language")}</h2>

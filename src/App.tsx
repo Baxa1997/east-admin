@@ -6,7 +6,6 @@ import Routing from "./routes";
 import {I18nextProvider} from "react-i18next";
 import {initReactI18next} from "react-i18next";
 
-// Import translations
 import translationEN from "../locales/ns1.json";
 import translationRu from "../locales/ns2.json";
 import translationUz from "../locales/ns3.json";
@@ -24,8 +23,8 @@ i18n.use(initReactI18next).init({
       translation: translationUz,
     },
   },
-  lng: "en",
-  fallbackLng: "en",
+  lng: "uz",
+  fallbackLng: "uz",
   interpolation: {
     escapeValue: false,
   },
