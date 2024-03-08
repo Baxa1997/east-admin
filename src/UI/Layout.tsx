@@ -1,15 +1,8 @@
 import {useLocation} from "react-router-dom";
-import React, {ReactNode} from "react";
-import {useForm, UseFormReturn} from "react-hook-form";
+import {ReactNode} from "react";
 
-interface LayoutProps {
-  children: ReactNode;
-}
-
-function Layout({children}: LayoutProps) {
+function Layout({children}: {children: ReactNode}) {
   const location = useLocation();
-
-  const {control} = useForm();
 
   const showLogo =
     location.pathname === "/" ||
@@ -18,23 +11,16 @@ function Layout({children}: LayoutProps) {
     location.pathname === "/paper-sign";
 
   return (
-    <div className="layout">
-      {showLogo && (
-        <div className="logo">
-          <img src="/logo2.svg" alt="logo" />
-        </div>
-      )}
-      {React.Children.map(children, (child) => {
-        if (React.isValidElement(child)) {
-          const childProps = child.props;
-          const hasRegisterProp = "register" in childProps;
-          if (hasRegisterProp) {
-            return React.cloneElement(child);
-          }
-        }
-        return child;
-      })}
-    </div>
+    <>
+      <div className={"layout"}>
+        {showLogo && (
+          <div className={"logo"}>
+            <img src="/logo2.svg" alt="logo" />
+          </div>
+        )}
+        {children}
+      </div>
+    </>
   );
 }
 
