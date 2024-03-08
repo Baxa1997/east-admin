@@ -2,7 +2,7 @@ import React from "react";
 import "./App.scss";
 import {BrowserRouter} from "react-router-dom";
 import Layout from "./UI/Layout";
-import Routing from "./routes";
+import Routing from "./routes/routes";
 import {I18nextProvider} from "react-i18next";
 import {initReactI18next} from "react-i18next";
 
