@@ -3,6 +3,8 @@ import Select, {StylesConfig} from "react-select";
 import styles from "./style.module.scss";
 import {Button} from "@/components/ui/button";
 import {useNavigate} from "react-router-dom";
+import {useTranslation} from "react-i18next";
+import {useEffect} from "react";
 
 const options = [
   {
@@ -25,14 +27,14 @@ const options = [
 const getOptionLabel = (option: any) => option.label;
 
 function Language() {
+  const {i18n, t} = useTranslation();
+
   const navigate = useNavigate();
 
   const changeLanguage = (selectedOption: any) => {
-    console.log("selectedOption", selectedOption);
-
-    // if (selectedOption && selectedOption.value) {
-    //   i18n.changeLanguage(selectedOption.value);
-    // }
+    if (selectedOption && selectedOption.value) {
+      i18n.changeLanguage(selectedOption.value);
+    }
   };
 
   const customStyles: StylesConfig = {
@@ -51,9 +53,18 @@ function Language() {
       fontSize: "36px",
     }),
   };
+
+  useEffect(() => {
+    if (!i18n?.language) {
+      i18n.changeLanguage("uz");
+    }
+  }, []);
+
+  console.log("i18ni18ni18ni18n", i18n);
+
   return (
     <div className={styles.languages}>
-      <h2>Выберите язык</h2>
+      <h2>{t("choose_language")}</h2>
 
       <Select
         styles={customStyles}
@@ -70,7 +81,7 @@ function Language() {
           navigate("/id-scanner");
         }}
         className="readyBtn">
-        Готово
+        {t("ready")}
       </Button>
     </div>
   );

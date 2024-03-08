@@ -4,38 +4,40 @@ import {Label} from "@/components/ui/label";
 import {Checkbox} from "@/components/ui/checkbox";
 import {Button} from "@/components/ui/button";
 import {useNavigate} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 function PersonalInfo() {
   const navigate = useNavigate();
+  const {t} = useTranslation();
   return (
     <div className={styles.PersonalInfo}>
       <div className={styles.personalInfoItem}>
         <Label className="label" htmlFor="text">
-          Номер телефона
+          {t("phone_number")}
         </Label>
         <Input defaultValue={"+ 998 ("} type="text" className="inputStyles" />
       </div>
       <div className={styles.personalInfoItem}>
         <Label className="label" htmlFor="text">
-          Адрес прописки
+          {t("address_propis")}
         </Label>
         <Input defaultValue={""} type="text" className="inputStyles" />
       </div>
 
       <div className={styles.addressConfirm}>
-        <Label className="label">Установить по этому адресу?</Label>
+        <Label className="label">{t("set_this_address")}</Label>
 
         <div className={styles.addressCheckbox}>
           <div className={styles.checking}>
             <Checkbox id="yes" className={"checkBox"} />
             <Label htmlFor="yes" className={"checkboxLabel"}>
-              Да
+              {t("Yes")}
             </Label>
           </div>
           <div className={styles.checking}>
             <Checkbox id="no" className={"checkBox"} />
             <Label htmlFor="no" className={"checkboxLabel"}>
-              Нет
+              {t("No")}
             </Label>
           </div>
         </div>
@@ -45,7 +47,7 @@ function PersonalInfo() {
             navigate("/address");
           }}
           className="readyBtn">
-          Далее
+          {t("next")}
         </Button>
       </div>
     </div>

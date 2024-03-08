@@ -1,12 +1,12 @@
 {
   "choose_language": "Choose language",
-  "ready": "ready",
-  "give_id": "На узбекском Передайте ID-карту / Паспорт оператору для сканирования данных Далее",
+  "ready": "Ready",
+  "give_id": "Pass your ID card / Passport to the operator for scanning data",
   "next": "Next",
   "camera_look": "Please, look at the camera",
   "phone_number": "Phone number",
   "address_propis": "Living address",
-  "set_this_address": "Install at this address",
+  "set_this_address": "Install at this address ?",
   "enter_setup_address": "Enter set up address",
   "choose_rate": "Choose the rate",
   "check_correction_info": "Check the correctness of your data",
@@ -17,5 +17,7 @@
   "put_signature": "Sign",
   "sign_paper": "Sign the acceptance in paper format",
   "rate_service": "Rate our service from 1 to 5 and leave a comment",
-  "comment": "Comment"
+  "comment": "Comment",
+  "yes": "Yes",
+  "no": "No"
 }

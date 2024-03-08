@@ -1,20 +1,21 @@
 import {Button} from "@/components/ui/button";
 import styles from "./style.module.scss";
 import {useNavigate} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 function IdScanner() {
   const navigate = useNavigate();
-
+  const {t} = useTranslation();
   return (
     <div className={styles.idScanner}>
-      <h2>Передайте ID-карту / Паспорт оператору для сканирования данных</h2>
+      <h2>{t("give_id")}</h2>
 
       <Button
         onClick={() => {
           navigate("/camera-verification");
         }}
         className="readyBtn">
-        Далее
+        {t("next")}
       </Button>
     </div>
   );

@@ -1,19 +1,21 @@
 import {Button} from "@/components/ui/button";
 import styles from "./style.module.scss";
 import {useNavigate} from "react-router-dom";
+import {useTranslation} from "react-i18next";
 
 function PapperSign() {
   const navigate = useNavigate();
+  const {t} = useTranslation();
   return (
     <div className={styles.papperSign}>
-      <h2>Подпишите акцепт в бумажном формате</h2>
+      <h2>{t("sign_paper")}</h2>
 
       <Button
         onClick={() => {
           navigate("/service-rate");
         }}
         className="readyBtn">
-        Далее
+        {t("next")}
       </Button>
     </div>
   );

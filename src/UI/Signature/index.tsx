@@ -3,9 +3,11 @@ import styles from "./style.module.scss";
 import {useNavigate} from "react-router-dom";
 import {useRef, useState} from "react";
 import SignaturePad from "react-signature-canvas";
+import {useTranslation} from "react-i18next";
 
 function Signature() {
   const navigate = useNavigate();
+  const {t} = useTranslation();
   const [imageURL, setImageURL] = useState<string | null>(null);
   const sigCanvas = useRef<SignaturePad | null>(null);
 
@@ -24,7 +26,7 @@ function Signature() {
 
   return (
     <div className={styles.signature}>
-      <h2>Поставьте подпись</h2>
+      <h2>{t("put_signature")}</h2>
 
       <div className={styles.infoBox}>
         <div className={styles.infoBoxItem}>
@@ -43,7 +45,7 @@ function Signature() {
             clear();
           }}
           className={styles.btnItems}>
-          Заново
+          {t("again")}
         </Button>
         <Button
           onClick={() => {
@@ -51,7 +53,7 @@ function Signature() {
             navigate("/paper-sign");
           }}
           className={styles.btnItems}>
-          Готово
+          {t("ready")}
         </Button>
       </div>
     </div>

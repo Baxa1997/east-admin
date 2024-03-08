@@ -3,14 +3,16 @@ import {Textarea} from "@/components/ui/textarea";
 import {Button} from "@/components/ui/button";
 import {useNavigate} from "react-router-dom";
 import {useState} from "react";
+import {useTranslation} from "react-i18next";
 
 function ServiceRating() {
   const navigate = useNavigate();
+  const {t} = useTranslation();
   const [rating, setRating] = useState(0);
 
   return (
     <div className={styles.serviceRate}>
-      <h2>Оцените наш сервис от 1 до 5 и оставьте комментарий</h2>
+      <h2>{t("rate_service")}</h2>
 
       <div className={styles.serviceMarks}>
         <div className={styles.serviceMarkItem}>
@@ -51,7 +53,7 @@ function ServiceRating() {
           navigate("/");
         }}
         className="readyBtn">
-        Готово
+        {t("ready")}
       </Button>
     </div>
   );

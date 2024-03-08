@@ -17,5 +17,7 @@
   "put_signature": "Imzoningizni qo'ying",
   "sign_paper": "Qog'oz shaklidagi akseptga qo'l qo'ying",
   "rate_service": "Xizmatimizni 1 dan 5 gacha baholang va izohlarni qoldiring",
-  "comment": "Izoh"
+  "comment": "Izoh",
+  "yes": "Ha",
+  "no": "Yoq"
 }

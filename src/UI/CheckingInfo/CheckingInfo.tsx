@@ -3,12 +3,14 @@ import styles from "./style.module.scss";
 import {useNavigate} from "react-router-dom";
 import {Checkbox} from "@/components/ui/checkbox";
 import {Label} from "@/components/ui/label";
+import {useTranslation} from "react-i18next";
 
 function CheckingInfo() {
   const navigate = useNavigate();
+  const {t} = useTranslation();
   return (
     <div className={styles.checkingInfo}>
-      <h2>Проверьте корректность ваших данных</h2>
+      <h2>{t("check_correction_info")}</h2>
 
       <div className={styles.infoBox}>
         <div className={styles.infoBoxItem}>
@@ -41,7 +43,7 @@ function CheckingInfo() {
         <div className={styles.checking}>
           <Checkbox id="confirm" className={"checkBox"} />
           <Label htmlFor="confirm" className={"checkboxLabel"}>
-            Подтверждаю
+            {t("confirm")}
           </Label>
         </div>
       </div>
