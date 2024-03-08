@@ -8,14 +8,14 @@ import {useEffect} from "react";
 
 const options = [
   {
-    label: "🇺🇿 O'zbekcha",
-    value: "uz",
-    icon: "🇺🇿",
-  },
-  {
     label: "🇷🇺 Русский",
     value: "ru",
     icon: "🇷🇺",
+  },
+  {
+    label: "🇺🇿 O'zbekcha",
+    value: "uz",
+    icon: "🇺🇿",
   },
   {
     label: "🇺🇸 English",
