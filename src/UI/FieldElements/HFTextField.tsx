@@ -20,7 +20,7 @@ const HFTextField: React.FC<HFTextFieldProps> = ({
       name={name}
       control={control}
       defaultValue={defaultValue}
-      render={({field: {onChange, value}, fieldState: {error}}) => (
+      render={({field: {onChange, value}}) => (
         <Input
           name={name}
           value={value}

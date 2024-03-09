@@ -9,6 +9,7 @@ function ServiceRating({onSubmit}: {onSubmit: () => void}) {
   const navigate = useNavigate();
   const {t} = useTranslation();
   const [rating, setRating] = useState(0);
+  console.log("onSubmit", onSubmit);
 
   return (
     <div className={styles.serviceRate}>

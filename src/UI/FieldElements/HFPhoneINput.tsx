@@ -20,7 +20,7 @@ const HFPhoneInput: React.FC<HFTextFieldProps> = ({
       name={name}
       control={control}
       defaultValue={defaultValue}
-      render={({field: {onChange, value}, fieldState: {error}}) => (
+      render={({field: {onChange, value}}) => (
         <PhoneInput
           name={name}
           international

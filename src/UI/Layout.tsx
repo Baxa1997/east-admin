@@ -1,7 +1,6 @@
 import {useLocation} from "react-router-dom";
 import React, {ReactNode} from "react";
 import {useFormContext} from "./FormProvider";
-import {SubmitHandler} from "react-hook-form";
 
 interface LayoutPros {
   children: ReactNode;
