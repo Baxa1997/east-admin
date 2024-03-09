@@ -4,10 +4,13 @@ import {useNavigate} from "react-router-dom";
 import {Checkbox} from "@/components/ui/checkbox";
 import {Label} from "@/components/ui/label";
 import {useTranslation} from "react-i18next";
+import {useState} from "react";
 
 function CheckingInfo() {
   const navigate = useNavigate();
   const {t} = useTranslation();
+  const [confirm, setConfirm] = useState(false);
+
   return (
     <div className={styles.checkingInfo}>
       <h2>{t("check_correction_info")}</h2>
@@ -41,7 +44,12 @@ function CheckingInfo() {
           </p>
         </div>
         <div className={styles.checking}>
-          <Checkbox id="confirm" className={"checkBox"} />
+          <Checkbox
+            onClick={() => setConfirm(!confirm)}
+            id="confirm"
+            checked={confirm}
+            className={"checkBox"}
+          />
           <Label htmlFor="confirm" className={"checkboxLabel"}>
             {t("confirm")}
           </Label>
@@ -50,9 +58,9 @@ function CheckingInfo() {
 
       <Button
         onClick={() => {
-          navigate("/acceptance-info");
+          confirm && navigate("/acceptance-info");
         }}
-        className="readyBtn">
+        className={`${confirm ? "readyBtn" : "disabledBtn"}`}>
         Далее
       </Button>
     </div>

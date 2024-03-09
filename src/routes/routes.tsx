@@ -12,7 +12,7 @@ import PapperSign from "../UI/PaperSign";
 import ServiceRating from "../UI/ServiceRating";
 import Language from "../UI/Language/Language";
 
-function Routing() {
+function Routing({onSubmit}: {onSubmit: () => void}) {
   return (
     <Routes>
       <Route index element={<Language />} />
@@ -25,7 +25,10 @@ function Routing() {
       <Route path="/acceptance-info" element={<Acceptance />} />
       <Route path="/signature" element={<Signature />} />
       <Route path="/paper-sign" element={<PapperSign />} />
-      <Route path="/service-rate" element={<ServiceRating />} />
+      <Route
+        path="/service-rate"
+        element={<ServiceRating onSubmit={onSubmit} />}
+      />
     </Routes>
   );
 }

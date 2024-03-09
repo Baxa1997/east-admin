@@ -10,6 +10,7 @@ import translationEN from "../locales/ns1.json";
 import translationRu from "../locales/ns2.json";
 import translationUz from "../locales/ns3.json";
 import i18n from "i18next";
+import {FormProvider} from "./UI/FormProvider";
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -34,9 +35,11 @@ const App: React.FC = () => {
   return (
     <I18nextProvider i18n={i18n}>
       <BrowserRouter>
-        <Layout>
-          <Routing />
-        </Layout>
+        <FormProvider>
+          <Layout>
+            <Routing onSubmit={() => {}} />
+          </Layout>
+        </FormProvider>
       </BrowserRouter>
     </I18nextProvider>
   );

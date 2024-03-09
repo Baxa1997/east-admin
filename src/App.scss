@@ -64,6 +64,25 @@
   transform: translate(-50%, -50%);
 }
 
+.disabledBtn {
+  width: 300px;
+  height: 60px;
+  box-shadow: 15px 15px 50px 0px #00000033;
+  background: #d8d8d8;
+  border: none;
+  border-radius: 50px;
+  margin-top: 150px;
+  color: #939191;
+  font-size: 26px;
+  font-weight: 500;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  cursor: not-allowed;
+  transform: translate(-50%, -50%);
+}
+
 // =========================
 // INPUT STYLES
 
@@ -75,6 +94,12 @@
   border: none;
   padding: 20px 30px;
   font-size: 24px;
+
+  &::placeholder {
+    font-size: 24px;
+    font-size: 200;
+    color: #9e9b9b;
+  }
 }
 
 .label {
@@ -93,6 +118,7 @@
   justify-content: center;
   background: none;
   color: #4ecb71;
+  cursor: pointer;
 }
 
 .checkboxLabel {

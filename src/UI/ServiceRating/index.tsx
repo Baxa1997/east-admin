@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 import {useState} from "react";
 import {useTranslation} from "react-i18next";
 
-function ServiceRating() {
+function ServiceRating({onSubmit}: {onSubmit: () => void}) {
   const navigate = useNavigate();
   const {t} = useTranslation();
   const [rating, setRating] = useState(0);

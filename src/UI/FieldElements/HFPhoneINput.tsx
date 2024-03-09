@@ -1,6 +1,6 @@
-import {Input} from "@/components/ui/input";
 import React from "react";
 import {Control, Controller} from "react-hook-form";
+import PhoneInput from "react-phone-number-input/input";
 
 interface HFTextFieldProps {
   name: string;
@@ -9,7 +9,7 @@ interface HFTextFieldProps {
   control: Control;
 }
 
-const HFTextField: React.FC<HFTextFieldProps> = ({
+const HFPhoneInput: React.FC<HFTextFieldProps> = ({
   name,
   defaultValue = "",
   placeholder = "",
@@ -21,15 +21,18 @@ const HFTextField: React.FC<HFTextFieldProps> = ({
       control={control}
       defaultValue={defaultValue}
       render={({field: {onChange, value}, fieldState: {error}}) => (
-        <Input
+        <PhoneInput
           name={name}
+          international
+          isValidPhoneNumber
+          limitMaxLength={true}
           value={value}
           defaultValue={""}
           type="text"
           className="inputStyles"
           placeholder={placeholder}
           onChange={(e) => {
-            onChange(e.target.value);
+            onChange(e);
           }}
         />
       )}
@@ -37,4 +40,4 @@ const HFTextField: React.FC<HFTextFieldProps> = ({
   );
 };
 
-export default HFTextField;
+export default HFPhoneInput;

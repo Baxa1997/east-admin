@@ -2,7 +2,7 @@ import React, {createContext, useContext, ReactNode} from "react";
 import {useForm, UseFormReturn} from "react-hook-form";
 
 interface FormContextProps {
-  form: UseFormReturn<any>;
+  form: UseFormReturn;
 }
 
 const FormContext = createContext<FormContextProps | undefined>(undefined);
