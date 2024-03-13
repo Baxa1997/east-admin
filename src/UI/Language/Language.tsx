@@ -41,7 +41,8 @@ function Language() {
     control: (provided) => ({
       ...provided,
       borderRight: 0,
-      height: "60px",
+      height: "70px",
+      width: "100%",
       border: "none",
       borderRadius: "50px",
       paddingLeft: "20px",
@@ -50,7 +51,6 @@ function Language() {
     indicatorSeparator: () => ({display: "none"}),
     dropdownIndicator: (provided) => ({
       ...provided,
-      fontSize: "36px",
     }),
   };
 
