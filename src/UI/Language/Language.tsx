@@ -8,19 +8,35 @@ import {useEffect} from "react";
 
 const options = [
   {
-    label: "🇷🇺 Русский",
+    label: "Русский",
     value: "ru",
-    icon: "🇷🇺",
+    icon: (
+      <img
+        width="57px"
+        height="57px"
+        src="/russianflag.svg"
+        alt="Russian Flag"
+      />
+    ),
   },
   {
-    label: "🇺🇿 O'zbekcha",
+    label: `O'zbekcha`,
     value: "uz",
-    icon: "🇺🇿",
+    icon: (
+      <img width="57px" height="57px" src="/uzbekflag.svg" alt="Uzbek Flag" />
+    ),
   },
   {
-    label: "🇺🇸 English",
+    label: "English",
     value: "en",
-    icon: "🇺🇸",
+    icon: (
+      <img
+        width="57px"
+        height="57px"
+        src="/englishflag.svg"
+        alt="English Flag"
+      />
+    ),
   },
 ];
 
@@ -28,7 +44,6 @@ const getOptionLabel = (option: any) => option.label;
 
 function Language() {
   const {i18n, t} = useTranslation();
-
   const navigate = useNavigate();
 
   const changeLanguage = (selectedOption: any) => {
@@ -41,7 +56,7 @@ function Language() {
     control: (provided) => ({
       ...provided,
       borderRight: 0,
-      height: "70px",
+      height: "100%",
       width: "100%",
       border: "none",
       borderRadius: "50px",
@@ -60,19 +75,34 @@ function Language() {
     }
   }, []);
 
+  const formatOptionLabel = ({label, icon}: any) => (
+    <div style={{display: "flex", alignItems: "center"}}>
+      <span
+        style={{
+          marginRight: "27px",
+        }}>
+        {icon}
+      </span>
+      <span>{label}</span>
+    </div>
+  );
+
   return (
     <div className={styles.languages}>
       <h2>{t("choose_language")}</h2>
 
-      <Select
-        styles={customStyles}
-        options={options}
-        className={styles.input}
-        getOptionLabel={getOptionLabel}
-        isSearchable={false}
-        defaultValue={options?.[0]}
-        onChange={changeLanguage}
-      />
+      <div className={styles.select}>
+        <Select
+          styles={customStyles}
+          options={options}
+          className={styles.input}
+          getOptionLabel={getOptionLabel}
+          isSearchable={false}
+          defaultValue={options?.[0]}
+          onChange={changeLanguage}
+          formatOptionLabel={formatOptionLabel}
+        />
+      </div>
 
       <Button
         onClick={() => {

@@ -4,10 +4,10 @@
   margin-top: 100px;
 
   h2 {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     font-family: "Montserrat";
     font-weight: 600;
-    font-size: 48px;
+    font-size: 33px;
   }
 }
 
@@ -18,14 +18,23 @@
   border-radius: 50px;
   text-align: left;
   font-size: 24px;
-  width: 700px;
-  height: 70px;
+  max-width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.select {
+  position: relative;
+  max-width: 797px;
+  min-width: 100%;
+  height: 83px;
+  max-height: 100%;
 }
 .option {
-  font-size: 26px;
+  font-size: 27px;
   font-weight: 500;
 
   span {
-    margin-left: 12px;
+    margin-left: 40px;
   }
 }
