@@ -32,7 +32,7 @@ function PersonalInfo() {
         <HFPhoneInput
           name="phone_number"
           control={control}
-          placeholder={"Enter phone number"}
+          // placeholder={"Enter phone number"}
         />
       </div>
       <div className={styles.personalInfoItem}>
@@ -42,7 +42,7 @@ function PersonalInfo() {
         <HFTextField
           name="address_of_propiski"
           control={control}
-          placeholder={"Enter address"}
+          // placeholder={"Enter address"}
         />
       </div>
 
