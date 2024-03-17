@@ -1,11 +1,12 @@
 .PersonalInfo {
-  margin-top: 20px;
+  margin-top: 25px;
   text-align: left;
 
   .personalInfoItem {
     display: flex;
     flex-direction: column;
-    margin: 0 0 50px 0;
+    margin: 0px auto 20px;
+    max-width: 750px;
   }
 }
 
@@ -20,7 +21,11 @@
 .addressCheckbox {
   display: flex;
   align-items: center;
-  width: 240px;
+  width: 194px;
   justify-content: space-between;
   margin-left: 20px;
+}
+.addressConfirm {
+  max-width: 750px;
+  margin: 20px auto 0;
 }

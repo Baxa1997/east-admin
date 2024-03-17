@@ -1,27 +1,29 @@
 .checkingInfo {
+  padding: 5px 0 0 0;
   h2 {
-    font-size: 33px;
+    font-size: 24px;
     font-weight: 600;
   }
 
   .infoBox {
     position: relative;
-    width: 100% !important;
-    height: 430px;
+    max-width: 800px;
+    height: 300px;
     background: #000;
     background: #fff;
-    border-radius: 50px;
-    margin-top: 40px;
-    padding: 60px 60px 40px 60px;
+    border-radius: 20px;
+    margin: 40px auto 0;
+    padding: 25px 60px 0px 60px;
     text-align: left;
-    border: 1px solid red;
+    // border: 1px solid red;
 
     p {
       margin: 25px 0;
+      font-size: 10px;
     }
 
     .infoBoxItem {
-      height: 270px;
+      height: 190px;
       overflow: scroll;
     }
 
@@ -34,7 +36,7 @@
     }
 
     .infoCheckboxLabel {
-      font-size: 18px;
+      font-size: 14px;
       margin-left: 10px;
     }
   }

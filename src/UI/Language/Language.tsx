@@ -12,8 +12,8 @@ const options = [
     value: "ru",
     icon: (
       <img
-        width="57px"
-        height="57px"
+        width="41px"
+        height="41px"
         src="/russianflag.svg"
         alt="Russian Flag"
       />
@@ -23,7 +23,7 @@ const options = [
     label: `O'zbekcha`,
     value: "uz",
     icon: (
-      <img width="57px" height="57px" src="/uzbekflag.svg" alt="Uzbek Flag" />
+      <img width="41px" height="41px" src="/uzbekflag.svg" alt="Uzbek Flag" />
     ),
   },
   {
@@ -31,8 +31,8 @@ const options = [
     value: "en",
     icon: (
       <img
-        width="57px"
-        height="57px"
+        width="41px"
+        height="41px"
         src="/englishflag.svg"
         alt="English Flag"
       />
@@ -56,12 +56,9 @@ function Language() {
     control: (provided) => ({
       ...provided,
       borderRight: 0,
-      height: "100%",
-      width: "100%",
       border: "none",
-      borderRadius: "50px",
-      paddingLeft: "20px",
-      paddingRight: "20px",
+      borderRadius: "60px",
+      padding: "3px 12px 0 20px",
     }),
     indicatorSeparator: () => ({display: "none"}),
     dropdownIndicator: (provided) => ({
@@ -79,11 +76,22 @@ function Language() {
     <div style={{display: "flex", alignItems: "center"}}>
       <span
         style={{
-          marginRight: "27px",
+          marginRight: "17px",
+          marginTop: "5px",
         }}>
         {icon}
       </span>
-      <span>{label}</span>
+      <span style={{fontSize: "21px"}}>{label}</span>
+    </div>
+  );
+
+  const CustomDropdownIndicator = () => (
+    <div style={{marginRight: "12px"}}>
+      <img
+        src="/dropdown.svg"
+        alt="Custom Dropdown Indicator"
+        style={{width: "30px", height: "30px"}}
+      />
     </div>
   );
 
@@ -91,18 +99,17 @@ function Language() {
     <div className={styles.languages}>
       <h2>{t("choose_language")}</h2>
 
-      <div className={styles.select}>
-        <Select
-          styles={customStyles}
-          options={options}
-          className={styles.input}
-          getOptionLabel={getOptionLabel}
-          isSearchable={false}
-          defaultValue={options?.[0]}
-          onChange={changeLanguage}
-          formatOptionLabel={formatOptionLabel}
-        />
-      </div>
+      <Select
+        styles={customStyles}
+        options={options}
+        className={styles.input}
+        getOptionLabel={getOptionLabel}
+        isSearchable={false}
+        defaultValue={options?.[0]}
+        onChange={changeLanguage}
+        formatOptionLabel={formatOptionLabel}
+        components={{DropdownIndicator: CustomDropdownIndicator}}
+      />
 
       <Button
         onClick={() => {

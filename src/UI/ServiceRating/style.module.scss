@@ -1,20 +1,21 @@
 .serviceRate {
+  padding: 5px 0 0 0;
   h2 {
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 600;
     font-family: "Montserrat";
   }
 
   .serviceMarks {
-    width: 700px;
+    max-width: 570px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 70px auto 0;
+    margin: 48px auto 0;
 
     .btnMark {
-      width: 40px;
-      height: 40px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
       box-shadow: 5px 5px 15px 0px #00000040;
       margin-top: 10px;
@@ -34,12 +35,13 @@
   }
 
   .comment {
-    width: 100%;
-    height: 200px;
+    width: 82%;
+    height: 150px;
     background: #fff;
-    border-radius: 50px;
+    border-radius: 30px;
     padding: 30px 50px;
     border: none;
-    margin-top: 50px;
+    margin-top: 47px;
+    // border: 1px solid red;
   }
 }
