@@ -8,7 +8,9 @@ function CameraVerify() {
   const {t} = useTranslation();
   return (
     <div className={styles.CameraVerify}>
-      <h2>{t("camera_look")}</h2>
+      <div className="box">
+        <h2>{t("camera_look")}</h2>
+      </div>
 
       <Button
         onClick={() => {

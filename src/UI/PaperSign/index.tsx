@@ -8,7 +8,9 @@ function PapperSign() {
   const {t} = useTranslation();
   return (
     <div className={styles.papperSign}>
-      <h2>{t("sign_paper")}</h2>
+      <div className="box">
+        <h2>{t("sign_paper")}</h2>
+      </div>
 
       <Button
         onClick={() => {

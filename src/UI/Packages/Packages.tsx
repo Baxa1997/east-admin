@@ -7,9 +7,12 @@ function Packages() {
   const navigate = useNavigate();
   const {t} = useTranslation();
   return (
-    <div className={styles.rates}>
-      <h2>{t("choose_rate")}</h2>
-
+    <div>
+      <div className={styles.rates}>
+        <div className="box">
+          <h2>{t("choose_rate")}</h2>
+        </div>
+      </div>
       <Button
         onClick={() => {
           navigate("/checking-info");

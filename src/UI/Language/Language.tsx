@@ -97,19 +97,20 @@ function Language() {
 
   return (
     <div className={styles.languages}>
-      <h2>{t("choose_language")}</h2>
-
-      <Select
-        styles={customStyles}
-        options={options}
-        className={styles.input}
-        getOptionLabel={getOptionLabel}
-        isSearchable={false}
-        defaultValue={options?.[0]}
-        onChange={changeLanguage}
-        formatOptionLabel={formatOptionLabel}
-        components={{DropdownIndicator: CustomDropdownIndicator}}
-      />
+      <div className="box">
+        <h2>{t("choose_language")}</h2>
+        <Select
+          styles={customStyles}
+          options={options}
+          className={styles.input}
+          getOptionLabel={getOptionLabel}
+          isSearchable={false}
+          defaultValue={options?.[0]}
+          onChange={changeLanguage}
+          formatOptionLabel={formatOptionLabel}
+          components={{DropdownIndicator: CustomDropdownIndicator}}
+        />
+      </div>
 
       <Button
         onClick={() => {

@@ -1,7 +1,14 @@
 .CameraVerify {
-  margin-top: 171px;
+  padding-top: 135px;
+  position: relative;
+
   h2 {
-    font-size: 33px;
+    font-size: 32px;
     font-weight: 600;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 666px;
   }
 }

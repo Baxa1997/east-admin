@@ -1,7 +1,14 @@
 .papperSign {
-  margin-top: 175px;
+  padding-top: 135px;
+  position: relative;
+
   h2 {
     font-size: 32px;
     font-weight: 600;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
   }
 }

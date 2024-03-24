@@ -8,7 +8,9 @@ function IdScanner() {
   const {t} = useTranslation();
   return (
     <div className={styles.idScanner}>
-      <h2>{t("give_id")}</h2>
+      <div className="box">
+        <h2>{t("give_id")}</h2>
+      </div>
 
       <Button
         onClick={() => {

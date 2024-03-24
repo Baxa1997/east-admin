@@ -24,78 +24,81 @@ function PersonalInfo() {
     navigate(`/${checkboxValue === "yes" ? "rates" : "address"}`);
   };
   return (
-    <div className={styles.PersonalInfo}>
-      <div className={styles.personalInfoItem}>
-        <Label className="label" htmlFor="text">
-          {t("phone_number")}
-        </Label>
-        <HFPhoneInput
-          name="phone_number"
-          control={control}
-          // placeholder={"Enter phone number"}
-        />
-      </div>
-      <div className={styles.personalInfoItem}>
-        <Label className="label" htmlFor="text">
-          {t("address_propis")}
-        </Label>
-        <HFTextField
-          name="address_of_propiski"
-          control={control}
-          // placeholder={"Enter address"}
-        />
-      </div>
-
-      <div className={styles.addressConfirm}>
-        <Label className="label">{t("set_this_address")}</Label>
-
-        <div className={styles.addressCheckbox}>
-          <div className={styles.checking}>
-            <Checkbox
-              checked={checkboxValue !== "no" && checkboxValue !== ""}
-              onClick={() => {
-                if (checkboxValue === "yes") {
-                  setCheckboxValue("");
-                } else {
-                  setCheckboxValue("yes");
-                }
-              }}
-              id="yeap"
-              className={"checkBox"}
-            />
-            <Label htmlFor="yeap" className={"checkboxLabel"}>
-              {t("Yes")}
+    <div>
+      <div className={styles.PersonalInfo}>
+        <div className="box">
+          <div className={styles.personalInfoItem}>
+            <Label className="label" htmlFor="text">
+              {t("phone_number")}
             </Label>
+            <HFPhoneInput
+              name="phone_number"
+              control={control}
+              // placeholder={"Enter phone number"}
+            />
           </div>
-          <div className={styles.checking}>
-            <Checkbox
-              checked={checkboxValue !== "yes" && checkboxValue !== ""}
-              id="no"
-              className={"checkBox"}
-              onClick={() => {
-                if (checkboxValue === "no") {
-                  setCheckboxValue("");
-                } else {
-                  setCheckboxValue("no");
-                }
-              }}
-            />
-            <Label htmlFor="no" className={"checkboxLabel"}>
-              {t("No")}
+          <div className={styles.personalInfoItem}>
+            <Label className="label" htmlFor="text">
+              {t("address_propis")}
             </Label>
+            <HFTextField
+              name="address_of_propiski"
+              control={control}
+              // placeholder={"Enter address"}
+            />
+          </div>
+
+          <div className={styles.addressConfirm}>
+            <Label className="label">{t("set_this_address")}</Label>
+
+            <div className={styles.addressCheckbox}>
+              <div className={styles.checking}>
+                <Checkbox
+                  checked={checkboxValue !== "no" && checkboxValue !== ""}
+                  onClick={() => {
+                    if (checkboxValue === "yes") {
+                      setCheckboxValue("");
+                    } else {
+                      setCheckboxValue("yes");
+                    }
+                  }}
+                  id="yeap"
+                  className={"checkBox"}
+                />
+                <Label htmlFor="yeap" className={"checkboxLabel"}>
+                  {t("Yes")}
+                </Label>
+              </div>
+              <div className={styles.checking}>
+                <Checkbox
+                  checked={checkboxValue !== "yes" && checkboxValue !== ""}
+                  id="no"
+                  className={"checkBox"}
+                  onClick={() => {
+                    if (checkboxValue === "no") {
+                      setCheckboxValue("");
+                    } else {
+                      setCheckboxValue("no");
+                    }
+                  }}
+                />
+                <Label htmlFor="no" className={"checkboxLabel"}>
+                  {t("No")}
+                </Label>
+              </div>
+            </div>
           </div>
         </div>
-
-        <Button
-          onClick={() => {
-            computedDisable && Boolean(checkboxValue) && naviageToPage();
-          }}
-          className={`${
-            computedDisable && checkboxValue ? "readyBtn" : "disabledBtn"
-          }`}>
-          {t("next")}
-        </Button>
       </div>
+      <Button
+        onClick={() => {
+          computedDisable && Boolean(checkboxValue) && naviageToPage();
+        }}
+        className={`${
+          computedDisable && checkboxValue ? "readyBtn" : "disabledBtn"
+        }`}>
+        {t("next")}
+      </Button>
     </div>
   );
 }
