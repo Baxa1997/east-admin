@@ -23,6 +23,9 @@ function Layout({children}: LayoutPros) {
   return (
     <>
       <div className={"layout"}>
+        <div className="leftSideBackground"></div>
+        <div className="rightSideBackground"></div>
+        <div className="bottomSideBackground"></div>
         {showLogo && (
           <div className={"logo"}>
             <img src="/logo2.svg" alt="logo" />
