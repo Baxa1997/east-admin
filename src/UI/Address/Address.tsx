@@ -14,18 +14,21 @@ function Address() {
 
   const computedDisable = Boolean(form.watch("setup_address"));
   return (
-    <div className={styles.address}>
-      <div className={styles.addressInfoItem}>
-        <Label className={"label"} htmlFor="text">
-          {t("enter_setup_address")}
-        </Label>
-        <HFTextField
-          name="setup_address"
-          control={control}
-          placeholder="Enter setup address"
-        />
+    <div>
+      <div className={styles.address}>
+        <div className="box">
+          <div className={styles.addressInfoItem}>
+            <Label className={"label"} htmlFor="text">
+              {t("enter_setup_address")}
+            </Label>
+            <HFTextField
+              name="setup_address"
+              control={control}
+              placeholder="Enter setup address"
+            />
+          </div>
+        </div>
       </div>
-
       <Button
         onClick={() => {
           computedDisable && navigate("/rates");
