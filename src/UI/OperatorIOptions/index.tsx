@@ -8,41 +8,22 @@ import {useEffect} from "react";
 
 const options = [
   {
-    label: "Русский",
-    value: "ru",
-    icon: (
-      <img
-        width="41px"
-        height="41px"
-        src="/russianflag.svg"
-        alt="Russian Flag"
-      />
-    ),
+    label: "Анна",
+    value: "anna",
   },
   {
-    label: `O'zbekcha`,
-    value: "uz",
-    icon: (
-      <img width="41px" height="41px" src="/uzbekflag.svg" alt="Uzbek Flag" />
-    ),
+    label: `Сергей`,
+    value: "sergey",
   },
   {
-    label: "English",
-    value: "en",
-    icon: (
-      <img
-        width="41px"
-        height="41px"
-        src="/englishflag.svg"
-        alt="English Flag"
-      />
-    ),
+    label: "Темур",
+    value: "temur",
   },
 ];
 
 const getOptionLabel = (option: any) => option.label;
 
-function Language() {
+function OperatorOptions() {
   const {i18n, t} = useTranslation();
   const navigate = useNavigate();
 
@@ -59,6 +40,7 @@ function Language() {
       border: "none",
       borderRadius: "60px",
       padding: "3px 12px 0 20px",
+      height: "100%",
     }),
     indicatorSeparator: () => ({display: "none"}),
     dropdownIndicator: (provided) => ({
@@ -73,14 +55,13 @@ function Language() {
   }, []);
 
   const formatOptionLabel = ({label, icon}: any) => (
-    <div style={{display: "flex", alignItems: "center"}}>
+    <div
+      style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
       <span
         style={{
           marginRight: "17px",
           marginTop: "5px",
-        }}>
-        {icon}
-      </span>
+        }}></span>
       <span style={{fontSize: "21px"}}>{label}</span>
     </div>
   );
@@ -98,7 +79,7 @@ function Language() {
   return (
     <div className={styles.languages}>
       <div className="box">
-        <h2>{t("choose_language")}</h2>
+        <h2>Выберите имя оператора</h2>
         <Select
           styles={customStyles}
           options={options}
@@ -114,7 +95,7 @@ function Language() {
 
       <Button
         onClick={() => {
-          navigate("/operator-options");
+          navigate("/id-scanner");
         }}
         className="readyBtn">
         {t("ready")}
@@ -123,4 +104,4 @@ function Language() {
   );
 }
 
-export default Language;
+export default OperatorOptions;

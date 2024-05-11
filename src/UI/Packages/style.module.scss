@@ -5,4 +5,41 @@
     font-weight: 600;
     font-size: 24px;
   }
+
+  .ratesList {
+    margin: 100px 0 0;
+    text-align: justify;
+  }
+
+  .reatesItem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 40px 0;
+
+    h3 {
+      border-right: 2px solid #000;
+      padding-right: 100px;
+    }
+  }
+
+  .chooseBtn {
+    width: 250px;
+    height: 50px;
+    background: #000;
+    color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+
+  .choseBtn {
+    width: 250px;
+    height: 50px;
+    background: green;
+    color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+    border: none;
+  }
 }

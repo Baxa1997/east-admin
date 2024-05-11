@@ -1,13 +1,18 @@
 .address {
   padding: 10px 0 0 0;
   text-align: left;
-  text-align: center;
-  margin: 0 0 130px;
+  // margin: 0 0 130px;
 
   .addressInfoItem {
     display: flex;
-    flex-direction: column;
     margin: 20px auto 50px;
+    flex-wrap: wrap;
     max-width: 750px;
+    gap: 20px;
+
+    .addressInfo {
+      width: 45%;
+      text-align: justify;
+    }
   }
 }

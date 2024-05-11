@@ -7,6 +7,7 @@ interface HFTextFieldProps {
   defaultValue?: any;
   placeholder?: string;
   control: Control;
+  classes?: string;
 }
 
 const HFTextField: React.FC<HFTextFieldProps> = ({
@@ -14,6 +15,7 @@ const HFTextField: React.FC<HFTextFieldProps> = ({
   defaultValue = "",
   placeholder = "",
   control,
+  classes,
 }) => {
   return (
     <Controller
@@ -26,7 +28,7 @@ const HFTextField: React.FC<HFTextFieldProps> = ({
           value={value}
           defaultValue={""}
           type="text"
-          className="inputStyles"
+          className={`${classes ? classes : "inputStyles"}`}
           placeholder={placeholder}
           onChange={(e) => {
             onChange(e.target.value);

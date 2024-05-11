@@ -30,3 +30,20 @@
   max-width: 750px;
   margin: 20px auto 0;
 }
+
+.addressPropiski {
+  margin-top: 30px;
+
+  .addressItems {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+
+    .addressItemsInfo {
+      width: 45%;
+    }
+  }
+}

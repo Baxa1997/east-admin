@@ -8,6 +8,37 @@ import {useFormContext} from "../FormProvider";
 import HFTextField from "../FieldElements/HFTextField";
 import HFPhoneInput from "../FieldElements/HFPhoneINput";
 import {useState} from "react";
+import HFSelect from "../FieldElements/HFSelect";
+
+export const cities = [
+  {
+    label: "Tashkent",
+    value: "tashkent",
+  },
+  {
+    label: "Tashkent Region",
+    value: "tashkent_region",
+  },
+  {
+    label: "Samarkand",
+    value: "samarkand",
+  },
+];
+
+export const regions = [
+  {
+    label: "Tashkent",
+    value: "tashkent",
+  },
+  {
+    label: "Tashkent Region",
+    value: "tashkent_region",
+  },
+  {
+    label: "Samarkand",
+    value: "samarkand",
+  },
+];
 
 function PersonalInfo() {
   const navigate = useNavigate();
@@ -18,7 +49,9 @@ function PersonalInfo() {
 
   const computedDisable =
     Boolean(form?.watch("phone_number")) &&
-    Boolean(form?.watch("address_of_propiski"));
+    Boolean(form?.watch("city")) &&
+    Boolean(form?.watch("district")) &&
+    Boolean(form?.watch("address"));
 
   const naviageToPage = () => {
     navigate(`/${checkboxValue === "yes" ? "rates" : "address"}`);
@@ -34,57 +67,93 @@ function PersonalInfo() {
             <HFPhoneInput
               name="phone_number"
               control={control}
+              defaultValue={"+998"}
               // placeholder={"Enter phone number"}
             />
           </div>
-          <div className={styles.personalInfoItem}>
+
+          <div className={styles.addressPropiski}>
             <Label className="label" htmlFor="text">
               {t("address_propis")}
             </Label>
-            <HFTextField
-              name="address_of_propiski"
-              control={control}
-              // placeholder={"Enter address"}
-            />
-          </div>
 
-          <div className={styles.addressConfirm}>
-            <Label className="label">{t("set_this_address")}</Label>
-
-            <div className={styles.addressCheckbox}>
-              <div className={styles.checking}>
-                <Checkbox
-                  checked={checkboxValue !== "no" && checkboxValue !== ""}
-                  onClick={() => {
-                    if (checkboxValue === "yes") {
-                      setCheckboxValue("");
-                    } else {
-                      setCheckboxValue("yes");
-                    }
-                  }}
-                  id="yeap"
-                  className={"checkBox"}
-                />
-                <Label htmlFor="yeap" className={"checkboxLabel"}>
-                  {t("Yes")}
+            <div className={styles.addressItems}>
+              <div className={styles.addressItemsInfo}>
+                <Label className="label_sub" htmlFor="text">
+                  Город
                 </Label>
+                <HFSelect
+                  options={cities}
+                  name="city"
+                  control={control}
+                  defaultValue=""
+                  placeholder=""
+
+                  // placeholder={"Enter address"}
+                />
               </div>
-              <div className={styles.checking}>
-                <Checkbox
-                  checked={checkboxValue !== "yes" && checkboxValue !== ""}
-                  id="no"
-                  className={"checkBox"}
-                  onClick={() => {
-                    if (checkboxValue === "no") {
-                      setCheckboxValue("");
-                    } else {
-                      setCheckboxValue("no");
-                    }
-                  }}
-                />
-                <Label htmlFor="no" className={"checkboxLabel"}>
-                  {t("No")}
+              <div className={styles.addressItemsInfo}>
+                <Label className="label_sub" htmlFor="text">
+                  Район
                 </Label>
+                <HFSelect
+                  options={regions}
+                  name="district"
+                  control={control}
+                  defaultValue=""
+                  placeholder=""
+                  // placeholder={"Enter address"}
+                />
+              </div>
+              <div className={styles.addressItemsInfo}>
+                <Label className="label_sub" htmlFor="text">
+                  Адрес
+                </Label>
+                <HFTextField
+                  name="address"
+                  control={control}
+                  // placeholder={"Enter address"}
+                />
+              </div>
+              <div className={styles.addressConfirm}>
+                <Label className="label_sub">{t("set_this_address")}</Label>
+
+                <div className={styles.addressCheckbox}>
+                  <div className={styles.checking}>
+                    <Checkbox
+                      checked={checkboxValue !== "no" && checkboxValue !== ""}
+                      onClick={() => {
+                        if (checkboxValue === "yes") {
+                          setCheckboxValue("");
+                        } else {
+                          setCheckboxValue("yes");
+                        }
+                      }}
+                      id="yeap"
+                      className={"checkBox"}
+                    />
+                    <Label htmlFor="yeap" className={"checkboxLabel"}>
+                      {t("Yes")}
+                    </Label>
+                  </div>
+                  <div className={styles.checking}>
+                    <Checkbox
+                      checked={checkboxValue !== "yes" && checkboxValue !== ""}
+                      id="no"
+                      className={"checkBox"}
+                      onClick={() => {
+                        if (checkboxValue === "no") {
+                          setCheckboxValue("");
+                        } else {
+                          setCheckboxValue("no");
+                        }
+                      }}
+                    />
+                    <Label htmlFor="no" className={"checkboxLabel"}>
+                      {t("No")}
+                    </Label>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

@@ -11,11 +11,13 @@ import Signature from "../UI/Signature";
 import PapperSign from "../UI/PaperSign";
 import ServiceRating from "../UI/ServiceRating";
 import Language from "../UI/Language/Language";
+import OperatorOptions from "@/UI/OperatorIOptions";
 
 function Routing({onSubmit}: {onSubmit: () => void}) {
   return (
     <Routes>
       <Route index element={<Language />} />
+      <Route path="/operator-options" element={<OperatorOptions />} />
       <Route path="/id-scanner" element={<IdScanner />} />
       <Route path="/camera-verification" element={<CameraVerify />} />
       <Route path="/personal-info" element={<PersonalInfo />} />

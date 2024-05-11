@@ -7,38 +7,29 @@
   }
 
   .infoBox {
-    position: relative;
-    max-width: 800px;
-    height: 400px;
-    background: #000;
-    background: #fff;
-    border-radius: 20px;
-    margin: 40px auto 0;
-    padding: 25px 60px 0px 60px;
-    text-align: left;
-    margin-bottom: 30px;
+    max-width: 1200px;
+    min-height: 300px;
+    margin: 15px auto;
+  }
 
-    p {
-      margin: 25px 0;
-      font-size: 14px;
+  .infoCheck {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    .infoCheckItems {
+      width: 45%;
     }
+  }
 
-    .infoBoxItem {
-      height: 300px;
-      overflow: scroll;
-    }
+  .infoCheckChild {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    .checking {
-      display: flex;
-      align-items: center;
-      min-width: 80px;
-      margin-top: 10px;
-      cursor: pointer;
-    }
-
-    .infoCheckboxLabel {
-      font-size: 14px;
-      margin-left: 10px;
+    .infoCheckChildItem {
+      width: 47%;
     }
   }
 }
