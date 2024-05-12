@@ -51,7 +51,7 @@ function ServiceRating({onSubmit}: {onSubmit: () => void}) {
 
       <Button
         onClick={() => {
-          navigate("/");
+          navigate("/finish");
         }}
         className="readyBtn">
         {t("ready")}

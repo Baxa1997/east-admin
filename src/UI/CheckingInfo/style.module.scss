@@ -7,12 +7,13 @@
   }
 
   .infoBox {
-    max-width: 1200px;
-    min-height: 300px;
     margin: 15px auto;
   }
 
   .infoCheck {
+    max-width: 1200px;
+    min-height: 300px;
+    max-height: 500px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -20,6 +21,22 @@
     gap: 10px;
     .infoCheckItems {
       width: 45%;
+
+      @media screen and (max-width: 991px) {
+        width: 100%;
+      }
+    }
+
+    @media screen and (max-width: 991px) {
+      height: 380px;
+      padding: 20px;
+      overflow: scroll;
+    }
+
+    @media screen and (max-width: 775px) {
+      flex-wrap: nowrap;
+      flex-direction: column;
+      height: 350px;
     }
   }
 
@@ -30,6 +47,16 @@
 
     .infoCheckChildItem {
       width: 47%;
+
+      @media screen and (max-width: 991px) {
+        width: 100%;
+        margin: 10px 0;
+      }
+    }
+
+    @media screen and (max-width: 991px) {
+      flex-wrap: nowrap;
+      flex-direction: column;
     }
   }
 }

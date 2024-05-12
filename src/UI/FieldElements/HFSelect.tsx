@@ -9,9 +9,10 @@ interface Option {
 interface Props {
   control: any;
   name: string;
-  defaultValue: string;
-  placeholder: string;
+  defaultValue?: string;
+  placeholder?: string;
   options: Option[];
+  classes?: string;
 }
 
 const customStyles: StylesConfig = {
@@ -20,7 +21,7 @@ const customStyles: StylesConfig = {
     borderRight: 0,
     border: "none",
     borderRadius: "60px",
-    height: "50px",
+    height: window.location.pathname === "/operator_view_1" ? "35px" : "50px",
     marginTop: "10px",
     boxShadow: "15px 15px 50px 0px #00000033",
     padding: "0 0 0 10px",
@@ -56,7 +57,6 @@ function HFSelect({control, name, defaultValue, options, placeholder}: Props) {
           placeholder={placeholder}
           components={{DropdownIndicator: CustomDropdownIndicator}}
           defaultValue={defaultValue}
-          //   className="inputStyles"
           onChange={(e) => {
             onChange(e);
           }}

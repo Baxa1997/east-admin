@@ -115,43 +115,47 @@ function PersonalInfo() {
                   // placeholder={"Enter address"}
                 />
               </div>
-              <div className={styles.addressConfirm}>
-                <Label className="label_sub">{t("set_this_address")}</Label>
+              <div className={styles.addressItemsInfo}>
+                <div className={styles.addressConfirm}>
+                  <Label className="label_sub">{t("set_this_address")}</Label>
 
-                <div className={styles.addressCheckbox}>
-                  <div className={styles.checking}>
-                    <Checkbox
-                      checked={checkboxValue !== "no" && checkboxValue !== ""}
-                      onClick={() => {
-                        if (checkboxValue === "yes") {
-                          setCheckboxValue("");
-                        } else {
-                          setCheckboxValue("yes");
+                  <div className={styles.addressCheckbox}>
+                    <div className={styles.checking}>
+                      <Checkbox
+                        checked={checkboxValue !== "no" && checkboxValue !== ""}
+                        onClick={() => {
+                          if (checkboxValue === "yes") {
+                            setCheckboxValue("");
+                          } else {
+                            setCheckboxValue("yes");
+                          }
+                        }}
+                        id="yeap"
+                        className={"checkBox"}
+                      />
+                      <Label htmlFor="yeap" className={"checkboxLabel"}>
+                        {t("Yes")}
+                      </Label>
+                    </div>
+                    <div className={styles.checking}>
+                      <Checkbox
+                        checked={
+                          checkboxValue !== "yes" && checkboxValue !== ""
                         }
-                      }}
-                      id="yeap"
-                      className={"checkBox"}
-                    />
-                    <Label htmlFor="yeap" className={"checkboxLabel"}>
-                      {t("Yes")}
-                    </Label>
-                  </div>
-                  <div className={styles.checking}>
-                    <Checkbox
-                      checked={checkboxValue !== "yes" && checkboxValue !== ""}
-                      id="no"
-                      className={"checkBox"}
-                      onClick={() => {
-                        if (checkboxValue === "no") {
-                          setCheckboxValue("");
-                        } else {
-                          setCheckboxValue("no");
-                        }
-                      }}
-                    />
-                    <Label htmlFor="no" className={"checkboxLabel"}>
-                      {t("No")}
-                    </Label>
+                        id="no"
+                        className={"checkBox"}
+                        onClick={() => {
+                          if (checkboxValue === "no") {
+                            setCheckboxValue("");
+                          } else {
+                            setCheckboxValue("no");
+                          }
+                        }}
+                      />
+                      <Label htmlFor="no" className={"checkboxLabel"}>
+                        {t("No")}
+                      </Label>
+                    </div>
                   </div>
                 </div>
               </div>

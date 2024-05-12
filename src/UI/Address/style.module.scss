@@ -10,9 +10,17 @@
     max-width: 750px;
     gap: 20px;
 
+    @media screen and (max-width: 991px) {
+      flex-direction: column;
+    }
+
     .addressInfo {
       width: 45%;
       text-align: justify;
+
+      @media screen and (max-width: 991px) {
+        width: 100%;
+      }
     }
   }
 }

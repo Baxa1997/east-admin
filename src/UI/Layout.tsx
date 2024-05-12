@@ -14,8 +14,11 @@ function Layout({children}: LayoutPros) {
     location.pathname === "/" ||
     location.pathname === "/id-scanner" ||
     location.pathname === "/camera-verification" ||
-    location.pathname === "/paper-sign";
-
+    location.pathname === "/paper-sign" ||
+    location.pathname === "/finish" ||
+    location.pathname === "/operator_view_1" ||
+    location.pathname === "/passport-details" ||
+    location.pathname === "/form-accept";
   const onSubmit = () => {
     console.log("worked");
   };

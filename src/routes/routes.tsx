@@ -12,6 +12,10 @@ import PapperSign from "../UI/PaperSign";
 import ServiceRating from "../UI/ServiceRating";
 import Language from "../UI/Language/Language";
 import OperatorOptions from "@/UI/OperatorIOptions";
+import Finish from "@/UI/ServiceRating/Finish";
+import OperatorFirstView from "@/UI/OperatorFirstView";
+import PassportDetails from "@/UI/OperatorPassportDetails";
+import FormAccept from "@/UI/FormAccept";
 
 function Routing({onSubmit}: {onSubmit: () => void}) {
   return (
@@ -31,6 +35,11 @@ function Routing({onSubmit}: {onSubmit: () => void}) {
         path="/service-rate"
         element={<ServiceRating onSubmit={onSubmit} />}
       />
+      <Route path="/finish" element={<Finish />} />
+
+      <Route path="/passport-details" element={<PassportDetails />} />
+      <Route path="/operator_view_1" element={<OperatorFirstView />} />
+      <Route path="/form-accept" element={<FormAccept />} />
     </Routes>
   );
 }

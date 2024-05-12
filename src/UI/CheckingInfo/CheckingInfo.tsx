@@ -12,7 +12,7 @@ function CheckingInfo() {
   const {form} = useFormContext();
   const {control} = form;
   const {t} = useTranslation();
-  const [confirm, setConfirm] = useState(false);
+  const [confirm, setConfirm] = useState(true);
 
   return (
     <div className={styles.checkingInfo}>
