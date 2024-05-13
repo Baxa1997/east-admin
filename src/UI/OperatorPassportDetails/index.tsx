@@ -4,14 +4,21 @@ import HFTextField from "../FieldElements/HFTextField";
 import {Button} from "@/components/ui/button";
 import {useFormContext} from "../FormProvider";
 import {useNavigate} from "react-router-dom";
+import AlertModalDemo from "./AlertDialogDemo";
+import {useState} from "react";
 
 function PassportDetails() {
   const {form} = useFormContext();
   const {control} = form;
   const navigate = useNavigate();
 
+  const [open, setOpen] = useState(false);
+
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
+
   return (
-    <div style={{textAlign: "right"}}>
+    <div style={{textAlign: "right", position: "relative"}}>
       <div className={styles.operator_view}>
         <div className={styles.operator_view_left}>
           <div className={styles.operator_view_left_item}>
@@ -103,8 +110,11 @@ function PassportDetails() {
           </div>
         </div>
       </div>
+      <AlertModalDemo onCloseModal={onCloseModal} open={open} />
       <div className={styles.actionBtns}>
-        <Button className={styles.continueBtn}>Сканировать</Button>
+        <Button onClick={() => onOpenModal()} className={styles.continueBtn}>
+          Сканировать
+        </Button>
 
         <div className={styles.actionBtnItems}>
           <Button onClick={() => navigate(-1)} className={styles.continueBtn}>
