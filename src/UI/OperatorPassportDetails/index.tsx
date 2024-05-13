@@ -81,7 +81,6 @@ function PassportDetails() {
             <HFTextField
               name=""
               control={control}
-              //   placeholder="Адрес"
               classes="inputStylesShorSmall"
             />
           </div>
@@ -90,7 +89,6 @@ function PassportDetails() {
             <HFTextField
               name=""
               control={control}
-              //   placeholder="Адрес"
               classes="inputStylesShorSmall"
             />
           </div>
@@ -100,7 +98,6 @@ function PassportDetails() {
             <HFTextField
               name=""
               control={control}
-              //   placeholder="Адрес"
               classes="inputStylesShorSmall"
             />
           </div>
@@ -110,7 +107,9 @@ function PassportDetails() {
         <Button className={styles.continueBtn}>Сканировать</Button>
 
         <div className={styles.actionBtnItems}>
-          <Button className={styles.continueBtn}>Отмена</Button>
+          <Button onClick={() => navigate(-1)} className={styles.continueBtn}>
+            Отмена
+          </Button>
           <Button
             onClick={() => navigate("/operator_view_1")}
             className={styles.continueBtn}>
