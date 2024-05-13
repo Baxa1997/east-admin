@@ -8,6 +8,7 @@ interface HFTextFieldProps {
   placeholder?: string;
   control: Control;
   classes?: string;
+  copyToClip?: boolean;
 }
 
 const HFTextField: React.FC<HFTextFieldProps> = ({
@@ -16,6 +17,7 @@ const HFTextField: React.FC<HFTextFieldProps> = ({
   placeholder = "",
   control,
   classes,
+  copyToClip,
 }) => {
   return (
     <Controller
@@ -23,17 +25,30 @@ const HFTextField: React.FC<HFTextFieldProps> = ({
       control={control}
       defaultValue={defaultValue}
       render={({field: {onChange, value}}) => (
-        <Input
-          name={name}
-          value={value}
-          defaultValue={""}
-          type="text"
-          className={`${classes ? classes : "inputStyles"}`}
-          placeholder={placeholder}
-          onChange={(e) => {
-            onChange(e.target.value);
-          }}
-        />
+        <div style={{position: "relative"}}>
+          <Input
+            name={name}
+            value={value}
+            defaultValue={""}
+            type="text"
+            className={`${classes ? classes : "inputStyles"}`}
+            placeholder={placeholder}
+            onChange={(e) => {
+              onChange(e.target.value);
+            }}
+          />
+          {copyToClip && (
+            <div
+              style={{
+                position: "absolute",
+                right: "20px",
+                top: "20px",
+                cursor: "pointer",
+              }}>
+              <img src="/copyicon.svg" alt="" />
+            </div>
+          )}
+        </div>
       )}
     />
   );

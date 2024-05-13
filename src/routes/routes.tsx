@@ -16,6 +16,7 @@ import Finish from "@/UI/ServiceRating/Finish";
 import OperatorFirstView from "@/UI/OperatorFirstView";
 import PassportDetails from "@/UI/OperatorPassportDetails";
 import FormAccept from "@/UI/FormAccept";
+import FinalProcess from "@/UI/FinalProcess";
 
 function Routing({onSubmit}: {onSubmit: () => void}) {
   return (
@@ -40,6 +41,7 @@ function Routing({onSubmit}: {onSubmit: () => void}) {
       <Route path="/passport-details" element={<PassportDetails />} />
       <Route path="/operator_view_1" element={<OperatorFirstView />} />
       <Route path="/form-accept" element={<FormAccept />} />
+      <Route path="/final-process" element={<FinalProcess />} />
     </Routes>
   );
 }

@@ -1,7 +1,7 @@
 .operator_view {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  //   margin-top: 20px;
   text-align: start;
   font-family: "Montserrat";
 
@@ -44,9 +44,19 @@
 .actionBtns {
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .operator_textfield {
   margin-top: 20px;
+}
+
+.operator_viewChild {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .operator_viewChild_item {
+    width: 50%;
+  }
 }

@@ -3,10 +3,12 @@ import styles from "./style.module.scss";
 import HFTextField from "../FieldElements/HFTextField";
 import {Button} from "@/components/ui/button";
 import {useFormContext} from "../FormProvider";
+import {useNavigate} from "react-router-dom";
 
 function FormAccept() {
   const {form} = useFormContext();
   const {control} = form;
+  const navigate = useNavigate();
 
   return (
     <div style={{textAlign: "right"}}>
@@ -97,7 +99,9 @@ function FormAccept() {
         </div>
       </div>
       <div className={styles.actionBtns}>
-        <Button className={styles.continueBtn}>
+        <Button
+          onClick={() => navigate("/final-process")}
+          className={styles.continueBtn}>
           Сформировать Акцепт оферты
         </Button>
       </div>
