@@ -1,6 +1,7 @@
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import React, {ReactNode} from "react";
 import {useFormContext} from "./FormProvider";
+import {Button} from "@/components/ui/button";
 
 interface LayoutPros {
   children: ReactNode;
@@ -8,6 +9,7 @@ interface LayoutPros {
 
 function Layout({children}: LayoutPros) {
   const location = useLocation();
+  const navigate = useNavigate();
   const {form} = useFormContext();
   const {handleSubmit} = form;
   const showLogo =
@@ -26,6 +28,12 @@ function Layout({children}: LayoutPros) {
   return (
     <>
       <div className={"layout"}>
+        <Button
+          onClick={() => navigate("/passport-details")}
+          className="operator_view">
+          Operator View{" "}
+          <img width={"20px"} height={"20px"} src="/fedora.svg" alt="" />
+        </Button>
         <div className="leftSideBackground"></div>
         <div className="rightSideBackground"></div>
         <div className="bottomSideBackground"></div>
