@@ -2,7 +2,7 @@ import {Button} from "@/components/ui/button";
 import styles from "./style.module.scss";
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Label} from "@/components/ui/label";
 import HFTextField from "../FieldElements/HFTextField";
 import {useFormContext} from "../FormProvider";
@@ -13,6 +13,10 @@ function CheckingInfo() {
   const {control} = form;
   const {t} = useTranslation();
   const [confirm, setConfirm] = useState(true);
+
+  useEffect(() => {
+    setConfirm(true);
+  }, []);
 
   return (
     <div className={styles.checkingInfo}>

@@ -2,13 +2,12 @@ import {Label} from "@/components/ui/label";
 import styles from "./style.module.scss";
 import HFTextField from "../FieldElements/HFTextField";
 import {Button} from "@/components/ui/button";
-import {useNavigate} from "react-router-dom";
 import {useFormContext} from "../FormProvider";
 
 function FormAccept() {
   const {form} = useFormContext();
   const {control} = form;
-  const navigate = useNavigate();
+
   return (
     <div style={{textAlign: "right"}}>
       <div className={styles.operator_view}>

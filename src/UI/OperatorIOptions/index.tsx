@@ -54,7 +54,7 @@ function OperatorOptions() {
     }
   }, []);
 
-  const formatOptionLabel = ({label, icon}: any) => (
+  const formatOptionLabel = ({label}: any) => (
     <div
       style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
       <span

@@ -1,9 +1,6 @@
 import styles from "./style.module.scss";
-import {Button} from "@/components/ui/button";
-import {useNavigate} from "react-router-dom";
 
 function Finish() {
-  const navigate = useNavigate();
   return (
     <div className={styles.Finish}>
       <div className="box">
