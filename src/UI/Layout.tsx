@@ -38,9 +38,9 @@ function Layout({children}: LayoutPros) {
         <div className="rightSideBackground"></div>
         <div className="bottomSideBackground"></div>
         {showLogo && (
-          <div className={"logo"}>
+          <a href="/" className={"logo"}>
             <img src="/logo2.svg" alt="logo" />
-          </div>
+          </a>
         )}
         <form onSubmit={handleSubmit(onSubmit)}>
           <>{React.cloneElement(children as React.ReactElement, {onSubmit})}</>

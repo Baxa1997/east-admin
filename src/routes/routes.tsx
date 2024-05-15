@@ -1,5 +1,4 @@
 import {Route, Routes} from "react-router-dom";
-
 import IdScanner from "../UI/IDScanner/IdScanner";
 import CameraVerify from "../UI/CameraVerify/CameraVerify";
 import PersonalInfo from "../UI/PersonalInfo/PersonalInfo";

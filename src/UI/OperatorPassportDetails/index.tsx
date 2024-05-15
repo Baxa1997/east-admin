@@ -112,11 +112,16 @@ function PassportDetails() {
       </div>
       <AlertModalDemo onCloseModal={onCloseModal} open={open} />
       <div className={styles.actionBtns}>
-        <Button onClick={() => onOpenModal()} className={styles.continueBtn}>
-          Сканировать
-        </Button>
+        <div className={styles.actionBtnItemsRight}>
+          <Button onClick={() => onOpenModal()} className={styles.continueBtn}>
+            Сканировать лицевую сторону
+          </Button>
+          <Button onClick={() => onOpenModal()} className={styles.continueBtn}>
+            Сканировать обратную сторону
+          </Button>
+        </div>
 
-        <div className={styles.actionBtnItems}>
+        <div className={styles.actionBtnItemsLeft}>
           <Button onClick={() => navigate(-1)} className={styles.continueBtn}>
             Отмена
           </Button>

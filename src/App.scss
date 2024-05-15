@@ -6,6 +6,7 @@
 }
 
 .logo {
+  display: inline-block;
   width: 119px;
   height: 47px;
   margin: -20px auto 0;
@@ -59,7 +60,7 @@
 }
 
 .box {
-  max-width: 750px;
+  max-width: 800px;
   min-height: 300px;
   margin: 0 auto;
 }
