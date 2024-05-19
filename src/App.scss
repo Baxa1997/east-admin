@@ -61,7 +61,7 @@
 
 .box {
   max-width: 800px;
-  min-height: 300px;
+  height: calc(100vh - 350px);
   margin: 0 auto;
 }
 

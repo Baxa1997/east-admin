@@ -9,7 +9,7 @@
   .infoBox {
     position: relative;
     max-width: 1000px;
-    height: 400px;
+    height: calc(100vh - 350px);
     background: #000;
     background: #fff;
     border-radius: 30px;

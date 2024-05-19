@@ -1,6 +1,13 @@
 .papperSign {
-  padding-top: 135px;
+  padding-top: 105px;
   position: relative;
+
+  .loader {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
   h2 {
     font-size: 32px;
@@ -10,5 +17,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
+  }
+
+  .actionBtns {
+    display: flex;
+    gap: 20px;
   }
 }
