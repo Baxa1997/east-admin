@@ -6,7 +6,7 @@ interface HFTextFieldProps {
   name: string;
   defaultValue?: any;
   placeholder?: string;
-  control: Control;
+  control?: Control;
   classes?: string;
   copyToClip?: boolean;
 }

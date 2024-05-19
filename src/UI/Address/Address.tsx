@@ -10,30 +10,30 @@ import HFSelect from "../FieldElements/HFSelect";
 export const cities = [
   {
     label: "Tashkent",
-    value: "tashkent",
+    value: "Tashkent",
   },
   {
     label: "Tashkent Region",
-    value: "tashkent_region",
+    value: "Tashkent Region",
   },
   {
     label: "Samarkand",
-    value: "samarkand",
+    value: "Samarkand",
   },
 ];
 
 export const regions = [
   {
     label: "Tashkent",
-    value: "tashkent",
+    value: "Tashkent",
   },
   {
     label: "Tashkent Region",
-    value: "tashkent_region",
+    value: "Tashkent",
   },
   {
     label: "Samarkand",
-    value: "samarkand",
+    value: "Samarkand",
   },
 ];
 

@@ -6,13 +6,25 @@ import {useEffect, useState} from "react";
 import {Label} from "@/components/ui/label";
 import HFTextField from "../FieldElements/HFTextField";
 import {useFormContext} from "../FormProvider";
+import {Input} from "@/components/ui/input";
+import HFPhoneInput from "../FieldElements/HFPhoneINput";
 
 function CheckingInfo() {
   const navigate = useNavigate();
   const {form} = useFormContext();
-  const {control} = form;
+  const {control, watch} = form;
   const {t} = useTranslation();
   const [confirm, setConfirm] = useState(true);
+
+  const addressPropiski = `${watch("city")?.value ?? ""} ${
+    watch("district")?.value ?? ""
+  } ${watch("address") ?? ""}`;
+
+  const addressSetup = `${watch("setup_city")?.value ?? ""} ${
+    watch("setup_district")?.value ?? ""
+  } ${watch("setup_address") ?? ""}`;
+
+  console.log("addressPropiski", addressPropiski);
 
   useEffect(() => {
     setConfirm(true);
@@ -38,7 +50,16 @@ function CheckingInfo() {
           </div>
           <div className={styles.infoCheckItems}>
             <Label className="label_sub">Адрес прописки</Label>
-            <HFTextField classes="inputStylesShort" name="" control={control} />
+            <div style={{position: "relative"}}>
+              <Input
+                value={addressPropiski}
+                defaultValue={""}
+                type="text"
+                className={`inputStylesShort`}
+                placeholder={"placeholder"}
+                onChange={(e) => {}}
+              />
+            </div>
           </div>
           <div className={styles.infoCheckItems}>
             <Label className="label_sub">Серия и номер документа</Label>
@@ -46,7 +67,16 @@ function CheckingInfo() {
           </div>
           <div className={styles.infoCheckItems}>
             <Label className="label_sub">Адрес установки</Label>
-            <HFTextField classes="inputStylesShort" name="" control={control} />
+            <div style={{position: "relative"}}>
+              <Input
+                value={addressSetup}
+                defaultValue={""}
+                type="text"
+                className={`inputStylesShort`}
+                placeholder={"placeholder"}
+                onChange={(e) => {}}
+              />
+            </div>
           </div>
           <div className={styles.infoCheckItems}>
             <Label className="label_sub">Кем выдан</Label>
@@ -83,7 +113,11 @@ function CheckingInfo() {
           </div>
           <div className={styles.infoCheckItems}>
             <Label className="label_sub">Номер телефона</Label>
-            <HFTextField classes="inputStylesShort" name="" control={control} />
+            <HFPhoneInput
+              classes="inputStylesShort"
+              name="phone_number"
+              control={control}
+            />
           </div>
           <div className={styles.infoCheckItems}>
             <Label className="label_sub">Дата рождения</Label>

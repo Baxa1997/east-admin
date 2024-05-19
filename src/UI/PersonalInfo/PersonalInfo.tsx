@@ -13,37 +13,37 @@ import HFSelect from "../FieldElements/HFSelect";
 export const cities = [
   {
     label: "Tashkent",
-    value: "tashkent",
+    value: "Tashkent",
   },
   {
     label: "Tashkent Region",
-    value: "tashkent_region",
+    value: "Tashkent Region",
   },
   {
     label: "Samarkand",
-    value: "samarkand",
+    value: "Samarkand",
   },
 ];
 
 export const regions = [
   {
     label: "Tashkent",
-    value: "tashkent",
+    value: "Tashkent",
   },
   {
     label: "Tashkent Region",
-    value: "tashkent_region",
+    value: "Tashkent Region",
   },
   {
     label: "Samarkand",
-    value: "samarkand",
+    value: "Samarkand",
   },
 ];
 
 function PersonalInfo() {
   const navigate = useNavigate();
   const {form} = useFormContext();
-  const {control} = form;
+  const {control, setValue} = form;
   const {t} = useTranslation();
   const [checkboxValue, setCheckboxValue] = useState("");
 
@@ -54,7 +54,14 @@ function PersonalInfo() {
     Boolean(form?.watch("address"));
 
   const naviageToPage = () => {
-    navigate(`/${checkboxValue === "yes" ? "rates" : "address"}`);
+    if (checkboxValue === "yes") {
+      setValue("setup_city", form.watch("city"));
+      setValue("setup_district", form.watch("district"));
+      setValue("setup_address", form.watch("address"));
+      navigate(`/rates`);
+    } else {
+      navigate("/address");
+    }
   };
   return (
     <div>
