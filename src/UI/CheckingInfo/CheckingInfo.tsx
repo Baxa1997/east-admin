@@ -57,7 +57,6 @@ function CheckingInfo() {
                 type="text"
                 className={`inputStylesShort`}
                 placeholder={"placeholder"}
-                onChange={(e) => {}}
               />
             </div>
           </div>
@@ -74,7 +73,6 @@ function CheckingInfo() {
                 type="text"
                 className={`inputStylesShort`}
                 placeholder={"placeholder"}
-                onChange={(e) => {}}
               />
             </div>
           </div>
