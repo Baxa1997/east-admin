@@ -42,7 +42,11 @@ function CheckingInfo() {
           </div>
           <div className={styles.infoCheckItems}>
             <Label className="label_sub">Выбранный тариф</Label>
-            <HFTextField classes="inputStylesShort" name="" control={control} />
+            <HFTextField
+              classes="inputStylesShort"
+              name="tariff"
+              control={control}
+            />
           </div>
           <div className={styles.infoCheckItems}>
             <Label className="label_sub">Вид удостоверения</Label>
