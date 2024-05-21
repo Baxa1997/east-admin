@@ -21,7 +21,7 @@ const customStyles: StylesConfig = {
     borderRight: 0,
     border: "none",
     borderRadius: "60px",
-    height: window.location.pathname === "/operator_view_1" ? "35px" : "50px",
+    height: window.location.pathname === "/operator_view_1" ? "45px" : "50px",
     marginTop: "10px",
     boxShadow: "15px 15px 50px 0px #00000033",
     padding: "0 0 0 10px",

@@ -9,6 +9,9 @@ interface HFTextFieldProps {
   control?: Control;
   classes?: string;
   copyToClip?: boolean;
+  type?: string;
+  required?: boolean;
+  register?: any;
 }
 
 const HFTextField: React.FC<HFTextFieldProps> = ({
@@ -18,19 +21,23 @@ const HFTextField: React.FC<HFTextFieldProps> = ({
   control,
   classes,
   copyToClip,
+  type = "text",
+  required = false,
 }) => {
   return (
     <Controller
       name={name}
+      rules={{required: "This field is required!"}}
       control={control}
       defaultValue={defaultValue}
       render={({field: {onChange, value}}) => (
         <div style={{position: "relative"}}>
           <Input
+            required={required}
             name={name}
             value={value}
             defaultValue={""}
-            type="text"
+            type={type}
             className={`${classes ? classes : "inputStyles"}`}
             placeholder={placeholder}
             onChange={(e) => {

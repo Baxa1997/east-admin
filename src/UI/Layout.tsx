@@ -21,7 +21,8 @@ function Layout({children}: LayoutPros) {
     location.pathname === "/operator_view_1" ||
     location.pathname === "/passport-details" ||
     location.pathname === "/form-accept" ||
-    location.pathname === "/operator-options";
+    location.pathname === "/operator-options" ||
+    location.pathname === "/login";
   const onSubmit = () => {
     console.log("worked");
   };
@@ -29,9 +30,7 @@ function Layout({children}: LayoutPros) {
   return (
     <>
       <div className={"layout"}>
-        <Button
-          onClick={() => navigate("/passport-details")}
-          className="operator_view">
+        <Button onClick={() => navigate("/login")} className="operator_view">
           Operator View{" "}
           <img width={"20px"} height={"20px"} src="/fedora.svg" alt="" />
         </Button>

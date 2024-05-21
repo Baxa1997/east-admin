@@ -16,6 +16,7 @@ import OperatorFirstView from "@/UI/OperatorFirstView";
 import PassportDetails from "@/UI/OperatorPassportDetails";
 import FormAccept from "@/UI/FormAccept";
 import FinalProcess from "@/UI/FinalProcess";
+import LoginForm from "@/UI/LoginForm";
 
 function Routing({onSubmit}: {onSubmit: () => void}) {
   return (
@@ -36,6 +37,8 @@ function Routing({onSubmit}: {onSubmit: () => void}) {
         element={<ServiceRating onSubmit={onSubmit} />}
       />
       <Route path="/finish" element={<Finish />} />
+
+      <Route path="/login" element={<LoginForm />} />
 
       <Route path="/passport-details" element={<PassportDetails />} />
       <Route path="/operator_view_1" element={<OperatorFirstView />} />
