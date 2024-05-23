@@ -31,8 +31,7 @@ function Layout({children}: LayoutPros) {
     <>
       <div className={"layout"}>
         <Button onClick={() => navigate("/login")} className="operator_view">
-          Operator View{" "}
-          <img width={"20px"} height={"20px"} src="/fedora.svg" alt="" />
+          <img width={"25px"} height={"25px"} src="/user-solid.svg" alt="" />
         </Button>
         <div className="leftSideBackground"></div>
         <div className="rightSideBackground"></div>
