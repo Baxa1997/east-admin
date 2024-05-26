@@ -5,7 +5,6 @@ import {useFormContext} from "../FormProvider";
 import HFSelect from "../FieldElements/HFSelect";
 import {Button} from "@/components/ui/button";
 import {useNavigate} from "react-router-dom";
-import {Checkbox} from "@/components/ui/checkbox";
 
 function OperatorFirstView() {
   const {form} = useFormContext();
