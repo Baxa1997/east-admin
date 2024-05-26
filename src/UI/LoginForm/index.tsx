@@ -13,28 +13,50 @@ function LoginForm() {
   const navigate = useNavigate();
 
   const database = {
-    name: "admin",
+    user_name: "admin",
     user_login: "admin",
     user_password: "admin",
   };
-  const loginUser = () => {
-    if (
-      watch("username") === database?.name &&
-      watch("user_login") === database?.user_login &&
-      watch("user_password") === database?.user_password
-    ) {
+  function loginUser() {
+    const username = watch("username");
+    const userLogin = watch("user_login");
+    const userPassword = watch("user_password");
+
+    const dbUsername = database?.user_name;
+    const dbUserLogin = database?.user_login;
+    const dbUserPassword = database?.user_password;
+
+    const allFieldsFilled = username && userLogin && userPassword;
+    const allFieldsMatch =
+      username === dbUsername &&
+      userLogin === dbUserLogin &&
+      userPassword === dbUserPassword;
+
+    if (allFieldsMatch) {
       notify("Successfully logged!");
       setTimeout(() => navigate("/passport-details"), 600);
-    } else if (watch("username") !== database?.name) {
-      notifyError("Username is incorrect!");
-    } else if (watch("user_login") !== database?.user_login) {
-      notifyError("Login is incorrect!");
-    } else if (watch("user_password") !== database?.user_password) {
-      notifyError("Password is incorrect!");
+    } else if (!allFieldsFilled) {
+      notifyError("All fields are required for logging!");
     } else {
-      notifyError("Some info is not matching !");
+      if (username !== dbUsername) {
+        notifyError(
+          username === "" ? "Username is missing!" : "Username is incorrect!"
+        );
+      }
+      if (userLogin !== dbUserLogin) {
+        notifyError(
+          userLogin === "" ? "Login is missing!" : "Login is incorrect!"
+        );
+      }
+      if (userPassword !== dbUserPassword) {
+        notifyError(
+          userPassword === ""
+            ? "Password is missing!"
+            : "Password is incorrect!"
+        );
+      }
     }
-  };
+  }
 
   const notify = (text: string) => {
     toast.success(`🦄 ${text}`, {

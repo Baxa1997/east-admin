@@ -196,6 +196,18 @@
   cursor: pointer;
 }
 
+.checkBoxRadius {
+  width: 25px;
+  border-radius: 8px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  color: #4ecb71;
+  cursor: pointer;
+}
+
 .checkboxLabel {
   font-size: 15px;
   margin-left: 10px;

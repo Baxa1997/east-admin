@@ -1,0 +1,35 @@
+.operatorFill {
+  font-family: "Montserrat";
+  text-align: justify;
+  .operatorFillBox {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    height: calc(100vh - 300px);
+    margin: 50px 0 0 0;
+
+    .operatorFillBoxItem {
+      width: 49%;
+      .operatorFillItem {
+        margin: 20px 0;
+      }
+    }
+  }
+
+  .actionBtn {
+    text-align: end;
+
+    .nextBtn {
+      width: 250px;
+      height: 60px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 15px 15px 50px 0px #0000004d;
+      border: none;
+      font-family: "Montserrat";
+      font-weight: 500;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  }
+}

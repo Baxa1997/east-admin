@@ -22,7 +22,8 @@ function Layout({children}: LayoutPros) {
     location.pathname === "/passport-details" ||
     location.pathname === "/form-accept" ||
     location.pathname === "/operator-options" ||
-    location.pathname === "/login";
+    location.pathname === "/login" ||
+    location.pathname === "/operator-fill";
   const onSubmit = () => {
     console.log("worked");
   };

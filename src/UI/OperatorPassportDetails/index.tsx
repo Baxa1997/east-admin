@@ -6,16 +6,26 @@ import {useFormContext} from "../FormProvider";
 import {useNavigate} from "react-router-dom";
 import AlertModalDemo from "./AlertDialogDemo";
 import {useState} from "react";
+import {Checkbox} from "@/components/ui/checkbox";
 
 function PassportDetails() {
   const {form} = useFormContext();
   const {control} = form;
   const navigate = useNavigate();
+  const [checkboxValue, setCheckboxValue] = useState("");
 
   const [open, setOpen] = useState(false);
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
+
+  const operatorFill = () => {
+    if (checkboxValue === "yes") {
+      navigate("/operator-fill");
+    } else {
+      navigate("/form-accept");
+    }
+  };
 
   return (
     <div style={{textAlign: "right", position: "relative"}}>
@@ -81,8 +91,6 @@ function PassportDetails() {
               classes="inputStylesShorSmall"
             />
           </div>
-        </div>
-        <div className={styles.operator_view_right}>
           <div className={styles.operator_view_right_item}>
             <Label className="label_sub">Дата рождения</Label>
             <HFTextField
@@ -91,6 +99,8 @@ function PassportDetails() {
               classes="inputStylesShorSmall"
             />
           </div>
+        </div>
+        <div className={styles.operator_view_right}>
           <div className={styles.operator_view_right_item}>
             <Label className="label_sub">Национальность</Label>
             <HFTextField
@@ -107,6 +117,22 @@ function PassportDetails() {
               control={control}
               classes="inputStylesShorSmall"
             />
+          </div>
+          <div className={styles.operator_fill}>
+            <Checkbox
+              name=""
+              checked={checkboxValue !== "no" && checkboxValue !== ""}
+              id="no"
+              className={"checkBoxRadius"}
+              onClick={() => {
+                if (checkboxValue === "no") {
+                  setCheckboxValue("yes");
+                } else {
+                  setCheckboxValue("no");
+                }
+              }}
+            />
+            <p>Заполнить данные за пользователя</p>
           </div>
         </div>
       </div>
@@ -125,9 +151,7 @@ function PassportDetails() {
           <Button onClick={() => navigate(-1)} className={styles.continueBtn}>
             Отмена
           </Button>
-          <Button
-            onClick={() => navigate("/operator_view_1")}
-            className={styles.continueBtn}>
+          <Button onClick={operatorFill} className={styles.continueBtn}>
             Далее
           </Button>
         </div>

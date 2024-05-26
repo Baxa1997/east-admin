@@ -17,6 +17,7 @@ import PassportDetails from "@/UI/OperatorPassportDetails";
 import FormAccept from "@/UI/FormAccept";
 import FinalProcess from "@/UI/FinalProcess";
 import LoginForm from "@/UI/LoginForm";
+import OperatorFormFill from "@/UI/OperatorFormFill";
 
 function Routing({onSubmit}: {onSubmit: () => void}) {
   return (
@@ -44,6 +45,7 @@ function Routing({onSubmit}: {onSubmit: () => void}) {
       <Route path="/operator_view_1" element={<OperatorFirstView />} />
       <Route path="/form-accept" element={<FormAccept />} />
       <Route path="/final-process" element={<FinalProcess />} />
+      <Route path="/operator-fill" element={<OperatorFormFill />} />
     </Routes>
   );
 }

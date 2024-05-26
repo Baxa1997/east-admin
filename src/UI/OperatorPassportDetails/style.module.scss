@@ -23,6 +23,7 @@
 }
 
 .actionBtns {
+  margin-top: 10px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -114,4 +115,10 @@
       cursor: pointer;
     }
   }
+}
+.operator_fill {
+  margin: 25px 0 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

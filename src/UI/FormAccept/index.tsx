@@ -100,7 +100,7 @@ function FormAccept() {
       </div>
       <div className={styles.actionBtns}>
         <Button
-          onClick={() => navigate("/final-process")}
+          onClick={() => navigate("/operator_view_1")}
           className={styles.continueBtn}>
           Сформировать Акцепт оферты
         </Button>
