@@ -3,7 +3,6 @@ import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import PropagateLoader from "react-spinners/PropagateLoader";
 import {useEffect, useState} from "react";
-import {Button} from "@/components/ui/button";
 
 function PapperSign() {
   const navigate = useNavigate();
@@ -11,19 +10,20 @@ function PapperSign() {
   const [signed, setSigned] = useState(true);
   const [loader, setLoader] = useState(true);
 
-  const checkForSignature = (value: string) => {
-    if (value === "Yes signed") {
-      navigate("/service-rate");
-    } else {
-      setSigned(false);
-      setLoader(true);
-    }
-  };
+  // const checkForSignature = (value: string) => {
+  //   if (value === "Yes signed") {
+  //     navigate("/service-rate");
+  //   } else {
+  //     setSigned(false);
+  //     setLoader(true);
+  //   }
+  // };
 
   useEffect(() => {
     setTimeout(() => {
       setLoader(false);
       setSigned(true);
+      navigate("/service-rate");
     }, 15000);
   }, [signed]);
 
@@ -42,7 +42,7 @@ function PapperSign() {
         </div>
       </div>
 
-      {!loader && (
+      {/* {!loader && (
         <div className={styles.actionBtns}>
           <Button
             onClick={() => checkForSignature("Not yet")}
@@ -55,7 +55,7 @@ function PapperSign() {
             Подписал
           </Button>
         </div>
-      )}
+      )} */}
     </div>
   );
 }

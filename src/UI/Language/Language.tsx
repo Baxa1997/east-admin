@@ -60,6 +60,11 @@ function Language() {
       borderRadius: "60px",
       padding: "3px 12px 0 20px",
     }),
+    menuList: () => ({
+      overflow: "hidden",
+      border: "none",
+    }),
+
     indicatorSeparator: () => ({display: "none"}),
     dropdownIndicator: (provided) => ({
       ...provided,

@@ -150,7 +150,7 @@
 
 .inputStylesShorSmall {
   width: 100%;
-  height: 50px;
+  height: 40px;
   margin: 10px auto 0;
   border-radius: 50px;
   box-shadow: 15px 15px 50px 0px #00000033;
@@ -271,4 +271,9 @@
 
 .react-responsive-modal-modal {
   border-radius: 20px !important;
+}
+
+.css-1nmdiq5-menu {
+  border-radius: 25px !important;
+  overflow: hidden;
 }
