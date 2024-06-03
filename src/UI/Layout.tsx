@@ -23,7 +23,8 @@ function Layout({children}: LayoutPros) {
     location.pathname === "/form-accept" ||
     location.pathname === "/operator-options" ||
     location.pathname === "/login" ||
-    location.pathname === "/operator-fill";
+    location.pathname === "/operator-fill" ||
+    location.pathname === "/final-process";
   const onSubmit = () => {
     console.log("worked");
   };
