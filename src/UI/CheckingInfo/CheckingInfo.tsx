@@ -33,7 +33,6 @@ function CheckingInfo() {
   return (
     <div className={styles.checkingInfo}>
       <h2>{t("check_correction_info")}</h2>
-
       <div className={styles.infoBox}>
         <div className={styles.infoCheck}>
           <div className={styles.infoCheckItems}>
@@ -125,16 +124,15 @@ function CheckingInfo() {
             <Label className="label_sub">Дата рождения</Label>
             <HFTextField classes="inputStylesShort" name="" control={control} />
           </div>
+          <Button
+            onClick={() => {
+              confirm && navigate("/acceptance-info");
+            }}
+            className={`${confirm ? "readyBtn" : "disabledBtn"}`}>
+            Подтверждаю
+          </Button>
         </div>
       </div>
-
-      <Button
-        onClick={() => {
-          confirm && navigate("/acceptance-info");
-        }}
-        className={`${confirm ? "readyBtn" : "disabledBtn"}`}>
-        Далее
-      </Button>
     </div>
   );
 }

@@ -199,15 +199,15 @@ function FinalProcess() {
                 />
               </div>
             </div>
-            <div className={styles.operator_view_right_item}>
-              <Label className="label_sub">Национальность</Label>
-              <HFTextField
-                name=""
-                control={control}
-                classes="inputStylesShorSmall"
-                copyToClip={true}
-              />
-            </div>
+          </div>
+          <div className={styles.operator_view_right_item}>
+            <Label className="label_sub">Национальность</Label>
+            <HFTextField
+              name=""
+              control={control}
+              classes="inputStylesShorSmall"
+              copyToClip={true}
+            />
           </div>
         </div>
       </div>

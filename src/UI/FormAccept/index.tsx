@@ -4,6 +4,7 @@ import HFTextField from "../FieldElements/HFTextField";
 import {Button} from "@/components/ui/button";
 import {useFormContext} from "../FormProvider";
 import {useNavigate} from "react-router-dom";
+import HFPhoneInput from "../FieldElements/HFPhoneINput";
 
 function FormAccept() {
   const {form} = useFormContext();
@@ -55,16 +56,14 @@ function FormAccept() {
             />
           </div>
           <div className={styles.operator_view_left_item}>
-            {/* <Label className="label_sub"></Label> */}
-            <div className={styles.operator_textfield}>
-              <HFTextField
-                control={control}
-                defaultValue=""
-                placeholder=""
-                name="date"
-                classes="inputStylesShorSmall"
-              />
-            </div>
+            <Label className="label_sub">Номер телефона</Label>
+            <HFPhoneInput
+              control={control}
+              defaultValue=""
+              placeholder=""
+              name="phone_number"
+              classes="inputStylesShorSmall"
+            />
           </div>
           <div className={styles.operator_view_left_item}>
             <Label className="label_sub">Тариф</Label>
