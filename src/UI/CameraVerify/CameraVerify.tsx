@@ -2,7 +2,7 @@ import styles from "./style.module.scss";
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import {useEffect} from "react";
-import PuffLoader from "react-spinners/PuffLoader";
+import PropagateLoader from "react-spinners/PropagateLoader";
 
 function CameraVerify() {
   const navigate = useNavigate();
@@ -18,10 +18,9 @@ function CameraVerify() {
         <h2>{t("camera_look")}</h2>
 
         <div className={styles.loader}>
-          <PuffLoader
+          <PropagateLoader
             color={"#38D8DC"}
             loading={true}
-            size={70}
             aria-label="Loading Spinner"
             data-testid="loader"
           />
