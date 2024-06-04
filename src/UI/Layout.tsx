@@ -32,7 +32,7 @@ function Layout({children}: LayoutPros) {
   return (
     <>
       <div className={"layout"}>
-        <Button onClick={() => navigate("/login")} className="operator_view">
+        <Button onClick={() => navigate("/operator")} className="operator_view">
           <img width={"25px"} height={"25px"} src="/user-solid.svg" alt="" />
         </Button>
         <div className="leftSideBackground"></div>
