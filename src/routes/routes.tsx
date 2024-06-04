@@ -23,7 +23,7 @@ import OperatorOptions from "@/UI/OperatorIOptions";
 function Routing({onSubmit}: {onSubmit: () => void}) {
   return (
     <Routes>
-      <Route index path="/client" element={<Language />} />
+      <Route index path="/" element={<Language />} />
       <Route path="/operator-options" element={<OperatorOptions />} />
       <Route path="/id-scanner" element={<IdScanner />} />
       <Route path="/camera-verification" element={<CameraVerify />} />
