@@ -1,14 +1,11 @@
-import {useNavigate} from "react-router-dom";
 import React, {ReactNode} from "react";
 import {useFormContext} from "./FormProvider";
-import {Button} from "@/components/ui/button";
 
 interface LayoutPros {
   children: ReactNode;
 }
 
 function Layout({children}: LayoutPros) {
-  const navigate = useNavigate();
   const {form} = useFormContext();
   const {handleSubmit} = form;
   const showLogo = true;
@@ -19,9 +16,6 @@ function Layout({children}: LayoutPros) {
   return (
     <>
       <div className={"layout"}>
-        <Button onClick={() => navigate("/operator")} className="operator_view">
-          <img width={"25px"} height={"25px"} src="/user-solid.svg" alt="" />
-        </Button>
         <div className="leftSideBackground"></div>
         <div className="rightSideBackground"></div>
         <div className="bottomSideBackground"></div>
