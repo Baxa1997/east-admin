@@ -100,6 +100,26 @@ function Language() {
     </div>
   );
 
+  useEffect(() => {
+    fetch("http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetImages", {
+      method: "GET", // or 'POST' if you need to send data
+      headers: {
+        "Content-Type": "application/json",
+        // Include any other headers you need
+      },
+    })
+      .then((response) => {
+        console.log("response.json()", response.json());
+        response.json();
+      })
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }, []);
+
   return (
     <div className={styles.languages}>
       <div className="box">

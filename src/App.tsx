@@ -1,8 +1,9 @@
 import React from "react";
 import "./App.scss";
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Layout from "./UI/Layout";
 import Routing from "./routes/routes";
+import Admin from "./UI/Admin";
 import {I18nextProvider} from "react-i18next";
 import {initReactI18next} from "react-i18next";
 
@@ -11,6 +12,7 @@ import translationRu from "../locales/ns2.json";
 import translationUz from "../locales/ns3.json";
 import i18n from "i18next";
 import {FormProvider} from "./UI/FormProvider";
+import NewRouting from "./routes/newRouting";
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -36,9 +38,24 @@ const App: React.FC = () => {
     <I18nextProvider i18n={i18n}>
       <BrowserRouter>
         <FormProvider>
-          <Layout>
-            <Routing onSubmit={() => {}} />
-          </Layout>
+          <Routes>
+            <Route
+              path="/*"
+              element={
+                <Layout>
+                  <Routing onSubmit={() => {}} />
+                </Layout>
+              }
+            />
+            <Route
+              path="/admin/*"
+              element={
+                <Admin>
+                  <NewRouting />
+                </Admin>
+              }
+            />
+          </Routes>
         </FormProvider>
       </BrowserRouter>
     </I18nextProvider>

@@ -19,11 +19,13 @@ import FinalProcess from "@/UI/FinalProcess";
 import LoginForm from "@/UI/LoginForm";
 import OperatorFormFill from "@/UI/OperatorFormFill";
 import OperatorOptions from "@/UI/OperatorIOptions";
+import FirstWindow from "@/UI/FirstWindow";
 
 function Routing({onSubmit}: {onSubmit: () => void}) {
   return (
     <Routes>
-      <Route index path="/" element={<Language />} />
+      <Route index path="/" element={<FirstWindow />} />
+      <Route path="/client" element={<Language />} />
       <Route path="/operator-options" element={<OperatorOptions />} />
       <Route path="/id-scanner" element={<IdScanner />} />
       <Route path="/camera-verification" element={<CameraVerify />} />

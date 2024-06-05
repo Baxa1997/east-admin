@@ -1,4 +1,4 @@
-import {useLocation, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import React, {ReactNode} from "react";
 import {useFormContext} from "./FormProvider";
 import {Button} from "@/components/ui/button";
@@ -9,22 +9,9 @@ interface LayoutPros {
 
 function Layout({children}: LayoutPros) {
   const navigate = useNavigate();
-  const location = useLocation();
   const {form} = useFormContext();
   const {handleSubmit} = form;
-  const showLogo =
-    location.pathname === "/" ||
-    location.pathname === "/id-scanner" ||
-    location.pathname === "/camera-verification" ||
-    location.pathname === "/paper-sign" ||
-    location.pathname === "/finish" ||
-    location.pathname === "/operator_view_1" ||
-    location.pathname === "/passport-details" ||
-    location.pathname === "/form-accept" ||
-    location.pathname === "/operator-options" ||
-    location.pathname === "/login" ||
-    location.pathname === "/operator-fill" ||
-    location.pathname === "/final-process";
+  const showLogo = true;
   const onSubmit = () => {
     console.log("worked");
   };
