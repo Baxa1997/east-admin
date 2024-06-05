@@ -67,6 +67,7 @@
   text-align: center;
   font-family: "Montserrat";
   font-weight: 400;
+  padding: 0 !important;
 
   .operator_view {
     position: absolute;
@@ -330,6 +331,12 @@
   }
 
   .admin_content {
-    width: 60%;
+    width: 80%;
+    border-left: 1px solid #eee;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    box-shadow: 5px 5px 15px 8px #00000033;
+    padding: 50px;
+    background: #f7f7f7;
   }
 }

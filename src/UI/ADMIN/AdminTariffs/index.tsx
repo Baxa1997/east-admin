@@ -3,7 +3,7 @@ import styles from "./style.module.scss";
 import {Button} from "@/components/ui/button";
 import {useNavigate} from "react-router-dom";
 
-function AdminListPage() {
+function AdminTariffs() {
   const navigate = useNavigate();
   return (
     <div className={styles.adminList}>
@@ -30,17 +30,57 @@ function AdminListPage() {
       </div>
 
       <div className={styles.operatorList}>
-        <p className={styles.operatorTitle}>Все операторы</p>
+        <p className={styles.operatorTitle}>Все тарифы</p>
         <div className={styles.operatorContent}>
           <div className={styles.operatorContentItem}>
             <div className={styles.operatorContentAvatar}>
-              <img src="/avatar 2.png" alt="" />
-              <p>annaberiya@gmail.com</p>
+              <img src="/jetLogo.png" alt="" />
+              <p>J-15 | 125 000</p>
             </div>
             <div className={styles.actionBtns}>
               <Button
                 onClick={() => {
-                  navigate("/admin/add-operator", {
+                  navigate("/admin/add-tariff", {
+                    state: {
+                      status: "EDIT",
+                    },
+                  });
+                }}>
+                Изменить
+              </Button>
+              <div></div>
+              <Button>Удалить </Button>
+            </div>
+          </div>
+          <div className={styles.operatorContentItem}>
+            <div className={styles.operatorContentAvatar}>
+              <img src="/jetLogo.png" alt="" />
+              <p>J-15 | 125 000</p>
+            </div>
+            <div className={styles.actionBtns}>
+              <Button
+                onClick={() =>
+                  navigate("/admin/add-tariff", {
+                    state: {
+                      status: "EDIT",
+                    },
+                  })
+                }>
+                Изменить{" "}
+              </Button>
+              <div></div>
+              <Button>Удалить </Button>
+            </div>
+          </div>
+          <div className={styles.operatorContentItem}>
+            <div className={styles.operatorContentAvatar}>
+              <img src="/jetLogo.png" alt="" />
+              <p>J-15 | 125 000</p>
+            </div>
+            <div className={styles.actionBtns}>
+              <Button
+                onClick={() => {
+                  navigate("/admin/add-tariff", {
                     state: {
                       status: "EDIT",
                     },
@@ -51,22 +91,22 @@ function AdminListPage() {
               <div></div>
               <Button>Удалить </Button>
             </div>
-          </div>
+          </div>{" "}
         </div>
         <Button
           onClick={() =>
-            navigate("/admin/add-operator", {
+            navigate("/admin/add-tariff", {
               state: {
                 status: "ADD",
               },
             })
           }
           className={styles.addOperatorBtn}>
-          Добавить оператора{" "}
+          Добавить тариф
         </Button>
       </div>
     </div>
   );
 }
 
-export default AdminListPage;
+export default AdminTariffs;

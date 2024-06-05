@@ -14,13 +14,19 @@ function Admin({children}: LayoutPros) {
       style={{
         paddingTop: !location.pathname?.includes("admin-list") ? "60px" : "0px",
       }}>
-      {!location.pathname?.includes("admin-list") && (
-        <a href="/admin" className={"logo"}>
-          <img src="/logo2.svg" alt="logo" />
-        </a>
-      )}
+      {!location.pathname?.includes("admin-list") &&
+        !location.pathname?.includes("add-operator") &&
+        !location.pathname?.includes("tariffs") &&
+        !location.pathname?.includes("add-tariff") && (
+          <a href="/admin" className={"logo"}>
+            <img src="/logo2.svg" alt="logo" />
+          </a>
+        )}
 
-      {!location?.pathname?.includes("admin-list") ? (
+      {!location?.pathname?.includes("admin-list") &&
+      !location.pathname?.includes("add-operator") &&
+      !location.pathname?.includes("tariffs") &&
+      !location.pathname?.includes("add-tariff") ? (
         <div>{children}</div>
       ) : (
         <div className="admin_wrapper">

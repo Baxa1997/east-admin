@@ -1,0 +1,80 @@
+.formpage {
+  text-align: left;
+  .formpageHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .search {
+      width: 60%;
+      height: 36px;
+      position: relative;
+
+      .inputSearch {
+        width: 100%;
+        height: 40px;
+        background: #fff;
+        border: none;
+        border-radius: 20px;
+        padding: 15px;
+      }
+      .inputSearchIcon {
+        position: absolute;
+        right: 20px;
+        top: 7px;
+      }
+    }
+
+    .operatorInfo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      .avatar {
+        cursor: pointer;
+        img {
+        }
+      }
+
+      p {
+      }
+    }
+  }
+
+  .formPageContent {
+    margin-top: 50px;
+    width: 60%;
+
+    .formPageContentItem {
+      width: 100%;
+      margin-bottom: 20px;
+
+      p {
+        font-family: "Montserrat";
+        padding-left: 20px;
+        font-size: 16px;
+        margin-bottom: 8px;
+      }
+
+      .formPageInput {
+        width: 100%;
+        height: 45px;
+        background: #ffffff;
+        border: none;
+        box-shadow: 5px 5px 10px 0px #00000033;
+        border-radius: 30px;
+      }
+    }
+  }
+  .formPageBtn {
+    width: 250px;
+    height: 45px;
+    border: none;
+    background: #b2e0e2;
+    box-shadow: 5px 5px 10px 0px #00000033;
+    border-radius: 30px;
+    flex-flow: 500;
+    font-family: "Montserrat";
+    margin-top: 50px;
+    cursor: pointer;
+  }
+}
