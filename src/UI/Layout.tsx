@@ -1,5 +1,6 @@
 import React, {ReactNode} from "react";
 import {useFormContext} from "./FormProvider";
+import {useLocation} from "react-router-dom";
 
 interface LayoutPros {
   children: ReactNode;
@@ -7,8 +8,12 @@ interface LayoutPros {
 
 function Layout({children}: LayoutPros) {
   const {form} = useFormContext();
+  const location = useLocation();
   const {handleSubmit} = form;
-  const showLogo = true;
+  const showLogo =
+    !location.pathname?.includes("checking-info") &&
+    !location.pathname?.includes("rates") &&
+    !location.pathname?.includes("service-rate");
   const onSubmit = () => {
     console.log("worked");
   };

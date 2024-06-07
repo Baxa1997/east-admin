@@ -33,15 +33,15 @@ function Packages() {
   const getTarifValue = (item: any) => {
     setTariff(item?.value);
     setValue("tariff", item?.value);
+    navigate("/checking-info");
   };
 
   return (
     <div>
       <div className={styles.rates}>
         <div className="box">
-          <h2>{t("choose_rate")}</h2>
-
           <div className={styles.ratesList}>
+            <h2>{t("choose_rate")}</h2>
             {tariffs?.map((item) => (
               <div className={styles.reatesItem}>
                 <h3>{item?.name}</h3>
@@ -60,15 +60,15 @@ function Packages() {
           </div>
         </div>
       </div>
-      {tariff && (
+      {/* {tariff && (
         <Button
           onClick={() => {
-            navigate("/checking-info");
+            ;
           }}
           className="readyBtn">
           {t("next")}
         </Button>
-      )}
+      )} */}
     </div>
   );
 }

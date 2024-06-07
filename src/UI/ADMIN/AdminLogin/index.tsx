@@ -58,7 +58,7 @@ function AdminLogin() {
   }
 
   const notify = (text: string) => {
-    toast.success(`🦄 ${text}`, {
+    toast.success(`${text}`, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -71,7 +71,7 @@ function AdminLogin() {
   };
 
   const notifyError = (text: string) => {
-    toast.error(`🦄 ${text}`, {
+    toast.error(`${text}`, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,

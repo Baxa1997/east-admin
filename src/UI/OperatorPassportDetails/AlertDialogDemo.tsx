@@ -19,7 +19,9 @@ const AlertModalDemo = ({onCloseModal, open}: Props) => {
 
           <div className={styles.btnScanActions}>
             <Button className={styles.scanBtns}>Сканировать снова</Button>
-            <Button className={styles.scanBtns}>Завершить процесс</Button>
+            <Button onClick={onCloseModal} className={styles.scanBtns}>
+              Завершить процесс
+            </Button>
           </div>
         </div>
       </Modal>

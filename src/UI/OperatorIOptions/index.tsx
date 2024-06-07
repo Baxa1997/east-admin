@@ -55,8 +55,7 @@ function OperatorOptions() {
   }, []);
 
   const formatOptionLabel = ({label}: any) => (
-    <div
-      style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+    <div style={{display: "flex", alignItems: "center", padding: "10px 0px"}}>
       <span
         style={{
           marginRight: "17px",

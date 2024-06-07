@@ -128,7 +128,7 @@ function CheckingInfo() {
             onClick={() => {
               confirm && navigate("/acceptance-info");
             }}
-            className={`${confirm ? "readyBtn" : "disabledBtn"}`}>
+            className={styles.confirmBtn}>
             Подтверждаю
           </Button>
         </div>

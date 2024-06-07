@@ -65,6 +65,7 @@
     background: #2d2e2e;
     color: #939191;
     font-family: "Montserrat";
+    font-weight: 500;
   }
 }
 
@@ -78,6 +79,8 @@
   cursor: pointer;
   background: #fff;
   font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .dialogWrapper {
@@ -97,8 +100,8 @@
   font-family: "Montserrat";
 
   h3 {
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: 600;
+    font-size: 18px;
   }
 
   .btnScanActions {
@@ -109,10 +112,12 @@
       height: 45px;
       border-radius: 15px;
       border: none;
-      background: #000;
+      background: #2d2e2e;
+      box-shadow: 15px 15px 50px 0px #0000004d;
       color: #f7f7f7;
       font-family: "Montserrat";
       cursor: pointer;
+      font-weight: 500;
     }
   }
 }

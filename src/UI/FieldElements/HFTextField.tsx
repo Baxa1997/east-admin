@@ -49,7 +49,7 @@ const HFTextField: React.FC<HFTextFieldProps> = ({
               style={{
                 position: "absolute",
                 right: "20px",
-                top: "20px",
+                top: "25px",
                 cursor: "pointer",
               }}>
               <img src="/copyicon.svg" alt="" />

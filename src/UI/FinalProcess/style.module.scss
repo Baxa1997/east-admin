@@ -40,6 +40,7 @@
   background: #fff;
   font-family: "Montserrat";
   font-size: 15px;
+  font-weight: 500;
 }
 
 .actionBtns {
@@ -51,9 +52,9 @@
 .operator_viewChild {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 15px;
 
   .operator_viewChild_item {
-    width: 50%;
+    width: 48%;
   }
 }

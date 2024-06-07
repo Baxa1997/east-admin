@@ -100,7 +100,12 @@ function OperatorFirstView() {
             <Label className="label_sub">Адрес установки</Label>
             <div className={styles.operator_view_child}>
               <div className={styles.operator_view_child_item}>
-                <HFSelect options={[]} name="" control={control} />
+                <HFSelect
+                  classes="inputStylesShorSmall"
+                  options={[]}
+                  name=""
+                  control={control}
+                />
               </div>
               <div className={styles.operator_view_child_item}>
                 <HFSelect options={[]} name="" control={control} />

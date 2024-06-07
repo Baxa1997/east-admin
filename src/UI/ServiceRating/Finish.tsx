@@ -4,7 +4,7 @@ function Finish() {
   return (
     <div className={styles.Finish}>
       <div className="box">
-        <h2>Спасибо что вы с нами!</h2>
+        <h2>Спасибо, что вы с нами!</h2>
       </div>
 
       {/* <Button

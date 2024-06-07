@@ -7,26 +7,21 @@ interface LayoutPros {
 }
 function Admin({children}: LayoutPros) {
   const location = useLocation();
+  console.log("location", location?.state?.adminLogin);
 
   return (
     <div
       className={"admin"}
       style={{
-        paddingTop: !location.pathname?.includes("admin-list") ? "60px" : "0px",
+        paddingTop: location?.state?.adminLogin ? "60px" : "0px",
       }}>
-      {!location.pathname?.includes("admin-list") &&
-        !location.pathname?.includes("add-operator") &&
-        !location.pathname?.includes("tariffs") &&
-        !location.pathname?.includes("add-tariff") && (
-          <a href="/admin" className={"logo"}>
-            <img src="/logo2.svg" alt="logo" />
-          </a>
-        )}
+      {location?.state?.adminLogin && (
+        <a href="/admin" className={"logo"}>
+          <img src="/logo2.svg" alt="logo" />
+        </a>
+      )}
 
-      {!location?.pathname?.includes("admin-list") &&
-      !location.pathname?.includes("add-operator") &&
-      !location.pathname?.includes("tariffs") &&
-      !location.pathname?.includes("add-tariff") ? (
+      {location?.state?.adminLogin ? (
         <div>{children}</div>
       ) : (
         <div className="admin_wrapper">

@@ -47,14 +47,17 @@ function ServiceRating({onSubmit}: {onSubmit: () => void}) {
           </div>
         </div>
       </div>
-      <Textarea placeholder="" className={styles.comment} />
+      <Textarea
+        placeholder="Оставьте комментарий (необязательно)"
+        className={styles.comment}
+      />
 
       <Button
         onClick={() => {
           navigate("/finish");
         }}
-        className="readyBtn">
-        {t("ready")}
+        className={styles.finishBtn}>
+        Завершить
       </Button>
     </div>
   );

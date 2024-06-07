@@ -63,7 +63,20 @@
     }
   }
 
-  button {
-    margin: 20px auto 0;
+  .confirmBtn {
+    width: 350px;
+    height: 60px;
+    box-shadow: 15px 15px 50px 0px #00000033;
+    background: #fff;
+    border: none;
+    border-radius: 50px;
+    color: #464343;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0 50px;
+    z-index: 99;
+    margin: 15px auto 0;
+    font-family: "Montserrat";
   }
 }

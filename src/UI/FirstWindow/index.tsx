@@ -19,7 +19,11 @@ function FirstWindow() {
         <div
           className={styles.userWrapperItem}
           onClick={() => {
-            navigate("/admin");
+            navigate("/admin", {
+              state: {
+                adminLogin: true,
+              },
+            });
           }}>
           <div className={styles.userWrapperImg}>
             <img width={35} height={35} src="./lock-solid.svg" alt="" />

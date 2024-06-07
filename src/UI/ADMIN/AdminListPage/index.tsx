@@ -46,7 +46,7 @@ function AdminListPage() {
                     },
                   });
                 }}>
-                Изменить{" "}
+                Изменить
               </Button>
               <div></div>
               <Button>Удалить </Button>
@@ -62,7 +62,7 @@ function AdminListPage() {
             })
           }
           className={styles.addOperatorBtn}>
-          Добавить оператора{" "}
+          Добавить оператора
         </Button>
       </div>
     </div>

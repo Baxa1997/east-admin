@@ -3,10 +3,12 @@ import styles from "./style.module.scss";
 import HFTextField from "../FieldElements/HFTextField";
 import {Button} from "@/components/ui/button";
 import {useFormContext} from "../FormProvider";
+import {useNavigate} from "react-router-dom";
 
 function FinalProcess() {
   const {form} = useFormContext();
   const {control} = form;
+  const navigate = useNavigate();
 
   return (
     <div style={{textAlign: "right"}}>
@@ -212,7 +214,9 @@ function FinalProcess() {
         </div>
       </div>
       <div className={styles.actionBtns}>
-        <Button className={styles.continueBtn}>Завершить процесс</Button>
+        <Button onClick={() => navigate("/")} className={styles.continueBtn}>
+          Завершить процесс
+        </Button>
       </div>
     </div>
   );
