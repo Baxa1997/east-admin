@@ -12,7 +12,14 @@ interface Props {
 const DeleteModal = ({onCloseModal, open, text}: Props) => {
   return (
     <div id={"dialogWrapper"} className={styles.dialogWrapper}>
-      <Modal open={open} onClose={onCloseModal} center>
+      <Modal
+        open={open}
+        onClose={onCloseModal}
+        center
+        classNames={{
+          overlay: "customOverlay",
+          modal: "customModal",
+        }}>
         <div className={styles.dialog}>
           <h3>{text}</h3>
 

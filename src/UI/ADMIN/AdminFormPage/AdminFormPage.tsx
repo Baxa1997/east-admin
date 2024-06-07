@@ -10,11 +10,7 @@ function AdminFormPage() {
     <div className={styles.formpage}>
       <div className={styles.formpageHeader}>
         <div className={styles.search}>
-          <Input
-            type="text"
-            placeholder="Search here..."
-            className={styles.inputSearch}
-          />
+          <Input type="text" placeholder="" className={styles.inputSearch} />
 
           <img
             className={styles.inputSearchIcon}
