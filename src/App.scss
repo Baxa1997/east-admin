@@ -107,15 +107,15 @@
 
 // BTN STYLES
 .readyBtn {
-  width: 300px;
+  width: 350px;
   height: 56px;
   box-shadow: 15px 15px 50px 0px #00000033;
   background: #fff;
   border: none;
   border-radius: 50px;
   color: #464343;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
   cursor: pointer;
   padding: 0 50px;
   z-index: 99;
@@ -126,13 +126,13 @@
 .disabledBtn {
   cursor: not-allowed;
   background: rgba(216, 216, 216, 1);
-  width: 300px;
+  width: 340px;
   height: 56px;
   box-shadow: 15px 15px 50px 0px #00000033;
   border: none;
   border-radius: 50px;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
   padding: 0 50px;
   margin-top: 138px;
   color: rgba(147, 145, 145, 1);

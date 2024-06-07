@@ -13,7 +13,8 @@ function Layout({children}: LayoutPros) {
   const showLogo =
     !location.pathname?.includes("checking-info") &&
     !location.pathname?.includes("rates") &&
-    !location.pathname?.includes("service-rate");
+    !location.pathname?.includes("service-rate") &&
+    !location.pathname?.includes("address");
   const onSubmit = () => {
     console.log("worked");
   };
