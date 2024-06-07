@@ -2,9 +2,17 @@ import {Input} from "@/components/ui/input";
 import styles from "./style.module.scss";
 import {Button} from "@/components/ui/button";
 import {useNavigate} from "react-router-dom";
+import {useState} from "react";
+import DeleteModal from "../DeleteModal";
 
 function AdminTariffs() {
   const navigate = useNavigate();
+
+  const [open, setOpen] = useState(false);
+
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
+
   return (
     <div className={styles.adminList}>
       <div className={styles.adminListHeader}>
@@ -49,7 +57,7 @@ function AdminTariffs() {
                 Изменить
               </Button>
               <div></div>
-              <Button>Удалить </Button>
+              <Button onClick={onOpenModal}>Удалить </Button>
             </div>
           </div>
           <div className={styles.operatorContentItem}>
@@ -66,10 +74,10 @@ function AdminTariffs() {
                     },
                   })
                 }>
-                Изменить{" "}
+                Изменить
               </Button>
               <div></div>
-              <Button>Удалить </Button>
+              <Button onClick={onOpenModal}>Удалить </Button>
             </div>
           </div>
           <div className={styles.operatorContentItem}>
@@ -86,12 +94,12 @@ function AdminTariffs() {
                     },
                   });
                 }}>
-                Изменить{" "}
+                Изменить
               </Button>
               <div></div>
-              <Button>Удалить </Button>
+              <Button onClick={onOpenModal}>Удалить </Button>
             </div>
-          </div>{" "}
+          </div>
         </div>
         <Button
           onClick={() =>
@@ -105,6 +113,7 @@ function AdminTariffs() {
           Добавить тариф
         </Button>
       </div>
+      <DeleteModal onCloseModal={onCloseModal} open={open} />
     </div>
   );
 }

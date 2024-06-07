@@ -2,18 +2,21 @@ import {Input} from "@/components/ui/input";
 import styles from "./style.module.scss";
 import {Button} from "@/components/ui/button";
 import {useNavigate} from "react-router-dom";
+import {useState} from "react";
+import DeleteModal from "../DeleteModal";
 
 function AdminListPage() {
   const navigate = useNavigate();
+
+  const [open, setOpen] = useState(false);
+
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
   return (
     <div className={styles.adminList}>
       <div className={styles.adminListHeader}>
         <div className={styles.search}>
-          <Input
-            type="text"
-            placeholder="Search here..."
-            className={styles.inputSearch}
-          />
+          <Input type="text" placeholder="" className={styles.inputSearch} />
 
           <img
             className={styles.inputSearchIcon}
@@ -49,7 +52,7 @@ function AdminListPage() {
                 Изменить
               </Button>
               <div></div>
-              <Button>Удалить </Button>
+              <Button onClick={onOpenModal}>Удалить </Button>
             </div>
           </div>
         </div>
@@ -65,6 +68,7 @@ function AdminListPage() {
           Добавить оператора
         </Button>
       </div>
+      <DeleteModal onCloseModal={onCloseModal} open={open} />
     </div>
   );
 }
