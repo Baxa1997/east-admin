@@ -68,7 +68,11 @@ function AdminListPage() {
           Добавить оператора
         </Button>
       </div>
-      <DeleteModal onCloseModal={onCloseModal} open={open} />
+      <DeleteModal
+        text={"Удалить оператора annaberiya@gmail.com ?"}
+        onCloseModal={onCloseModal}
+        open={open}
+      />
     </div>
   );
 }

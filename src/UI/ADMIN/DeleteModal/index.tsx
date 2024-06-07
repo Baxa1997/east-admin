@@ -6,14 +6,15 @@ import {Button} from "@/components/ui/button";
 interface Props {
   onCloseModal: any;
   open: boolean;
+  text: string;
 }
 
-const DeleteModal = ({onCloseModal, open}: Props) => {
+const DeleteModal = ({onCloseModal, open, text}: Props) => {
   return (
     <div id={"dialogWrapper"} className={styles.dialogWrapper}>
       <Modal open={open} onClose={onCloseModal} center>
         <div className={styles.dialog}>
-          <h3>Удалить оператора annaberiya@gmail.com ?</h3>
+          <h3>{text}</h3>
 
           <img width={"57px"} height={"57px"} src="/scan.svg" alt="" />
 

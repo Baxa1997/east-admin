@@ -113,7 +113,11 @@ function AdminTariffs() {
           Добавить тариф
         </Button>
       </div>
-      <DeleteModal onCloseModal={onCloseModal} open={open} />
+      <DeleteModal
+        text="Удалить тариф T-800 ?"
+        onCloseModal={onCloseModal}
+        open={open}
+      />
     </div>
   );
 }
