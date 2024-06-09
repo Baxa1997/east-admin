@@ -7,7 +7,6 @@ interface LayoutPros {
 }
 function Admin({children}: LayoutPros) {
   const location = useLocation();
-  console.log("location", location?.state?.adminLogin);
 
   return (
     <div

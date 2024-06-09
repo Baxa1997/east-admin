@@ -43,7 +43,7 @@ function AdminListPage() {
             <div className={styles.actionBtns}>
               <Button
                 onClick={() => {
-                  navigate("/admin/add-operator", {
+                  navigate(`/admin/edit-operator/${"user123"}`, {
                     state: {
                       status: "EDIT",
                     },

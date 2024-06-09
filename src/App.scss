@@ -341,10 +341,9 @@
 }
 
 .customOverlay {
-  background-color: rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
 }
 .customModal {
   background: #b2dbbf;
-  // max-width: 500px;
-  // width: 100%;
 }

@@ -5,6 +5,7 @@ import {useLocation} from "react-router-dom";
 
 function AdminTariffPage() {
   const location = useLocation();
+  console.log("location", location?.pathname.includes("edit"));
 
   return (
     <div className={styles.formpage}>
@@ -27,7 +28,11 @@ function AdminTariffPage() {
       </div>
 
       <div className={styles.formPageContent}>
-        <p className={styles.title}>Добавление тарифа</p>
+        <p className={styles.title}>
+          {location?.pathname?.includes("edit")
+            ? "Изменение тарифа"
+            : "Добавление тарифа"}
+        </p>
         <div className={styles.formPageContentItem}>
           <p>Наименование тарифа</p>
           <Input type="text" className={styles.formPageInput} />

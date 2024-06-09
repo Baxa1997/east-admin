@@ -85,6 +85,7 @@ function AdminLogin() {
 
   return (
     <div className={styles.loginForm}>
+      <div className={styles.leftShadow}></div>
       <div className={styles.loginInfo}>
         <div className={styles.loginInfoItems}>
           <Label className="label_sub">Имя</Label>

@@ -44,7 +44,7 @@ function AdminTariffs() {
             <div className={styles.actionBtns}>
               <Button
                 onClick={() => {
-                  navigate("/admin/add-tariff", {
+                  navigate(`/admin/edit-tariff/${"tariffj15"}`, {
                     state: {
                       status: "EDIT",
                     },
@@ -64,7 +64,7 @@ function AdminTariffs() {
             <div className={styles.actionBtns}>
               <Button
                 onClick={() =>
-                  navigate("/admin/add-tariff", {
+                  navigate(`/admin/edit-tariff/${"tariffj15"}`, {
                     state: {
                       status: "EDIT",
                     },
@@ -84,7 +84,7 @@ function AdminTariffs() {
             <div className={styles.actionBtns}>
               <Button
                 onClick={() => {
-                  navigate("/admin/add-tariff", {
+                  navigate(`/admin/edit-tariff/${"tariffj15"}`, {
                     state: {
                       status: "EDIT",
                     },

@@ -8,7 +8,8 @@ function AdminSidebar() {
 
   const operator =
     location?.pathname?.includes("admin-list") ||
-    location.pathname?.includes("add-operator")
+    location.pathname?.includes("add-operator") ||
+    location.pathname?.includes("edit-operator")
       ? true
       : false;
   return (
