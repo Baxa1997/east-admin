@@ -11,7 +11,14 @@ interface Props {
 const AlertModalDemo = ({onCloseModal, open}: Props) => {
   return (
     <div id={"dialogWrapper"} className={styles.dialogWrapper}>
-      <Modal open={open} onClose={onCloseModal} center>
+      <Modal
+        classNames={{
+          overlay: "customOverlay",
+          modal: "customModal",
+        }}
+        open={open}
+        onClose={onCloseModal}
+        center>
         <div className={styles.dialog}>
           <h3>Процент совпадения менее 60%</h3>
 
