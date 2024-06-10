@@ -58,7 +58,7 @@ function Language() {
       borderRight: 0,
       border: "none",
       borderRadius: "60px",
-      padding: "3px 12px 0 20px",
+      padding: "3px 12px 0 0px",
     }),
     menuList: () => ({
       overflow: "hidden",
@@ -78,7 +78,7 @@ function Language() {
   }, []);
 
   const formatOptionLabel = ({label, icon}: any) => (
-    <div style={{display: "flex", alignItems: "center"}}>
+    <div style={{display: "flex", alignItems: "center", padding: "0 0 0 20px"}}>
       <span
         style={{
           marginRight: "17px",
@@ -102,10 +102,9 @@ function Language() {
 
   useEffect(() => {
     fetch("http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetImages", {
-      method: "GET", // or 'POST' if you need to send data
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
-        // Include any other headers you need
       },
     })
       .then((response) => {

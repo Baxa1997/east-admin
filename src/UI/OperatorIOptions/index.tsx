@@ -39,7 +39,7 @@ function OperatorOptions() {
       borderRight: 0,
       border: "none",
       borderRadius: "60px",
-      padding: "3px 12px 0 20px",
+      padding: "3px 12px 0 5px",
       height: "100%",
     }),
     indicatorSeparator: () => ({display: "none"}),
