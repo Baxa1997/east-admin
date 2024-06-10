@@ -50,11 +50,12 @@ function HFSelect({control, name, defaultValue, options, placeholder}: Props) {
       control={control}
       render={({field: {onChange, value}}) => (
         <Select
+          className="global_select"
           styles={customStyles}
           name={name}
           options={options}
           value={value}
-          placeholder={placeholder}
+          placeholder={""}
           components={{DropdownIndicator: CustomDropdownIndicator}}
           defaultValue={defaultValue}
           onChange={(e) => {

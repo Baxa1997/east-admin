@@ -178,7 +178,7 @@
   font-weight: 200;
 
   &::placeholder {
-    font-size: 12px;
+    font-size: 16px;
     font-size: 200;
     color: #9e9b9b;
   }
@@ -205,6 +205,7 @@
     font-size: 16.5px;
     font-size: 200;
     color: rgba(138, 134, 134, 1);
+    font-family: "Montserrat" !important;
   }
 
   @media screen and (max-width: 775px) {
@@ -346,4 +347,12 @@
 }
 .customModal {
   background: #b2dbbf;
+}
+
+.global_select {
+  font-family: "Montserrat" !important;
+
+  &::placeholder {
+    font-size: 42px !important;
+  }
 }
