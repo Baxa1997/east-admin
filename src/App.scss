@@ -202,9 +202,9 @@
   font-weight: 200;
 
   &::placeholder {
-    font-size: 14px;
+    font-size: 16.5px;
     font-size: 200;
-    color: #9e9b9b;
+    color: rgba(138, 134, 134, 1);
   }
 
   @media screen and (max-width: 775px) {
