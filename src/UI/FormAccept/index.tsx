@@ -31,7 +31,7 @@ function FormAccept() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="date"
+              name="contract_number"
               classes="inputStylesShorSmall"
             />
           </div>
@@ -41,7 +41,7 @@ function FormAccept() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="date"
+              name="login"
               classes="inputStylesShorSmall"
             />
           </div>
@@ -51,7 +51,7 @@ function FormAccept() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="date"
+              name="password"
               classes="inputStylesShorSmall"
             />
           </div>
@@ -71,7 +71,7 @@ function FormAccept() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="date"
+              name="tariff"
               classes="inputStylesShorSmall"
             />
           </div>
@@ -80,7 +80,7 @@ function FormAccept() {
           <div className={styles.operator_view_right_item}>
             <Label className="label_sub">Адрес прописки</Label>
             <HFTextField
-              name=""
+              name="living_address"
               control={control}
               //   placeholder="Адрес"
               classes="inputStylesShorSmall"
@@ -89,7 +89,7 @@ function FormAccept() {
           <div className={styles.operator_view_right_item}>
             <Label className="label_sub">Адрес установки</Label>
             <HFTextField
-              name=""
+              name="setup_address"
               control={control}
               //   placeholder="Адрес"
               classes="inputStylesShorSmall"

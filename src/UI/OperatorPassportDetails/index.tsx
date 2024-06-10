@@ -37,7 +37,7 @@ function PassportDetails() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="date"
+              name="fio"
               classes="inputStylesShorSmall"
             />
           </div>
@@ -47,7 +47,7 @@ function PassportDetails() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="date"
+              name="id_type"
               classes="inputStylesShorSmall"
             />
           </div>
@@ -57,7 +57,7 @@ function PassportDetails() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="date"
+              name="document_number"
               classes="inputStylesShorSmall"
             />
           </div>
@@ -67,7 +67,7 @@ function PassportDetails() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="date"
+              name="org_given"
               classes="inputStylesShorSmall"
             />
           </div>
@@ -77,7 +77,7 @@ function PassportDetails() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="date"
+              name="given_date"
               classes="inputStylesShorSmall"
             />
           </div>
@@ -87,14 +87,14 @@ function PassportDetails() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="date"
+              name="deadline"
               classes="inputStylesShorSmall"
             />
           </div>
           <div className={styles.operator_view_right_item}>
             <Label className="label_sub">Дата рождения</Label>
             <HFTextField
-              name=""
+              name="date_birth"
               control={control}
               classes="inputStylesShorSmall"
             />
@@ -104,7 +104,7 @@ function PassportDetails() {
           <div className={styles.operator_view_right_item}>
             <Label className="label_sub">Национальность</Label>
             <HFTextField
-              name=""
+              name="nationality"
               control={control}
               classes="inputStylesShorSmall"
             />
@@ -113,7 +113,7 @@ function PassportDetails() {
           <div className={styles.operator_view_right_item}>
             <Label className="label_sub">Пол</Label>
             <HFTextField
-              name=""
+              name="gender"
               control={control}
               classes="inputStylesShorSmall"
             />

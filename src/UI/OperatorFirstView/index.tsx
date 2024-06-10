@@ -32,7 +32,7 @@ function OperatorFirstView() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="date"
+              name="contract_number"
               classes="inputStylesShorSmall"
             />
           </div>
@@ -42,7 +42,7 @@ function OperatorFirstView() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="date"
+              name="login"
               classes="inputStylesShorSmall"
             />
           </div>
@@ -52,7 +52,7 @@ function OperatorFirstView() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="date"
+              name="password"
               classes="inputStylesShorSmall"
             />
           </div>
@@ -62,7 +62,7 @@ function OperatorFirstView() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="date"
+              name="phone_number"
               classes="inputStylesShorSmall"
             />
           </div>
@@ -72,7 +72,7 @@ function OperatorFirstView() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="date"
+              name="tariff"
               classes="inputStylesShorSmall"
             />
           </div>
@@ -89,7 +89,7 @@ function OperatorFirstView() {
               </div>
             </div>
             <HFTextField
-              name=""
+              name="living_address"
               control={control}
               placeholder="Адрес"
               classes="inputStylesShorSmall"
@@ -103,7 +103,7 @@ function OperatorFirstView() {
                 <HFSelect
                   classes="inputStylesShorSmall"
                   options={[]}
-                  name=""
+                  name="setup_address"
                   control={control}
                 />
               </div>
@@ -112,7 +112,7 @@ function OperatorFirstView() {
               </div>
             </div>
             <HFTextField
-              name=""
+              name="address"
               control={control}
               placeholder="Адрес"
               classes="inputStylesShorSmall"
