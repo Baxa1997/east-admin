@@ -156,11 +156,13 @@
   font-size: 16px;
   color: rgba(0, 0, 0, 1);
   font-weight: 200;
+  font-family: "Montserrat" !important;
 
   &::placeholder {
     font-size: 12px;
     font-size: 200;
     color: #9e9b9b;
+    font-family: "Montserrat" !important;
   }
 }
 
@@ -176,11 +178,13 @@
   font-size: 16px;
   color: rgba(0, 0, 0, 1);
   font-weight: 200;
+  font-family: "Montserrat" !important;
 
   &::placeholder {
     font-size: 16px;
     font-size: 200;
     color: #9e9b9b;
+    font-family: "Montserrat" !important;
   }
 
   @media screen and (max-width: 775px) {
@@ -200,6 +204,7 @@
   font-size: 16px;
   color: rgba(0, 0, 0, 1);
   font-weight: 200;
+  font-family: "Montserrat" !important;
 
   &::placeholder {
     font-size: 16.5px;

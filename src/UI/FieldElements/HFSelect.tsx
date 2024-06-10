@@ -25,6 +25,7 @@ const customStyles: StylesConfig = {
     marginTop: "10px",
     boxShadow: "15px 15px 50px 0px #00000033",
     padding: "0 0 0 10px",
+    fontFamily: "Montserrat",
   }),
   indicatorSeparator: () => ({display: "none"}),
   dropdownIndicator: (provided) => ({
@@ -42,7 +43,7 @@ const CustomDropdownIndicator = () => (
   </div>
 );
 
-function HFSelect({control, name, defaultValue, options, placeholder}: Props) {
+function HFSelect({control, name, defaultValue, options}: Props) {
   return (
     <Controller
       name={name}
