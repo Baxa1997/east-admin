@@ -14,7 +14,7 @@ function PassportDetails() {
   const {control} = form;
   const navigate = useNavigate();
   const [checkboxValue, setCheckboxValue] = useState("");
-  const [data, setData] = useState([]);
+  let data: string[] = [];
 
   const [open, setOpen] = useState(false);
 
@@ -120,7 +120,7 @@ function PassportDetails() {
         })
         .then((data: any) => {
           notify("passport details are got:");
-          setData(data);
+          data.push(data);
           console.log("Response data:", data);
           onOpenModal();
         })
@@ -153,7 +153,7 @@ function PassportDetails() {
         })
         .then((data) => {
           notify("passport details are got:");
-          setData(data);
+          data.push(data);
           console.log("Response data: back Side", data);
           onOpenModal();
         })
