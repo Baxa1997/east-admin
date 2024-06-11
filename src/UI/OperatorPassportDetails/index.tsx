@@ -30,8 +30,15 @@ function PassportDetails() {
 
   const scanPassport = async () => {
     try {
+      // Step 1: Connect
       const connectResponse = await fetch(
-        "http://127.0.0.1:4001/Regula.SDK.Api/Methods/Connect"
+        "http://127.0.0.1:4001/Regula.SDK.Api/Methods/Connect",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
 
       if (connectResponse.ok) {
@@ -41,7 +48,13 @@ function PassportDetails() {
 
         // Step 2: GetImages
         const getImagesResponse = await fetch(
-          "http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetImages"
+          "http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetImages",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
         );
 
         if (getImagesResponse.ok) {
@@ -50,8 +63,11 @@ function PassportDetails() {
           console.log("getImagesResponse", getImagesData);
           onOpenModal();
 
+          // Handle the retrieved images
           const images = getImagesData;
-          console.log(images);
+          console.log("images", images);
+
+          // displayImages(images); // Implement this function based on your needs
         } else {
           notifyError("Failed to retrieve images:");
           console.error(
