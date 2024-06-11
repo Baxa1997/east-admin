@@ -63,6 +63,40 @@ function PassportDetails() {
       });
   };
 
+  const scanPassportBackSide = () => {
+    fetch("http://127.0.0.1:4001/Regula.SDK.Api/Methods/Connect", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      notify("Connected successfully: Back Side");
+      res.json();
+      console.log("ressssss Back Side", res.json());
+      getImagesBackSide();
+    });
+  };
+
+  const getImagesBackSide = () => {
+    fetch("http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetImages", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => {
+        notify("Connected successfully:");
+        res.json();
+        console.log("ressssss getImages Back Side", res.json());
+        setTimeout(() => {
+          getPassportDetailsBackSide();
+        }, 20000);
+      })
+      .catch((err) => {
+        notifyError(err);
+      });
+  };
+
   const seriaNumbers = [1, 2, 3, 4, 5, 20, 34, 39, 0];
 
   const getPassportDetails = () => {
@@ -84,7 +118,7 @@ function PassportDetails() {
             throw new Error("Response body already used");
           }
         })
-        .then((data) => {
+        .then((data: any) => {
           notify("passport details are got:");
           setData(data);
           console.log("Response data:", data);
@@ -272,7 +306,7 @@ function PassportDetails() {
             Сканировать лицевую сторону
           </Button>
           <Button
-            onClick={() => getPassportDetailsBackSide()}
+            onClick={() => scanPassportBackSide()}
             className={styles.continueBtn}>
             Сканировать обратную сторону
           </Button>
