@@ -51,6 +51,7 @@ function PassportDetails() {
           onOpenModal();
 
           const images = getImagesData;
+          console.log(images);
         } else {
           notifyError("Failed to retrieve images:");
           console.error(
