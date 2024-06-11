@@ -84,9 +84,9 @@ function PassportDetails() {
         }
       )
         .then((res: any) => {
-          setData(res);
+          setData(res?.data);
           notify("passport details are got:");
-          console.log("ressssss passport details", res, res.json());
+          console.log("ressssss passport details", res?.data, res?.data.json());
           console.log("dataaaaaaaaaaaa", data);
         })
         .catch((err) => {
