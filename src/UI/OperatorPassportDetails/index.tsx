@@ -74,7 +74,7 @@ function PassportDetails() {
   const getPassportDetails = () => {
     seriaNumbers?.map((item) =>
       fetch(
-        `http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetTextFieldByType?${item}`,
+        `http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetTextFieldByType?aType=${item}`,
         {
           method: "GET",
           headers: {
