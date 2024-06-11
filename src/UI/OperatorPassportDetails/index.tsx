@@ -30,61 +30,51 @@ function PassportDetails() {
   };
 
   const scanPassport = async () => {
-    const connectResponse = await axios.get(
-      "http://127.0.0.1:4001/Regula.SDK.Api/Methods/Connect",
-      {}
-    );
+    try {
+      // Step 1: Connect
+      const connectResponse = await axios.get(
+        "127.0.0.1:4001/Regula.SDK.Api/Methods/Connect",
+        {}
+      );
 
-    if (connectResponse.status === 200) {
-      notify("Connected successfully:");
-      console.log("connectResponse", connectResponse);
+      if (connectResponse.status === 200) {
+        notify("Connected successfully:");
+        console.log("connectResponse", connectResponse);
+
+        // Step 2: GetImages
+        const getImagesResponse = await axios.get(
+          "127.0.0.1:4001/Regula.SDK.Api/Methods/GetImages",
+          {}
+        );
+
+        if (getImagesResponse.status === 200) {
+          notify("Images retrieved successfully");
+          console.log("getImagesResponse", getImagesResponse);
+          onOpenModal();
+        } else {
+          notifyError("Failed to retrieve images:");
+          console.error(
+            "Failed to retrieve images:",
+            getImagesResponse.status,
+            getImagesResponse.statusText
+          );
+        }
+      } else {
+        notifyError("Failed to connect:");
+        console.error(
+          "Failed to connect:",
+          connectResponse.status,
+          connectResponse.statusText
+        );
+      }
+    } catch (error) {
+      notifyError("An error occurred while processing the request.");
+      console.error("An error occurred:", error);
     }
-
-    // try {
-    //   // Step 1: Connect
-    //   const connectResponse = await axios.get(
-    //     "http://127.0.0.1:4001/Regula.SDK.Api/Methods/Connect",
-    //     {}
-    //   );
-
-    //   if (connectResponse.status === 200) {
-    //     notify("Connected successfully:");
-    //     console.log("connectResponse", connectResponse);
-
-    //     // Step 2: GetImages
-    //     const getImagesResponse = await axios.get(
-    //       "http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetImages",
-    //       {}
-    //     );
-
-    //     if (getImagesResponse.status === 200) {
-    //       notify("Images retrieved successfully");
-    //       console.log("getImagesResponse", getImagesResponse);
-    //       onOpenModal();
-    //     } else {
-    //       notifyError("Failed to retrieve images:");
-    //       console.error(
-    //         "Failed to retrieve images:",
-    //         getImagesResponse.status,
-    //         getImagesResponse.statusText
-    //       );
-    //     }
-    //   } else {
-    //     notifyError("Failed to connect:");
-    //     console.error(
-    //       "Failed to connect:",
-    //       connectResponse.status,
-    //       connectResponse.statusText
-    //     );
-    //   }
-    // } catch (error) {
-    //   notifyError("An error occurred while processing the request.");
-    //   console.error("An error occurred:", error);
-    // }
   };
 
   const notify = (text: string) => {
-    toast.success(`🦄 ${text}`, {
+    toast.success(`${text}`, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -96,18 +86,18 @@ function PassportDetails() {
     });
   };
 
-  // const notifyError = (text: string) => {
-  //   toast.error(`🦄 ${text}`, {
-  //     position: "top-right",
-  //     autoClose: 5000,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //     theme: "colored",
-  //   });
-  // };
+  const notifyError = (text: string) => {
+    toast.error(`${text}`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
 
   return (
     <div style={{textAlign: "right", position: "relative"}}>
