@@ -14,7 +14,7 @@ function PassportDetails() {
   const {control} = form;
   const navigate = useNavigate();
   const [checkboxValue, setCheckboxValue] = useState("");
-  // const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
 
   const [open, setOpen] = useState(false);
 
@@ -65,24 +65,6 @@ function PassportDetails() {
 
   const seriaNumbers = [1, 2, 3, 4, 5, 20, 34, 39, 0];
 
-  // async function consumeResponse(response: any) {
-  //   const reader = response.body.getReader();
-  //   let data = "";
-
-  //   try {
-  //     while (true) {
-  //       const {done, value} = await reader.read();
-  //       if (done) break;
-  //       // Assuming the value is a Uint8Array, you may need to adjust this depending on the data format
-  //       data += new TextDecoder().decode(value);
-  //     }
-  //     // Once the stream is fully read, you can do something with the data
-  //     console.log("data", data);
-  //   } catch (error) {
-  //     console.error("Error reading stream:", error);
-  //   }
-  // }
-
   const getPassportDetails = () => {
     seriaNumbers?.forEach((item) => {
       fetch(
@@ -104,13 +86,49 @@ function PassportDetails() {
         })
         .then((data) => {
           notify("passport details are got:");
+          setData(data);
           console.log("Response data:", data);
+          onOpenModal();
         })
         .catch((err) => {
           notifyError(err);
         });
     });
   };
+
+  const backSide = [8, 9, 129, 12, 11, 24];
+
+  const getPassportDetailsBackSide = () => {
+    backSide?.forEach((item) => {
+      fetch(
+        `http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetTextFieldByTypeAndLCID?AType=${item}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+        .then((res) => {
+          // Проверяем, не использовано ли уже тело ответа
+          if (!res.bodyUsed) {
+            return res.json(); // или res.text(), если ожидается текстовый ответ
+          } else {
+            throw new Error("Response body already used");
+          }
+        })
+        .then((data) => {
+          notify("passport details are got:");
+          setData(data);
+          console.log("Response data: back Side", data);
+          onOpenModal();
+        })
+        .catch((err) => {
+          notifyError(err);
+        });
+    });
+  };
+  console.log("datadatadata", data);
 
   const notify = (text: string) => {
     toast.success(`${text}`, {
@@ -253,7 +271,9 @@ function PassportDetails() {
           <Button onClick={() => scanPassport()} className={styles.continueBtn}>
             Сканировать лицевую сторону
           </Button>
-          <Button onClick={() => onOpenModal()} className={styles.continueBtn}>
+          <Button
+            onClick={() => getPassportDetailsBackSide()}
+            className={styles.continueBtn}>
             Сканировать обратную сторону
           </Button>
         </div>
