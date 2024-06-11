@@ -102,7 +102,7 @@ function PassportDetails() {
   const getPassportDetails = () => {
     seriaNumbers?.forEach((item) => {
       fetch(
-        `http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetTextFieldByType?AType=${item}`,
+        `http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetTextFieldByType?AType=${item}&aLCID=1091`,
         {
           method: "GET",
           headers: {
