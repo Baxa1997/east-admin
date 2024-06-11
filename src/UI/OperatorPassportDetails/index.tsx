@@ -28,66 +28,31 @@ function PassportDetails() {
     }
   };
 
-  const scanPassport = async () => {
-    try {
-      // Step 1: Connect
-      const connectResponse = await fetch(
-        "http://127.0.0.1:4001/Regula.SDK.Api/Methods/Connect",
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+  const scanPassport = () => {
+    fetch("http://127.0.0.1:4001/Regula.SDK.Api/Methods/Connect", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      notify("Connected successfully:");
+      res.json();
+      console.log("ressssss", res.json());
+      getImages();
+    });
+  };
 
-      if (connectResponse.ok) {
-        notify("Connected successfully:");
-        const connectData = await connectResponse.json();
-        console.log("connectResponse", connectData);
-
-        // Step 2: GetImages
-        const getImagesResponse = await fetch(
-          "http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetImages",
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        if (getImagesResponse.ok) {
-          notify("Images retrieved successfully");
-          const getImagesData = await getImagesResponse.json();
-          console.log("getImagesResponse", getImagesData);
-          onOpenModal();
-
-          // Handle the retrieved images
-          const images = getImagesData;
-          console.log("images", images);
-
-          // displayImages(images); // Implement this function based on your needs
-        } else {
-          notifyError("Failed to retrieve images:");
-          console.error(
-            "Failed to retrieve images:",
-            getImagesResponse.status,
-            getImagesResponse.statusText
-          );
-        }
-      } else {
-        notifyError("Failed to connect:");
-        console.error(
-          "Failed to connect:",
-          connectResponse.status,
-          connectResponse.statusText
-        );
-      }
-    } catch (error) {
-      notifyError("An error occurred while processing the request.");
-      console.error("An error occurred:", error);
-    }
+  const getImages = () => {
+    fetch("http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetImages", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => {
+      notify("Connected successfully:");
+      res.json();
+      console.log("ressssss", res.json());
+    });
   };
 
   const notify = (text: string) => {
