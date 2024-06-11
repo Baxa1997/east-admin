@@ -120,8 +120,8 @@ function PassportDetails() {
         })
         .then((data: any) => {
           notify("passport details are got:");
-          data.push(data);
           console.log("Response data:", data);
+          data.push(data);
           onOpenModal();
         })
         .catch((err) => {
@@ -153,8 +153,8 @@ function PassportDetails() {
         })
         .then((data) => {
           notify("passport details are got:");
-          data.push(data);
           console.log("Response data: back Side", data);
+          data.push(data);
           onOpenModal();
         })
         .catch((err) => {
