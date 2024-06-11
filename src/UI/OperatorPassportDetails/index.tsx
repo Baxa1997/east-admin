@@ -54,14 +54,12 @@ function PassportDetails() {
         notify("Connected successfully:");
         res.json();
         console.log("ressssss", res.json());
-      })
-      .catch((err) => {
-        notifyError(err);
-      })
-      .finally(() => {
         setTimeout(() => {
           getPassportDetails();
         }, 10000);
+      })
+      .catch((err) => {
+        notifyError(err);
       });
   };
 
