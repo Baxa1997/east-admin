@@ -14,6 +14,7 @@ function PassportDetails() {
   const {control} = form;
   const navigate = useNavigate();
   const [checkboxValue, setCheckboxValue] = useState("");
+  const [data, setData] = useState([]);
 
   const [open, setOpen] = useState(false);
 
@@ -71,36 +72,77 @@ function PassportDetails() {
 
   const seriaNumbers = [1, 2, 3, 4, 5, 20, 34, 39, 0];
 
+  // const getPassportDetails = () => {
+  //   seriaNumbers?.map((item) =>
+  //     fetch(
+  //       `http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetTextFieldByType?aType=${item}`,
+  //       {
+  //         method: "GET",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //       }
+  //     ).then((res) => {
+  //       setData(res)
+  //       notify("passport details are got:");
+  //       res.json();
+  //       console.log("ressssss passport details", res, res.json());
+  //     })
+  //   );
+  // };
   const getPassportDetails = () => {
-    seriaNumbers?.map((item) =>
-      fetch(
-        `http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetTextFieldByType?aType=${item}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      ).then((res) => {
+    Promise.all(
+      seriaNumbers?.map((item) =>
+        fetch(
+          `http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetTextFieldByType?aType=${item}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        ).then((res) => {
+          if (res.ok) {
+            notify("passport details are got:");
+            return res.json();
+          } else {
+            notifyError(
+              `Failed to get passport details for serial number ${item}:`
+            );
+            throw new Error(
+              `Failed to get passport details for serial number ${item}`
+            );
+          }
+        })
+      )
+    )
+      .then((responses: any) => {
+        // Update data state with all responses
+        setData(responses);
+
         notify("passport details are got:");
-        res.json();
-        console.log("ressssss passport details", res, res.json());
+        responses.json();
+        console.log("ressssss passport details", responses, responses.json());
+        console.log("dataaaaaaaaaaaaa", data);
       })
-    );
+      .catch((error) => {
+        notifyError("An error occurred while processing the request.");
+        console.error("An error occurred:", error);
+      });
   };
 
-  // const notifyError = (text: string) => {
-  //   toast.error(`${text}`, {
-  //     position: "top-right",
-  //     autoClose: 5000,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //     theme: "colored",
-  //   });
-  // };
+  const notifyError = (text: string) => {
+    toast.error(`${text}`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
 
   return (
     <div style={{textAlign: "right", position: "relative"}}>
