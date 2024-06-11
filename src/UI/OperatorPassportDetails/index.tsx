@@ -32,7 +32,7 @@ function PassportDetails() {
   const scanPassport = async () => {
     try {
       // Step 1: Connect
-      const connectResponse = await axios.post(
+      const connectResponse = await axios.get(
         "http://127.0.0.1:4001/Regula.SDK.Api/Methods/Connect",
         {
           // Include any required parameters or headers for the Connect endpoint
@@ -44,7 +44,7 @@ function PassportDetails() {
         console.log("connectResponse", connectResponse);
 
         // Step 2: GetImages
-        const getImagesResponse = await axios.post(
+        const getImagesResponse = await axios.get(
           "http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetImages",
           {
             // Include any required parameters or headers for the GetImages endpoint
