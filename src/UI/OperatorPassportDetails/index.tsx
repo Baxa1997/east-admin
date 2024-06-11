@@ -7,6 +7,8 @@ import {useNavigate} from "react-router-dom";
 import AlertModalDemo from "./AlertDialogDemo";
 import {useState} from "react";
 import {Checkbox} from "@/components/ui/checkbox";
+import axios from "axios";
+import {ToastContainer, toast} from "react-toastify";
 
 function PassportDetails() {
   const {form} = useFormContext();
@@ -25,6 +27,81 @@ function PassportDetails() {
     } else {
       navigate("/form-accept");
     }
+  };
+
+  const scanPassport = async () => {
+    try {
+      // Step 1: Connect
+      const connectResponse = await axios.post(
+        "http://127.0.0.1:4001/Regula.SDK.Api/Methods/Connect",
+        {
+          // Include any required parameters or headers for the Connect endpoint
+        }
+      );
+
+      if (connectResponse.status === 200) {
+        notify("Connected successfully:");
+        console.log("connectResponse", connectResponse);
+
+        // Step 2: GetImages
+        const getImagesResponse = await axios.post(
+          "http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetImages",
+          {
+            // Include any required parameters or headers for the GetImages endpoint
+          }
+        );
+
+        if (getImagesResponse.status === 200) {
+          notify("Images retrieved successfully");
+          console.log("getImagesResponse", getImagesResponse);
+          onOpenModal();
+
+          // Handle the retrieved images
+        } else {
+          notifyError("Failed to retrieve images:");
+          console.error(
+            "Failed to retrieve images:",
+            getImagesResponse.status,
+            getImagesResponse.statusText
+          );
+        }
+      } else {
+        notifyError("Failed to connect:");
+        console.error(
+          "Failed to connect:",
+          connectResponse.status,
+          connectResponse.statusText
+        );
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
+  };
+
+  const notify = (text: string) => {
+    toast.success(`🦄 ${text}`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
+
+  const notifyError = (text: string) => {
+    toast.error(`🦄 ${text}`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   };
 
   return (
@@ -139,7 +216,7 @@ function PassportDetails() {
       <AlertModalDemo onCloseModal={onCloseModal} open={open} />
       <div className={styles.actionBtns}>
         <div className={styles.actionBtnItemsRight}>
-          <Button onClick={() => onOpenModal()} className={styles.continueBtn}>
+          <Button onClick={() => scanPassport()} className={styles.continueBtn}>
             Сканировать лицевую сторону
           </Button>
           <Button onClick={() => onOpenModal()} className={styles.continueBtn}>
@@ -156,6 +233,7 @@ function PassportDetails() {
           </Button>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }
