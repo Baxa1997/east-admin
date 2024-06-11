@@ -52,6 +52,7 @@ function PassportDetails() {
       notify("Connected successfully:");
       res.json();
       console.log("ressssss", res.json());
+      getPassportDetails();
     });
   };
 
@@ -66,6 +67,26 @@ function PassportDetails() {
       progress: undefined,
       theme: "colored",
     });
+  };
+
+  const seriaNumbers = [1, 2, 3, 4, 5, 20, 34, 39, 0];
+
+  const getPassportDetails = async () => {
+    return seriaNumbers?.map((item) =>
+      fetch(
+        `http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetTextFieldByType?${item}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      ).then((res) => {
+        notify("Connected successfully:");
+        res.json();
+        console.log("ressssss passport details", res.json());
+      })
+    );
   };
 
   // const notifyError = (text: string) => {
