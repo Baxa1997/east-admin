@@ -72,7 +72,7 @@ function PassportDetails() {
   const seriaNumbers = [1, 2, 3, 4, 5, 20, 34, 39, 0];
 
   const getPassportDetails = () => {
-    return seriaNumbers?.map((item) =>
+    seriaNumbers?.map((item) =>
       fetch(
         `http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetTextFieldByType?${item}`,
         {
@@ -84,7 +84,7 @@ function PassportDetails() {
       ).then((res) => {
         notify("passport details are got:");
         res.json();
-        console.log("ressssss passport details", res.json());
+        console.log("ressssss passport details", res, res.json());
       })
     );
   };
