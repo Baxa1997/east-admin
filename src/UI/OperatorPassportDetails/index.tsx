@@ -63,19 +63,6 @@ function PassportDetails() {
       });
   };
 
-  const notify = (text: string) => {
-    toast.success(`${text}`, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-    });
-  };
-
   const seriaNumbers = [1, 2, 3, 4, 5, 20, 34, 39, 0];
 
   const getPassportDetails = () => {
@@ -89,21 +76,28 @@ function PassportDetails() {
           },
         }
       )
-        .then((res: any) => {
-          setData(res?.data);
+        .then((res) => {
+          // setData(res?.data);
           notify("passport details are got:");
-          console.log(
-            "ressssss GetTextFieldByType",
-            res,
-            res?.data,
-            res?.data.json()
-          );
-          console.log("dataaaaaaaaaaaa", data);
+          console.log("ressssss GetTextFieldByType", res);
         })
         .catch((err) => {
           notifyError(err);
         })
     );
+  };
+
+  const notify = (text: string) => {
+    toast.success(`${text}`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   };
 
   const notifyError = (text: string) => {
