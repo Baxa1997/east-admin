@@ -84,7 +84,7 @@ function PassportDetails() {
   }
 
   const getPassportDetails = () => {
-    seriaNumbers?.map((item) =>
+    seriaNumbers?.forEach((item) => {
       fetch(
         `http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetTextFieldByType?AType=${item}`,
         {
@@ -94,16 +94,22 @@ function PassportDetails() {
           },
         }
       )
-        .then((res: any) => {
-          const reader = res.body.getReader();
-          consumeResponse(res);
+        .then((res) => {
+          // Проверяем, не использовано ли уже тело ответа
+          if (!res.bodyUsed) {
+            return res.json(); // или res.text(), если ожидается текстовый ответ
+          } else {
+            throw new Error("Response body already used");
+          }
+        })
+        .then((data) => {
           notify("passport details are got:");
-          console.log("ressssss GetTextFieldByType", reader, res);
+          console.log("Response data:", data);
         })
         .catch((err) => {
           notifyError(err);
-        })
-    );
+        });
+    });
   };
 
   const notify = (text: string) => {
