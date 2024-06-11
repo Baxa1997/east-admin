@@ -7,7 +7,6 @@ import {useNavigate} from "react-router-dom";
 import AlertModalDemo from "./AlertDialogDemo";
 import {useState} from "react";
 import {Checkbox} from "@/components/ui/checkbox";
-import axios from "axios";
 import {ToastContainer, toast} from "react-toastify";
 
 function PassportDetails() {
