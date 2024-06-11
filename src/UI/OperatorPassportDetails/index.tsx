@@ -31,26 +31,27 @@ function PassportDetails() {
 
   const scanPassport = async () => {
     try {
-      // Step 1: Connect
-      const connectResponse = await axios.get(
-        "127.0.0.1:4001/Regula.SDK.Api/Methods/Connect",
-        {}
+      const connectResponse = await fetch(
+        "http://127.0.0.1:4001/Regula.SDK.Api/Methods/Connect"
       );
 
-      if (connectResponse.status === 200) {
+      if (connectResponse.ok) {
         notify("Connected successfully:");
-        console.log("connectResponse", connectResponse);
+        const connectData = await connectResponse.json();
+        console.log("connectResponse", connectData);
 
         // Step 2: GetImages
-        const getImagesResponse = await axios.get(
-          "127.0.0.1:4001/Regula.SDK.Api/Methods/GetImages",
-          {}
+        const getImagesResponse = await fetch(
+          "http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetImages"
         );
 
-        if (getImagesResponse.status === 200) {
+        if (getImagesResponse.ok) {
           notify("Images retrieved successfully");
-          console.log("getImagesResponse", getImagesResponse);
+          const getImagesData = await getImagesResponse.json();
+          console.log("getImagesResponse", getImagesData);
           onOpenModal();
+
+          const images = getImagesData;
         } else {
           notifyError("Failed to retrieve images:");
           console.error(
