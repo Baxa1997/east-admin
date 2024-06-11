@@ -30,47 +30,57 @@ function PassportDetails() {
   };
 
   const scanPassport = async () => {
-    try {
-      // Step 1: Connect
-      const connectResponse = await axios.get(
-        "http://127.0.0.1:4001/Regula.SDK.Api/Methods/Connect",
-        {}
-      );
+    const connectResponse = await axios.get(
+      "http://127.0.0.1:4001/Regula.SDK.Api/Methods/Connect",
+      {}
+    );
 
-      if (connectResponse.status === 200) {
-        notify("Connected successfully:");
-        console.log("connectResponse", connectResponse);
-
-        // Step 2: GetImages
-        const getImagesResponse = await axios.get(
-          "http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetImages",
-          {}
-        );
-
-        if (getImagesResponse.status === 200) {
-          notify("Images retrieved successfully");
-          console.log("getImagesResponse", getImagesResponse);
-          onOpenModal();
-        } else {
-          notifyError("Failed to retrieve images:");
-          console.error(
-            "Failed to retrieve images:",
-            getImagesResponse.status,
-            getImagesResponse.statusText
-          );
-        }
-      } else {
-        notifyError("Failed to connect:");
-        console.error(
-          "Failed to connect:",
-          connectResponse.status,
-          connectResponse.statusText
-        );
-      }
-    } catch (error) {
-      notifyError("An error occurred while processing the request.");
-      console.error("An error occurred:", error);
+    if (connectResponse.status === 200) {
+      notify("Connected successfully:");
+      console.log("connectResponse", connectResponse);
     }
+
+    // try {
+    //   // Step 1: Connect
+    //   const connectResponse = await axios.get(
+    //     "http://127.0.0.1:4001/Regula.SDK.Api/Methods/Connect",
+    //     {}
+    //   );
+
+    //   if (connectResponse.status === 200) {
+    //     notify("Connected successfully:");
+    //     console.log("connectResponse", connectResponse);
+
+    //     // Step 2: GetImages
+    //     const getImagesResponse = await axios.get(
+    //       "http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetImages",
+    //       {}
+    //     );
+
+    //     if (getImagesResponse.status === 200) {
+    //       notify("Images retrieved successfully");
+    //       console.log("getImagesResponse", getImagesResponse);
+    //       onOpenModal();
+    //     } else {
+    //       notifyError("Failed to retrieve images:");
+    //       console.error(
+    //         "Failed to retrieve images:",
+    //         getImagesResponse.status,
+    //         getImagesResponse.statusText
+    //       );
+    //     }
+    //   } else {
+    //     notifyError("Failed to connect:");
+    //     console.error(
+    //       "Failed to connect:",
+    //       connectResponse.status,
+    //       connectResponse.statusText
+    //     );
+    //   }
+    // } catch (error) {
+    //   notifyError("An error occurred while processing the request.");
+    //   console.error("An error occurred:", error);
+    // }
   };
 
   const notify = (text: string) => {
