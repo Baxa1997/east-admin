@@ -53,10 +53,10 @@ function PassportDetails() {
       .then((res) => {
         notify("Connected successfully:");
         res.json();
-        console.log("ressssss", res.json());
+        console.log("ressssss getImages", res.json());
         setTimeout(() => {
           getPassportDetails();
-        }, 10000);
+        }, 20000);
       })
       .catch((err) => {
         notifyError(err);
@@ -93,7 +93,7 @@ function PassportDetails() {
           setData(res?.data);
           notify("passport details are got:");
           console.log(
-            "ressssss passport details",
+            "ressssss GetTextFieldByType",
             res,
             res?.data,
             res?.data.json()
