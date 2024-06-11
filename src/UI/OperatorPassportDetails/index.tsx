@@ -75,7 +75,7 @@ function PassportDetails() {
   const getPassportDetails = () => {
     seriaNumbers?.map((item) =>
       fetch(
-        `http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetTextFieldByType?aType=${item}`,
+        `http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetTextFieldByType?AType=${item}`,
         {
           method: "GET",
           headers: {
@@ -86,7 +86,12 @@ function PassportDetails() {
         .then((res: any) => {
           setData(res?.data);
           notify("passport details are got:");
-          console.log("ressssss passport details", res?.data, res?.data.json());
+          console.log(
+            "ressssss passport details",
+            res,
+            res?.data,
+            res?.data.json()
+          );
           console.log("dataaaaaaaaaaaa", data);
         })
         .catch((err) => {
