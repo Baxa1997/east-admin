@@ -65,23 +65,23 @@ function PassportDetails() {
 
   const seriaNumbers = [1, 2, 3, 4, 5, 20, 34, 39, 0];
 
-  async function consumeResponse(response: any) {
-    const reader = response.body.getReader();
-    let data = "";
+  // async function consumeResponse(response: any) {
+  //   const reader = response.body.getReader();
+  //   let data = "";
 
-    try {
-      while (true) {
-        const {done, value} = await reader.read();
-        if (done) break;
-        // Assuming the value is a Uint8Array, you may need to adjust this depending on the data format
-        data += new TextDecoder().decode(value);
-      }
-      // Once the stream is fully read, you can do something with the data
-      console.log("data", data);
-    } catch (error) {
-      console.error("Error reading stream:", error);
-    }
-  }
+  //   try {
+  //     while (true) {
+  //       const {done, value} = await reader.read();
+  //       if (done) break;
+  //       // Assuming the value is a Uint8Array, you may need to adjust this depending on the data format
+  //       data += new TextDecoder().decode(value);
+  //     }
+  //     // Once the stream is fully read, you can do something with the data
+  //     console.log("data", data);
+  //   } catch (error) {
+  //     console.error("Error reading stream:", error);
+  //   }
+  // }
 
   const getPassportDetails = () => {
     seriaNumbers?.forEach((item) => {
