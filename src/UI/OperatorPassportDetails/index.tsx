@@ -34,9 +34,7 @@ function PassportDetails() {
       // Step 1: Connect
       const connectResponse = await axios.get(
         "http://127.0.0.1:4001/Regula.SDK.Api/Methods/Connect",
-        {
-          // Include any required parameters or headers for the Connect endpoint
-        }
+        {}
       );
 
       if (connectResponse.status === 200) {
@@ -46,17 +44,13 @@ function PassportDetails() {
         // Step 2: GetImages
         const getImagesResponse = await axios.get(
           "http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetImages",
-          {
-            // Include any required parameters or headers for the GetImages endpoint
-          }
+          {}
         );
 
         if (getImagesResponse.status === 200) {
           notify("Images retrieved successfully");
           console.log("getImagesResponse", getImagesResponse);
           onOpenModal();
-
-          // Handle the retrieved images
         } else {
           notifyError("Failed to retrieve images:");
           console.error(
@@ -74,6 +68,7 @@ function PassportDetails() {
         );
       }
     } catch (error) {
+      notifyError("An error occurred while processing the request.");
       console.error("An error occurred:", error);
     }
   };
