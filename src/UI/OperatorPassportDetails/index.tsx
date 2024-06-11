@@ -61,7 +61,7 @@ function PassportDetails() {
       .finally(() => {
         setTimeout(() => {
           getPassportDetails();
-        }, 7000);
+        }, 10000);
       });
   };
 
