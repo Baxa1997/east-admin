@@ -49,12 +49,18 @@ function PassportDetails() {
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((res) => {
-      notify("Connected successfully:");
-      res.json();
-      console.log("ressssss", res.json());
-      getPassportDetails();
-    });
+    })
+      .then((res) => {
+        notify("Connected successfully:");
+        res.json();
+        console.log("ressssss", res.json());
+      })
+      .catch((err) => {
+        notifyError(err);
+      })
+      .finally(() => {
+        getPassportDetails();
+      });
   };
 
   const notify = (text: string) => {
