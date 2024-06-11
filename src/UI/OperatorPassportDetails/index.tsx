@@ -14,7 +14,7 @@ function PassportDetails() {
   const {control} = form;
   const navigate = useNavigate();
   const [checkboxValue, setCheckboxValue] = useState("");
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
 
   const [open, setOpen] = useState(false);
 
