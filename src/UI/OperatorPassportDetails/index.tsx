@@ -72,63 +72,27 @@ function PassportDetails() {
 
   const seriaNumbers = [1, 2, 3, 4, 5, 20, 34, 39, 0];
 
-  // const getPassportDetails = () => {
-  //   seriaNumbers?.map((item) =>
-  //     fetch(
-  //       `http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetTextFieldByType?aType=${item}`,
-  //       {
-  //         method: "GET",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //       }
-  //     ).then((res) => {
-  //       setData(res)
-  //       notify("passport details are got:");
-  //       res.json();
-  //       console.log("ressssss passport details", res, res.json());
-  //     })
-  //   );
-  // };
   const getPassportDetails = () => {
-    Promise.all(
-      seriaNumbers?.map((item) =>
-        fetch(
-          `http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetTextFieldByType?aType=${item}`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        ).then((res) => {
-          if (res.ok) {
-            notify("passport details are got:");
-            return res.json();
-          } else {
-            notifyError(
-              `Failed to get passport details for serial number ${item}:`
-            );
-            throw new Error(
-              `Failed to get passport details for serial number ${item}`
-            );
-          }
-        })
+    seriaNumbers?.map((item) =>
+      fetch(
+        `http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetTextFieldByType?aType=${item}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       )
-    )
-      .then((responses: any) => {
-        // Update data state with all responses
-        setData(responses);
-
-        notify("passport details are got:");
-        responses.json();
-        console.log("ressssss passport details", responses, responses.json());
-        console.log("dataaaaaaaaaaaaa", data);
-      })
-      .catch((error) => {
-        notifyError("An error occurred while processing the request.");
-        console.error("An error occurred:", error);
-      });
+        .then((res: any) => {
+          setData(res);
+          notify("passport details are got:");
+          console.log("ressssss passport details", res, res.json());
+          console.log("dataaaaaaaaaaaa", data);
+        })
+        .catch((err) => {
+          notifyError(err);
+        })
+    );
   };
 
   const notifyError = (text: string) => {
