@@ -20,7 +20,7 @@ function FinalProcess() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="date"
+              name="login"
               classes="inputStylesShorSmall"
               copyToClip={true}
             />
@@ -31,7 +31,7 @@ function FinalProcess() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="date"
+              name="password"
               classes="inputStylesShorSmall"
               copyToClip={true}
             />
@@ -42,7 +42,7 @@ function FinalProcess() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="date"
+              name="phone_number"
               classes="inputStylesShorSmall"
               copyToClip={true}
             />
@@ -53,7 +53,7 @@ function FinalProcess() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="date"
+              name="fullAddressLine"
               classes="inputStylesShorSmall"
               copyToClip={true}
             />
@@ -64,7 +64,7 @@ function FinalProcess() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="date"
+              name="fullAddressLineSetUp"
               classes="inputStylesShorSmall"
               copyToClip={true}
             />
@@ -115,7 +115,7 @@ function FinalProcess() {
           <div className={styles.operator_view_right_item}>
             <Label className="label_sub">Номер договора</Label>
             <HFTextField
-              name=""
+              name="contract_number"
               control={control}
               classes="inputStylesShorSmall"
               copyToClip={true}
@@ -184,7 +184,7 @@ function FinalProcess() {
                   control={control}
                   defaultValue=""
                   placeholder=""
-                  name="date"
+                  name="gender"
                   classes="inputStylesShorSmall"
                   copyToClip={true}
                 />
@@ -195,7 +195,7 @@ function FinalProcess() {
                   control={control}
                   defaultValue=""
                   placeholder=""
-                  name="date"
+                  name="date_birth"
                   classes="inputStylesShorSmall"
                   copyToClip={true}
                 />
@@ -205,7 +205,7 @@ function FinalProcess() {
           <div className={styles.operator_view_right_item}>
             <Label className="label_sub">Национальность</Label>
             <HFTextField
-              name=""
+              name="nationality"
               control={control}
               classes="inputStylesShorSmall"
               copyToClip={true}

@@ -12,6 +12,19 @@ function OperatorFirstView() {
 
   const navigate = useNavigate();
 
+  const mockCity = [
+    {
+      label: "Taшкент",
+      value: "Taшкент",
+    },
+  ];
+
+  const cityDistrict = [
+    {
+      label: "Чиланзарский район",
+      value: "Чиланзарский район",
+    },
+  ];
   return (
     <div style={{textAlign: "right"}}>
       <div className={styles.operator_view}>
@@ -82,14 +95,24 @@ function OperatorFirstView() {
             <Label className="label_sub">Адрес прописки</Label>
             <div className={styles.operator_view_child}>
               <div className={styles.operator_view_child_item}>
-                <HFSelect options={[]} name="" control={control} />
+                <HFSelect
+                  defaultValue={mockCity?.[0]}
+                  options={mockCity}
+                  name="living_address"
+                  control={control}
+                />
               </div>
               <div className={styles.operator_view_child_item}>
-                <HFSelect options={[]} name="" control={control} />
+                <HFSelect
+                  defaultValue={[cityDistrict?.[0]]}
+                  options={cityDistrict}
+                  name="living_district"
+                  control={control}
+                />
               </div>
             </div>
             <HFTextField
-              name="living_address"
+              name="living_address_full"
               control={control}
               placeholder="Адрес"
               classes="inputStylesShorSmall"
@@ -102,17 +125,23 @@ function OperatorFirstView() {
               <div className={styles.operator_view_child_item}>
                 <HFSelect
                   classes="inputStylesShorSmall"
-                  options={[]}
+                  options={mockCity}
+                  defaultValue={mockCity?.[0]}
                   name="setup_address"
                   control={control}
                 />
               </div>
               <div className={styles.operator_view_child_item}>
-                <HFSelect options={[]} name="" control={control} />
+                <HFSelect
+                  defaultValue={cityDistrict?.[0]}
+                  options={cityDistrict}
+                  name="setup_district"
+                  control={control}
+                />
               </div>
             </div>
             <HFTextField
-              name="address"
+              name="setup_address_full"
               control={control}
               placeholder="Адрес"
               classes="inputStylesShorSmall"
@@ -121,7 +150,7 @@ function OperatorFirstView() {
         </div>
       </div>
       <Button
-        onClick={() => navigate("/final-process")}
+        onClick={() => navigate("/form-accept")}
         className={styles.continueBtn}>
         Продолжить
       </Button>

@@ -5,11 +5,29 @@ import {Button} from "@/components/ui/button";
 import {useFormContext} from "../FormProvider";
 import {useNavigate} from "react-router-dom";
 import HFPhoneInput from "../FieldElements/HFPhoneINput";
+import {useEffect} from "react";
 
 function FormAccept() {
   const {form} = useFormContext();
-  const {control} = form;
+  const {control, watch, setValue} = form;
   const navigate = useNavigate();
+  console.log(watch("living_address"));
+
+  useEffect(() => {
+    const fullAddress = `${watch("living_address")?.value}, ${
+      watch("living_district")?.[0].value
+    }, ${watch("living_address_full")}`;
+
+    setValue("fullAddressLine", fullAddress);
+  }, [watch("living_address"), watch("living_district")]);
+
+  useEffect(() => {
+    const fullAddress = `${watch("setup_address")?.value}, ${
+      watch("setup_district")?.value
+    }, ${watch("setup_address_full")}`;
+
+    setValue("fullAddressLineSetUp", fullAddress);
+  }, [watch("setup_address"), watch("setup_district")]);
 
   return (
     <div style={{textAlign: "right"}}>
@@ -80,18 +98,16 @@ function FormAccept() {
           <div className={styles.operator_view_right_item}>
             <Label className="label_sub">Адрес прописки</Label>
             <HFTextField
-              name="living_address"
+              name="fullAddressLine"
               control={control}
-              //   placeholder="Адрес"
               classes="inputStylesShorSmall"
             />
           </div>
           <div className={styles.operator_view_right_item}>
             <Label className="label_sub">Адрес установки</Label>
             <HFTextField
-              name="setup_address"
+              name="fullAddressLineSetUp"
               control={control}
-              //   placeholder="Адрес"
               classes="inputStylesShorSmall"
             />
           </div>
@@ -99,7 +115,7 @@ function FormAccept() {
       </div>
       <div className={styles.actionBtns}>
         <Button
-          onClick={() => navigate("/operator_view_1")}
+          onClick={() => navigate("/final-process")}
           className={styles.continueBtn}>
           Сформировать Акцепт оферты
         </Button>

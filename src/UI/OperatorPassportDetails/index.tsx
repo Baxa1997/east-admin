@@ -15,6 +15,7 @@ function PassportDetails() {
   const navigate = useNavigate();
   const [checkboxValue, setCheckboxValue] = useState("");
   let data: string[] = [];
+  console.log(data);
 
   const [open, setOpen] = useState(false);
 
@@ -23,9 +24,9 @@ function PassportDetails() {
 
   const operatorFill = () => {
     if (checkboxValue === "yes") {
-      navigate("/operator-fill");
+      navigate("/operator_view_1");
     } else {
-      navigate("/form-accept");
+      navigate("/operator-fill");
     }
   };
 
@@ -162,7 +163,6 @@ function PassportDetails() {
         });
     });
   };
-  console.log("datadatadata", data);
 
   const notify = (text: string) => {
     toast.success(`${text}`, {

@@ -9,7 +9,7 @@ interface Option {
 interface Props {
   control: any;
   name: string;
-  defaultValue?: string;
+  defaultValue?: any;
   placeholder?: string;
   options: Option[];
   classes?: string;
