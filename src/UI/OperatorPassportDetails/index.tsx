@@ -273,6 +273,7 @@ function PassportDetails() {
         setPercent(percentValue);
         console.log("PRECENT VALUE", data);
         console.log("XML VALUE", percentValue);
+        console.log("PERCENT VALUE", typeof percentValue);
       })
       .catch((err) => {
         console.log("errrrrrrrrrr", err);
@@ -395,7 +396,14 @@ function PassportDetails() {
       />
       <div className={styles.actionBtns}>
         <div className={styles.actionBtnItemsRight}>
-          <Button onClick={() => scanPassport()} className={styles.continueBtn}>
+          <Button
+            onClick={() => {
+              scanPassport();
+              setTimeout(() => {
+                getPercentValue();
+              }, 21000);
+            }}
+            className={styles.continueBtn}>
             Сканировать лицевую сторону
           </Button>
           <Button
