@@ -160,16 +160,12 @@ function PassportDetails() {
             setValue("birth_date", data);
           }
           if (item === 39) {
-            if (data !== null) {
-              if (data?.includes("IU")) {
-                setValue("issue_by", "ID card");
-              }
-            }
+            setValue("issue_by", "ID card");
           } else if (item === 0) {
-            if (data !== null) {
-              if (data?.includes("P")) {
-                setValue("issue_by", "Passport");
-              }
+            if (data?.includes("P")) {
+              setValue("document_type", "Passport");
+            } else if (data?.includes("IU")) {
+              setValue("document_type", "ID card");
             }
           }
 
@@ -285,7 +281,7 @@ function PassportDetails() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="id_type"
+              name="document_type"
               classes="inputStylesShorSmall"
             />
           </div>
