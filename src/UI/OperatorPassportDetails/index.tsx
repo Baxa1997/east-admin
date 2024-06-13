@@ -136,7 +136,7 @@ function PassportDetails() {
       )
         .then((res) => {
           if (!res.bodyUsed) {
-            return res.text(); // Assuming the response is plain text
+            return res.text();
           } else {
             throw new Error("Response body already used");
           }
@@ -160,8 +160,8 @@ function PassportDetails() {
             setValue("birth_date", data);
           }
           if (item === 39) {
-            if (item !== null) {
-              setValue("issue_by", "ID card");
+            if (data !== null) {
+              setValue("issue_by", data);
             }
           } else if (item === 0) {
             if (data?.includes("P")) {
@@ -195,9 +195,8 @@ function PassportDetails() {
         }
       )
         .then((res) => {
-          // Проверяем, не использовано ли уже тело ответа
           if (!res.bodyUsed) {
-            return res.json(); // или res.text(), если ожидается текстовый ответ
+            return res.json();
           } else {
             throw new Error("Response body already used");
           }
@@ -221,7 +220,7 @@ function PassportDetails() {
             setValue("nationality", data);
           }
           if (item === 24) {
-            if (item !== null) {
+            if (data !== null) {
               setValue("issue_by", data);
             }
           }
@@ -260,7 +259,7 @@ function PassportDetails() {
   };
 
   useEffect(() => {
-    if (watch("name") && watch("second_name")) {
+    if (watch("name") && watch("second_name") && watch("patronomyc")) {
       setValue(
         "fio",
         `${watch("name")} ${watch("second_name")} ${watch("patronomyc")}`
