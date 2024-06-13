@@ -14,6 +14,7 @@ function PassportDetails() {
   const {control, setValue, watch} = form;
   const navigate = useNavigate();
   const [checkboxValue, setCheckboxValue] = useState("");
+  const [percent, setPercent] = useState<string | null>(null);
 
   const [open, setOpen] = useState(false);
 
@@ -145,11 +146,14 @@ function PassportDetails() {
             }
           }
           getPercentValue();
-
-          onOpenModal();
         })
         .catch((err) => {
           notifyError(err);
+        })
+        .finally(() => {
+          if (percent && parseInt(percent) > 60) {
+            onOpenModal();
+          }
         });
     });
   };
@@ -266,6 +270,7 @@ function PassportDetails() {
         const percentValue = percentValueElement
           ? percentValueElement.textContent
           : null;
+        setPercent(percentValue);
         console.log("PRECENT VALUE", data);
         console.log("XML VALUE", percentValue);
       })
@@ -383,7 +388,11 @@ function PassportDetails() {
           </div>
         </div>
       </div>
-      <AlertModalDemo onCloseModal={onCloseModal} open={open} />
+      <AlertModalDemo
+        percent={percent}
+        onCloseModal={onCloseModal}
+        open={open}
+      />
       <div className={styles.actionBtns}>
         <div className={styles.actionBtnItemsRight}>
           <Button onClick={() => scanPassport()} className={styles.continueBtn}>

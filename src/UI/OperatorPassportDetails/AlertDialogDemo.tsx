@@ -6,7 +6,7 @@ import {Button} from "@/components/ui/button";
 interface Props {
   onCloseModal: any;
   open: boolean;
-  percent?: string;
+  percent?: string | null;
 }
 
 const AlertModalDemo = ({onCloseModal, open, percent}: Props) => {
