@@ -145,16 +145,11 @@ function PassportDetails() {
               setValue("document_type", "ID card");
             }
           }
-          getPercentValue();
         })
         .catch((err) => {
           notifyError(err);
         })
-        .finally(() => {
-          if (percent && parseInt(percent) > 60) {
-            onOpenModal();
-          }
-        });
+        .finally(() => {});
     });
   };
 
