@@ -160,7 +160,9 @@ function PassportDetails() {
             setValue("birth_date", data);
           }
           if (item === 39) {
-            setValue("issue_by", "ID card");
+            if (item !== null) {
+              setValue("issue_by", "ID card");
+            }
           } else if (item === 0) {
             if (data?.includes("P")) {
               setValue("document_type", "Passport");
@@ -219,7 +221,9 @@ function PassportDetails() {
             setValue("nationality", data);
           }
           if (item === 24) {
-            setValue("issue_by", data);
+            if (item !== null) {
+              setValue("issue_by", data);
+            }
           }
           onOpenModal();
         })
@@ -257,9 +261,12 @@ function PassportDetails() {
 
   useEffect(() => {
     if (watch("name") && watch("second_name")) {
-      setValue("fio", `${watch("name")} ${watch("second_name")}`);
+      setValue(
+        "fio",
+        `${watch("name")} ${watch("second_name")} ${watch("patronomyc")}`
+      );
     }
-  }, [watch("name"), watch("second_name")]);
+  }, [watch("name"), watch("second_name"), watch("patronomyc")]);
 
   return (
     <div style={{textAlign: "right", position: "relative"}}>
