@@ -265,15 +265,16 @@ function PassportDetails() {
           ? percentValueElement.textContent
           : null;
         setPercent(percentValue);
-        console.log("PRECENT VALUE", data);
-        console.log("XML VALUE", percentValue);
-        console.log("PERCENT VALUE", typeof percentValue);
       })
       .catch((err) => {
         console.log("errrrrrrrrrr", err);
       })
       .finally(() => {
-        onOpenModal();
+        if (typeof percent === "string") {
+          if (parseInt(percent) > 60) {
+            onOpenModal();
+          }
+        }
       });
   };
 
