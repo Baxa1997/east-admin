@@ -252,7 +252,14 @@ function PassportDetails() {
       }
     )
       .then((res) => {
-        console.log("PERCENT VALUE:", res);
+        if (!res.bodyUsed) {
+          return res.json();
+        } else {
+          throw new Error("Response body already used");
+        }
+      })
+      .then((data) => {
+        console.log("PRECENT VALUE", data);
       })
       .catch((err) => {
         console.log("errrrrrrrrrr", err);
