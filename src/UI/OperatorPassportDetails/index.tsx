@@ -150,6 +150,29 @@ function PassportDetails() {
           if (item === 2) {
             setValue("document_number", data);
           }
+          if (item === 3) {
+            setValue("expired_date", data);
+          }
+          if (item === 4) {
+            setValue("issue_date", data);
+          }
+          if (item === 5) {
+            setValue("birth_date", data);
+          }
+          if (item === 39) {
+            if (data !== null) {
+              if (data?.includes("IU")) {
+                setValue("issue_by", "ID card");
+              }
+            }
+          } else if (item === 0) {
+            if (data !== null) {
+              if (data?.includes("P")) {
+                setValue("issue_by", "Passport");
+              }
+            }
+          }
+
           onOpenModal();
         })
         .catch((err) => {
@@ -258,7 +281,7 @@ function PassportDetails() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="org_given"
+              name="issue_by"
               classes="inputStylesShorSmall"
             />
           </div>
@@ -268,7 +291,7 @@ function PassportDetails() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="given_date"
+              name="issue_date"
               classes="inputStylesShorSmall"
             />
           </div>
@@ -278,7 +301,7 @@ function PassportDetails() {
               control={control}
               defaultValue=""
               placeholder=""
-              name="deadline"
+              name="expired_date"
               classes="inputStylesShorSmall"
             />
           </div>
