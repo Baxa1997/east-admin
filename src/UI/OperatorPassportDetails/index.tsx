@@ -259,7 +259,15 @@ function PassportDetails() {
         }
       })
       .then((data) => {
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(data, "application/xml");
+        const percentValueElement =
+          xmlDoc.getElementsByTagName("PercentValue")[0];
+        const percentValue = percentValueElement
+          ? percentValueElement.textContent
+          : null;
         console.log("PRECENT VALUE", data);
+        console.log("XML VALUE", percentValue);
       })
       .catch((err) => {
         console.log("errrrrrrrrrr", err);
