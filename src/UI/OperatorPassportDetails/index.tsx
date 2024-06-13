@@ -9,18 +9,18 @@ import {useState} from "react";
 import {Checkbox} from "@/components/ui/checkbox";
 import {ToastContainer, toast} from "react-toastify";
 
-interface PassportData {
-  citizenship?: string;
-  card_number?: string;
-  expired_date?: string;
-  issue_date?: string;
-  birth_date?: string;
-  issue_by?: string;
-  document_type?: string;
-  full_name?: string;
-  sex?: string;
-  nationality?: string;
-}
+// interface PassportData {
+//   citizenship?: string;
+//   card_number?: string;
+//   expired_date?: string;
+//   issue_date?: string;
+//   birth_date?: string;
+//   issue_by?: string;
+//   document_type?: string;
+//   full_name?: string;
+//   sex?: string;
+//   nationality?: string;
+// }
 
 function PassportDetails() {
   const {form} = useFormContext();
