@@ -59,7 +59,7 @@ function LoginForm() {
   }
 
   const notify = (text: string) => {
-    toast.success(`🦄 ${text}`, {
+    toast.success(`${text}`, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -72,7 +72,7 @@ function LoginForm() {
   };
 
   const notifyError = (text: string) => {
-    toast.error(`🦄 ${text}`, {
+    toast.error(`${text}`, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
@@ -89,15 +89,26 @@ function LoginForm() {
       <div className={styles.loginInfo}>
         <div className={styles.loginInfoItems}>
           <Label className="label_sub">Имя</Label>
-          <HFTextField required={true} name="username" control={control} />
+          <HFTextField
+            defaultValue={"admin"}
+            required={true}
+            name="username"
+            control={control}
+          />
         </div>
         <div className={styles.loginInfoItems}>
           <Label className="label_sub">Логин</Label>
-          <HFTextField required={true} name="user_login" control={control} />
+          <HFTextField
+            defaultValue={"admin"}
+            required={true}
+            name="user_login"
+            control={control}
+          />
         </div>
         <div className={styles.loginInfoItems}>
           <Label className="label_sub">Пароль</Label>
           <HFTextField
+            defaultValue={"admin"}
             required={true}
             type="password"
             name="user_password"

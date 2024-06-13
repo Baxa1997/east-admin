@@ -10,16 +10,16 @@ import {Checkbox} from "@/components/ui/checkbox";
 import {ToastContainer, toast} from "react-toastify";
 
 interface PassportData {
-  citizenship: string;
-  card_number: string;
-  expired_date: string;
-  issue_date: string;
-  birth_date: string;
-  issue_by: string;
-  document_type: string;
-  full_name: string;
-  sex: string;
-  nationality: string;
+  citizenship?: string;
+  card_number?: string;
+  expired_date?: string;
+  issue_date?: string;
+  birth_date?: string;
+  issue_by?: string;
+  document_type?: string;
+  full_name?: string;
+  sex?: string;
+  nationality?: string;
 }
 
 function PassportDetails() {
@@ -141,26 +141,10 @@ function PassportDetails() {
             throw new Error("Response body already used");
           }
         })
-        .then((response: string) => {
+        .then((data) => {
           notify("passport details are got:");
-          switch (item) {
-            case 1:
-              setData((prevData) => ({
-                ...prevData,
-                citizenship: response,
-              }));
-              break;
-            case 2:
-              setData((prevData) => ({
-                ...prevData,
-                birth_date: response,
-              }));
-              break;
-            // Add more cases as needed for other items in seriaNumbers
-            default:
-              break;
-          }
-          console.log(`Response for item ${item}:`, response);
+          console.log(`Response for item ${item}:`, data);
+          setData({citizenship: data});
           onOpenModal();
         })
         .catch((err) => {
