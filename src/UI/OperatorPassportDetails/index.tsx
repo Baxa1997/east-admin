@@ -24,21 +24,21 @@ interface PassportData {
 
 function PassportDetails() {
   const {form} = useFormContext();
-  const {control} = form;
+  const {control, setValue} = form;
   const navigate = useNavigate();
   const [checkboxValue, setCheckboxValue] = useState("");
-  const [data, setData] = useState<PassportData>({
-    citizenship: "",
-    card_number: "",
-    expired_date: "",
-    issue_date: "",
-    birth_date: "",
-    issue_by: "",
-    document_type: "",
-    full_name: "",
-    sex: "",
-    nationality: "",
-  });
+  // const [data, setData] = useState<PassportData>({
+  //   citizenship: "",
+  //   card_number: "",
+  //   expired_date: "",
+  //   issue_date: "",
+  //   birth_date: "",
+  //   issue_by: "",
+  //   document_type: "",
+  //   full_name: "",
+  //   sex: "",
+  //   nationality: "",
+  // });
 
   const [open, setOpen] = useState(false);
 
@@ -144,25 +144,12 @@ function PassportDetails() {
         .then((data) => {
           notify("passport details are got:");
           console.log(`Response for item ${item}:`, data);
-          setData({citizenship: data});
-          setData((prevData) => {
-            switch (item) {
-              case 1:
-                return {...prevData, citizenship: data};
-              case 2:
-                return {...prevData, card_number: data};
-              case 3:
-                return {...prevData, expired_date: data};
-              case 4:
-                return {...prevData, issue_date: data};
-              case 5:
-                return {...prevData, birth_date: data};
-              case 6:
-                return {...prevData, issue_by: data};
-              default:
-                return prevData;
-            }
-          });
+          if (item === 1) {
+            setValue("nationality", data);
+          }
+          if (item === 2) {
+            setValue("document_number", data);
+          }
           onOpenModal();
         })
         .catch((err) => {
@@ -171,7 +158,7 @@ function PassportDetails() {
     });
   };
 
-  console.log("ALL DATA GATHERED HERE:", data);
+  console.log("ALL DATA GATHERED HERE:", form.watch());
 
   const backSide = [8, 9, 129, 12, 11, 24];
 
