@@ -80,7 +80,6 @@ function PassportDetails() {
         console.log("ressssss getImages", res.json());
         setTimeout(() => {
           getPassportDetails();
-          getPassportDetailsBackSide();
         }, 20000);
       })
       .catch((err) => {
@@ -95,7 +94,6 @@ function PassportDetails() {
         "Content-Type": "application/json",
       },
     }).then((res) => {
-      notify("Connected successfully: Back Side");
       res.json();
       console.log("ressssss Back Side", res.json());
       getImagesBackSide();
@@ -115,6 +113,7 @@ function PassportDetails() {
         console.log("ressssss getImages Back Side", res.json());
         setTimeout(() => {
           getPassportDetailsBackSide();
+          getPassportDetails();
         }, 20000);
       })
       .catch((err) => {
