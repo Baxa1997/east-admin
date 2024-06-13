@@ -145,49 +145,24 @@ function PassportDetails() {
           notify("passport details are got:");
           console.log(`Response for item ${item}:`, data);
           setData({citizenship: data});
-          switch (item) {
-            case 1:
-              setData((prevData) => ({
-                ...prevData,
-                citizenship: data,
-              }));
-              break;
-            case 2:
-              setData((prevData) => ({
-                ...prevData,
-                card_number: data,
-              }));
-              break;
-            case 3:
-              setData((prevData) => ({
-                ...prevData,
-                expired_date: data,
-              }));
-              break;
-            case 4:
-              setData((prevData) => ({
-                ...prevData,
-                issue_date: data,
-              }));
-              break;
-
-            case 5:
-              setData((prevData) => ({
-                ...prevData,
-                birth_date: data,
-              }));
-              break;
-
-            case 6:
-              setData((prevData) => ({
-                ...prevData,
-                issue_by: data,
-              }));
-              break;
-
-            default:
-              break;
-          }
+          setData((prevData) => {
+            switch (item) {
+              case 1:
+                return {...prevData, citizenship: data};
+              case 2:
+                return {...prevData, card_number: data};
+              case 3:
+                return {...prevData, expired_date: data};
+              case 4:
+                return {...prevData, issue_date: data};
+              case 5:
+                return {...prevData, birth_date: data};
+              case 6:
+                return {...prevData, issue_by: data};
+              default:
+                return prevData;
+            }
+          });
           onOpenModal();
         })
         .catch((err) => {
