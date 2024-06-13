@@ -9,13 +9,36 @@ import {useState} from "react";
 import {Checkbox} from "@/components/ui/checkbox";
 import {ToastContainer, toast} from "react-toastify";
 
+interface PassportData {
+  citizenship: string;
+  card_number: string;
+  expired_date: string;
+  issue_date: string;
+  birth_date: string;
+  issue_by: string;
+  document_type: string;
+  full_name: string;
+  sex: string;
+  nationality: string;
+}
+
 function PassportDetails() {
   const {form} = useFormContext();
   const {control} = form;
   const navigate = useNavigate();
   const [checkboxValue, setCheckboxValue] = useState("");
-  let data: string[] = [];
-  console.log(data);
+  const [data, setData] = useState<PassportData>({
+    citizenship: "",
+    card_number: "",
+    expired_date: "",
+    issue_date: "",
+    birth_date: "",
+    issue_by: "",
+    document_type: "",
+    full_name: "",
+    sex: "",
+    nationality: "",
+  });
 
   const [open, setOpen] = useState(false);
 
@@ -101,7 +124,7 @@ function PassportDetails() {
   const seriaNumbers = [1, 2, 3, 4, 5, 20, 34, 39, 0];
 
   const getPassportDetails = () => {
-    seriaNumbers?.forEach((item) => {
+    seriaNumbers?.forEach((item: number) => {
       fetch(
         `http://127.0.0.1:4001/Regula.SDK.Api/Methods/GetTextFieldByType?AType=${item}`,
         {
@@ -112,17 +135,32 @@ function PassportDetails() {
         }
       )
         .then((res) => {
-          // Проверяем, не использовано ли уже тело ответа
           if (!res.bodyUsed) {
-            return res.json(); // или res.text(), если ожидается текстовый ответ
+            return res.text(); // Assuming the response is plain text
           } else {
             throw new Error("Response body already used");
           }
         })
-        .then((data: any) => {
+        .then((response: string) => {
           notify("passport details are got:");
-          console.log("Response data:", data);
-          data.push(data);
+          switch (item) {
+            case 1:
+              setData((prevData) => ({
+                ...prevData,
+                citizenship: response,
+              }));
+              break;
+            case 2:
+              setData((prevData) => ({
+                ...prevData,
+                birth_date: response,
+              }));
+              break;
+            // Add more cases as needed for other items in seriaNumbers
+            default:
+              break;
+          }
+          console.log(`Response for item ${item}:`, response);
           onOpenModal();
         })
         .catch((err) => {
@@ -130,6 +168,8 @@ function PassportDetails() {
         });
     });
   };
+
+  console.log("ALL DATA GATHERED HERE:", data);
 
   const backSide = [8, 9, 129, 12, 11, 24];
 
@@ -155,7 +195,6 @@ function PassportDetails() {
         .then((data) => {
           notify("passport details are got:");
           console.log("Response data: back Side", data);
-          data.push(data);
           onOpenModal();
         })
         .catch((err) => {
