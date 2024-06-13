@@ -9,36 +9,11 @@ import {useEffect, useState} from "react";
 import {Checkbox} from "@/components/ui/checkbox";
 import {ToastContainer, toast} from "react-toastify";
 
-// interface PassportData {
-//   citizenship?: string;
-//   card_number?: string;
-//   expired_date?: string;
-//   issue_date?: string;
-//   birth_date?: string;
-//   issue_by?: string;
-//   document_type?: string;
-//   full_name?: string;
-//   sex?: string;
-//   nationality?: string;
-// }
-
 function PassportDetails() {
   const {form} = useFormContext();
   const {control, setValue, watch} = form;
   const navigate = useNavigate();
   const [checkboxValue, setCheckboxValue] = useState("");
-  // const [data, setData] = useState<PassportData>({
-  //   citizenship: "",
-  //   card_number: "",
-  //   expired_date: "",
-  //   issue_date: "",
-  //   birth_date: "",
-  //   issue_by: "",
-  //   document_type: "",
-  //   full_name: "",
-  //   sex: "",
-  //   nationality: "",
-  // });
 
   const [open, setOpen] = useState(false);
 
@@ -62,7 +37,6 @@ function PassportDetails() {
     }).then((res) => {
       notify("Connected successfully:");
       res.json();
-      console.log("ressssss", res.json());
       getImages();
     });
   };
@@ -77,7 +51,6 @@ function PassportDetails() {
       .then((res) => {
         notify("Connected successfully:");
         res.json();
-        console.log("ressssss getImages", res.json());
         setTimeout(() => {
           getPassportDetails();
         }, 20000);
@@ -142,7 +115,6 @@ function PassportDetails() {
           }
         })
         .then((data) => {
-          notify("passport details are got:");
           console.log(`Response for item ${item}:`, data);
           if (item === 1) {
             setValue("nationality", data);
@@ -162,6 +134,8 @@ function PassportDetails() {
           if (item === 39) {
             if (data !== null) {
               setValue("issue_by", data);
+            } else {
+              setValue("issue_by", "");
             }
           } else if (item === 0) {
             if (data?.includes("P")) {
@@ -170,6 +144,7 @@ function PassportDetails() {
               setValue("document_type", "ID card");
             }
           }
+          getPercentValue();
 
           onOpenModal();
         })
@@ -178,8 +153,6 @@ function PassportDetails() {
         });
     });
   };
-
-  console.log("ALL DATA GATHERED HERE:", form.watch());
 
   const backSide = [8, 9, 129, 12, 11, 24];
 
@@ -202,7 +175,6 @@ function PassportDetails() {
           }
         })
         .then((data) => {
-          notify("passport details are got:");
           console.log("Response data: back Side", data);
           if (item === 8) {
             setValue("name", data);
@@ -222,9 +194,11 @@ function PassportDetails() {
           if (item === 24) {
             if (data !== null) {
               setValue("issue_by", data);
+            } else {
+              setValue("issue_by", "");
             }
           }
-          onOpenModal();
+          // onOpenModal();
         })
         .catch((err) => {
           notifyError(err);
@@ -266,6 +240,24 @@ function PassportDetails() {
       );
     }
   }, [watch("name"), watch("second_name"), watch("patronomyc")]);
+
+  const getPercentValue = () => {
+    fetch(
+      "http://127.0.0.1:4001/Regula.SDK.Api/Methods/CheckReaderResultXML?aType=34&aIdx=0&aOutput=0",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((res) => {
+        console.log("PERCENT VALUE:", res);
+      })
+      .catch((err) => {
+        console.log("errrrrrrrrrr", err);
+      });
+  };
 
   return (
     <div style={{textAlign: "right", position: "relative"}}>

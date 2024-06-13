@@ -6,9 +6,10 @@ import {Button} from "@/components/ui/button";
 interface Props {
   onCloseModal: any;
   open: boolean;
+  percent?: string;
 }
 
-const AlertModalDemo = ({onCloseModal, open}: Props) => {
+const AlertModalDemo = ({onCloseModal, open, percent}: Props) => {
   return (
     <div id={"dialogWrapper"} className={styles.dialogWrapper}>
       <Modal
@@ -20,7 +21,7 @@ const AlertModalDemo = ({onCloseModal, open}: Props) => {
         onClose={onCloseModal}
         center>
         <div className={styles.dialog}>
-          <h3>Процент совпадения менее 60%</h3>
+          <h3>Процент совпадения менее {percent ?? "60"}%</h3>
 
           <img width={"57px"} height={"57px"} src="/scan.svg" alt="" />
 
