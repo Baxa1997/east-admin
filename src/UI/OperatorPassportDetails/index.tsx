@@ -15,11 +15,12 @@ function PassportDetails() {
   const navigate = useNavigate();
   const [checkboxValue, setCheckboxValue] = useState("");
   const [percent, setPercent] = useState<string | null>(null);
-
   const [open, setOpen] = useState(false);
-
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
+
+  const seriaNumbers = [1, 2, 3, 4, 5, 20, 34, 39, 0];
+  const backSide = [8, 9, 129, 12, 11, 24];
 
   const operatorFill = () => {
     if (checkboxValue === "yes") {
@@ -36,7 +37,7 @@ function PassportDetails() {
         "Content-Type": "application/json",
       },
     }).then((res) => {
-      notify("Connected successfully:");
+      notify("Scanner is connected");
       res.json();
       getImages();
     });
@@ -50,7 +51,9 @@ function PassportDetails() {
       },
     })
       .then((res) => {
-        notify("Connected successfully:");
+        setTimeout(() => {
+          notify("Connected to get info!");
+        }, 1000);
         res.json();
         setTimeout(() => {
           getPassportDetails();
@@ -69,7 +72,6 @@ function PassportDetails() {
       },
     }).then((res) => {
       res.json();
-      console.log("ressssss Back Side", res.json());
       getImagesBackSide();
     });
   };
@@ -94,8 +96,6 @@ function PassportDetails() {
         notifyError(err);
       });
   };
-
-  const seriaNumbers = [1, 2, 3, 4, 5, 20, 34, 39, 0];
 
   const getPassportDetails = () => {
     seriaNumbers?.forEach((item: number) => {
@@ -152,8 +152,6 @@ function PassportDetails() {
         .finally(() => {});
     });
   };
-
-  const backSide = [8, 9, 129, 12, 11, 24];
 
   const getPassportDetailsBackSide = () => {
     backSide?.forEach((item) => {
@@ -230,15 +228,6 @@ function PassportDetails() {
     });
   };
 
-  useEffect(() => {
-    if (watch("name") && watch("second_name") && watch("patronomyc")) {
-      setValue(
-        "fio",
-        `${watch("name")} ${watch("second_name")} ${watch("patronomyc")}`
-      );
-    }
-  }, [watch("name"), watch("second_name"), watch("patronomyc")]);
-
   const getPercentValue = () => {
     fetch(
       "http://127.0.0.1:4001/Regula.SDK.Api/Methods/CheckReaderResultXML?aType=34&aIdx=0&aOutput=0",
@@ -273,10 +262,21 @@ function PassportDetails() {
         if (typeof percent === "string") {
           if (parseInt(percent) > 60) {
             onOpenModal();
+          } else {
+            notify("Face is successfully passed!");
           }
         }
       });
   };
+
+  useEffect(() => {
+    if (watch("name") && watch("second_name") && watch("patronomyc")) {
+      setValue(
+        "fio",
+        `${watch("name")} ${watch("second_name")} ${watch("patronomyc")}`
+      );
+    }
+  }, [watch("name"), watch("second_name"), watch("patronomyc")]);
 
   return (
     <div style={{textAlign: "right", position: "relative"}}>
