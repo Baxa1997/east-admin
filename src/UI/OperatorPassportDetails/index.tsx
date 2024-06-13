@@ -5,7 +5,7 @@ import {Button} from "@/components/ui/button";
 import {useFormContext} from "../FormProvider";
 import {useNavigate} from "react-router-dom";
 import AlertModalDemo from "./AlertDialogDemo";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Checkbox} from "@/components/ui/checkbox";
 import {ToastContainer, toast} from "react-toastify";
 
@@ -24,7 +24,7 @@ import {ToastContainer, toast} from "react-toastify";
 
 function PassportDetails() {
   const {form} = useFormContext();
-  const {control, setValue} = form;
+  const {control, setValue, watch} = form;
   const navigate = useNavigate();
   const [checkboxValue, setCheckboxValue] = useState("");
   // const [data, setData] = useState<PassportData>({
@@ -207,6 +207,24 @@ function PassportDetails() {
         .then((data) => {
           notify("passport details are got:");
           console.log("Response data: back Side", data);
+          if (item === 8) {
+            setValue("name", data);
+          }
+          if (item === 9) {
+            setValue("second_name", data);
+          }
+          if (item === 129) {
+            setValue("patronomyc", data);
+          }
+          if (item === 12) {
+            setValue("gender", data);
+          }
+          if (item === 11) {
+            setValue("nationality", data);
+          }
+          if (item === 24) {
+            setValue("issue_by", data);
+          }
           onOpenModal();
         })
         .catch((err) => {
@@ -240,6 +258,12 @@ function PassportDetails() {
       theme: "colored",
     });
   };
+
+  useEffect(() => {
+    if (watch("name") && watch("second_name")) {
+      setValue("fio", `${watch("name")} ${watch("second_name")}`);
+    }
+  }, [watch("name"), watch("second_name")]);
 
   return (
     <div style={{textAlign: "right", position: "relative"}}>
@@ -308,7 +332,7 @@ function PassportDetails() {
           <div className={styles.operator_view_right_item}>
             <Label className="label_sub">Дата рождения</Label>
             <HFTextField
-              name="date_birth"
+              name="birth_date"
               control={control}
               classes="inputStylesShorSmall"
             />
