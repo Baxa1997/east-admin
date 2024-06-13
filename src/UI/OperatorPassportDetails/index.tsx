@@ -80,6 +80,7 @@ function PassportDetails() {
         console.log("ressssss getImages", res.json());
         setTimeout(() => {
           getPassportDetails();
+          getPassportDetailsBackSide();
         }, 20000);
       })
       .catch((err) => {
