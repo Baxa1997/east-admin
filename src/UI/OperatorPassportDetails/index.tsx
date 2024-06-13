@@ -197,7 +197,6 @@ function PassportDetails() {
               setValue("issue_by", "");
             }
           }
-          // onOpenModal();
         })
         .catch((err) => {
           notifyError(err);
@@ -272,6 +271,9 @@ function PassportDetails() {
       })
       .catch((err) => {
         console.log("errrrrrrrrrr", err);
+      })
+      .finally(() => {
+        onOpenModal();
       });
   };
 
