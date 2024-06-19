@@ -6,30 +6,26 @@ import "react-toastify/dist/ReactToastify.css";
 // import {useNavigate} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import HFTextField from "@/UI/FieldElements/HFTextField";
+import axios from "axios";
 
 function AdminLogin() {
   // const navigate = useNavigate();
   const form = useForm();
   const {handleSubmit} = form;
 
-  // const database = {
-  //   admin_login: "admin",
-  //   admin_password: "admin",
-  // };
   const loginUser = async (value: any) => {
     console.log("valueeeeeeee", value);
 
-    fetch("http://10.104.108.5:80/api/v1/admin/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(value),
-    }).then((res) => {
-      notify("Login success");
-      res.json();
-      console.log("ressssssssssssss", res);
-    });
+    axios
+      .post("http://10.104.108.5:80/api/v1/admin/login", value)
+      .then((res: any) => {
+        notify("Login success");
+
+        console.log("ressssssssssssss", res);
+        if (typeof res?.json() === "string") {
+          localStorage.setItem("authToken", res);
+        }
+      });
 
     // const dbUserLogin = database?.admin_login;
     // const dbUserPassword = database?.admin_password;
