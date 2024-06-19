@@ -19,7 +19,7 @@ function AdminLogin() {
   const loginUser = async (value: any) => {
     console.log("valueeeeeeee", value);
 
-    await fetch("http://10.104.108.5:80/api/v1/admin/login", {
+    fetch("http://10.104.108.5:80/api/v1/admin/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -100,18 +100,14 @@ function AdminLogin() {
           </div> */}
           <div className={styles.loginInfoItems}>
             <Label className="label_sub">Логин</Label>
-            <HFTextField
-              required={true}
-              name="admin_login"
-              control={form.control}
-            />
+            <HFTextField required={true} name="email" control={form.control} />
           </div>
           <div className={styles.loginInfoItems}>
             <Label className="label_sub">Пароль</Label>
             <HFTextField
               required={true}
               type="password"
-              name="admin_password"
+              name="password"
               control={form.control}
             />
           </div>
