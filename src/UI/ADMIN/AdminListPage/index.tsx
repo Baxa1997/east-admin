@@ -7,7 +7,6 @@ import DeleteModal from "../DeleteModal";
 
 function AdminListPage() {
   const navigate = useNavigate();
-
   const [open, setOpen] = useState(false);
 
   const onOpenModal = () => setOpen(true);
