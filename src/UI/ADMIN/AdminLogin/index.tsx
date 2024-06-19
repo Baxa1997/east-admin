@@ -13,7 +13,7 @@ function AdminLogin() {
   const form = useForm();
   const {handleSubmit} = form;
 
-  const loginUser = async (value: any) => {
+  const loginUser = (value: any) => {
     console.log("valueeeeeeee", value);
 
     axios
