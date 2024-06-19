@@ -22,10 +22,11 @@ function AdminLogin() {
         notify("Login success");
 
         console.log("ressssssssssssss", res);
-        if (typeof res?.json() === "string") {
+        if (typeof res === "string") {
           localStorage.setItem("authToken", res);
         }
-      });
+      })
+      .catch((err: any) => notifyError(err));
 
     // const dbUserLogin = database?.admin_login;
     // const dbUserPassword = database?.admin_password;
@@ -68,18 +69,18 @@ function AdminLogin() {
     });
   };
 
-  // const notifyError = (text: string) => {
-  //   toast.error(`${text}`, {
-  //     position: "top-right",
-  //     autoClose: 5000,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //     theme: "colored",
-  //   });
-  // };
+  const notifyError = (text: string) => {
+    toast.error(`${text}`, {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+  };
 
   return (
     <div className={styles.loginForm}>
@@ -96,7 +97,12 @@ function AdminLogin() {
           </div> */}
           <div className={styles.loginInfoItems}>
             <Label className="label_sub">Логин</Label>
-            <HFTextField required={true} name="email" control={form.control} />
+            <HFTextField
+              required={true}
+              defaultValue={"j.sattarov@etc.uz"}
+              name="email"
+              control={form.control}
+            />
           </div>
           <div className={styles.loginInfoItems}>
             <Label className="label_sub">Пароль</Label>
@@ -104,6 +110,7 @@ function AdminLogin() {
               required={true}
               type="password"
               name="password"
+              defaultValue={"password"}
               control={form.control}
             />
           </div>
