@@ -89,7 +89,6 @@ function PassportDetails() {
         console.log("ressssss getImages Back Side", res.json());
         setTimeout(() => {
           getPassportDetailsBackSide();
-          getPassportDetails();
         }, 20000);
       })
       .catch((err) => {
