@@ -260,7 +260,7 @@ function PassportDetails() {
       })
       .finally(() => {
         if (typeof percent === "string") {
-          if (parseInt(percent) > 60) {
+          if (parseInt(percent) < 60) {
             onOpenModal();
           } else {
             notify("Face is successfully passed!");
